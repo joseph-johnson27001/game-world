@@ -29,9 +29,44 @@ export default {
           link: "/word-scramble/categories",
         },
         {
-          name: "Another Game",
-          icon: "🎮",
-          link: "/another-game/categories",
+          name: "Word Grid",
+          icon: "🔠",
+          link: "/word-grid",
+        },
+        {
+          name: "Letter Blitz",
+          icon: "⚡",
+          link: "/letter-blitz",
+        },
+        {
+          name: "Quiz Quest",
+          icon: "❓",
+          link: "/quiz-quest",
+        },
+        {
+          name: "Anagram Attack",
+          icon: "🔤",
+          link: "/anagram-attack",
+        },
+        {
+          name: "Synonym Search",
+          icon: "🔍",
+          link: "/synonym-search",
+        },
+        {
+          name: "Vowel Vault",
+          icon: "🅰️",
+          link: "/vowel-vault",
+        },
+        {
+          name: "Rhyme Time",
+          icon: "🎶",
+          link: "/rhyme-time",
+        },
+        {
+          name: "Consonant Clash",
+          icon: "✖️",
+          link: "/consonant-clash",
         },
       ],
     };
