@@ -1,5 +1,9 @@
 <template>
-  <div class="category-card" @click="handleClick">
+  <div
+    class="category-card"
+    :class="{ selected: isSelected }"
+    @click="selectCategory"
+  >
     <div class="category-name">{{ category.name }}</div>
   </div>
 </template>
@@ -11,9 +15,13 @@ export default {
       type: Object,
       required: true,
     },
+    isSelected: {
+      type: Boolean,
+      default: false,
+    },
   },
   methods: {
-    handleClick() {
+    selectCategory() {
       this.$emit("selectCategory", this.category);
     },
   },
@@ -36,5 +44,10 @@ export default {
 
 .category-card:hover {
   background-color: #e64a19;
+}
+
+.category-card.selected {
+  background-color: #007bff;
+  color: white;
 }
 </style>

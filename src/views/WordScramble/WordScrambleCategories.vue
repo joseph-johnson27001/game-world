@@ -6,10 +6,15 @@
         v-for="category in categories"
         :key="category.id"
         :category="category"
+        :isSelected="isSelected(category)"
         @selectCategory="handleCategorySelect"
       />
     </div>
-    <button v-if="selectedCategories.length" @click="startGame">
+    <button
+      v-if="selectedCategories.length"
+      @click="startGame"
+      class="start-game-button"
+    >
       Start Game
     </button>
   </div>
@@ -45,6 +50,9 @@ export default {
         this.selectedCategories.splice(index, 1);
       }
     },
+    isSelected(category) {
+      return this.selectedCategories.some((c) => c.id === category.id);
+    },
     startGame() {
       this.$router.push({
         name: "WordScrambleGame",
@@ -64,7 +72,29 @@ export default {
 
 .category-list {
   display: flex;
-  flex-direction: column;
-  gap: 20px;
+  flex-direction: column; /* Stack cards vertically */
+  gap: 20px; /* Space between cards */
+}
+
+.start-game-button {
+  width: 100%;
+  display: block;
+  margin: 20px auto;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  color: #fff;
+  background-color: #007bff; /* Primary blue color */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.start-game-button:hover {
+  background-color: #0056b3; /* Darker blue for hover effect */
+}
+
+.start-game-button:active {
+  transform: scale(0.98); /* Slightly shrink the button on click */
 }
 </style>
