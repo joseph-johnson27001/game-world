@@ -19,13 +19,19 @@
 
 main {
   max-width: 1200px;
+  width: 90%;
   border-radius: 5px;
   height: 100vh;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
 }
 
 h1 {
   text-align: center;
-  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-family: "Roboto", sans-serif;
   color: #333;
   margin-bottom: 20px;
 }
