@@ -68,12 +68,13 @@ export default {
 <style scoped>
 .categories {
   padding: 20px;
+  width: 80%;
 }
 
 .category-list {
   display: flex;
-  flex-direction: column; /* Stack cards vertically */
-  gap: 20px; /* Space between cards */
+  flex-direction: column;
+  gap: 20px;
 }
 
 .start-game-button {
@@ -83,7 +84,7 @@ export default {
   padding: 12px 24px;
   font-size: 1.1rem;
   color: #fff;
-  background-color: #007bff; /* Primary blue color */
+  background-color: #4bb543;
   border: none;
   border-radius: 8px;
   cursor: pointer;
@@ -91,10 +92,10 @@ export default {
 }
 
 .start-game-button:hover {
-  background-color: #0056b3; /* Darker blue for hover effect */
+  background-color: #0056b3;
 }
 
 .start-game-button:active {
-  transform: scale(0.98); /* Slightly shrink the button on click */
+  transform: scale(0.98);
 }
 </style>
