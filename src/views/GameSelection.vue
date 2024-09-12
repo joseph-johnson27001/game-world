@@ -86,7 +86,6 @@ export default {
 
 <style scoped>
 .game-selection {
-  min-height: 100vh;
   padding: 20px;
 }
 

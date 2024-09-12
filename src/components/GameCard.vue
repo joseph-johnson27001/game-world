@@ -46,13 +46,13 @@ export default {
   text-align: center;
   color: #333;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid black;
   font-family: "Roboto", sans-serif;
   font-weight: 100;
 }
 
 .game-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
 }
 
