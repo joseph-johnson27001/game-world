@@ -12,7 +12,6 @@
 }
 
 #app {
-  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
   display: flex;
   justify-content: center;
   background-color: #f5f5f5;

@@ -37,6 +37,7 @@ export default {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;
   text-decoration: none;
+  text-align: center;
   color: black;
   padding: 10px;
   font-family: "Comic Sans MS", cursive, sans-serif;

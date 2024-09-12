@@ -24,14 +24,14 @@ export default {
     return {
       games: [
         {
-          name: "Anagram Attack",
-          icon: "🔤",
-          link: "/anagram-attack",
+          name: "Word Scramble",
+          icon: "🧩",
+          link: "/word-scramble/categories",
         },
         {
-          name: "Consonant Clash",
-          icon: "✖️",
-          link: "/consonant-clash",
+          name: "Word Grid",
+          icon: "🔠",
+          link: "/word-grid",
         },
         {
           name: "Letter Blitz",
@@ -44,9 +44,9 @@ export default {
           link: "/quiz-quest",
         },
         {
-          name: "Rhyme Time",
-          icon: "🎶",
-          link: "/rhyme-time",
+          name: "Anagram Attack",
+          icon: "🔤",
+          link: "/anagram-attack",
         },
         {
           name: "Synonym Search",
@@ -59,14 +59,14 @@ export default {
           link: "/vowel-vault",
         },
         {
-          name: "Word Grid",
-          icon: "🔠",
-          link: "/word-grid",
+          name: "Rhyme Time",
+          icon: "🎶",
+          link: "/rhyme-time",
         },
         {
-          name: "Word Scramble",
-          icon: "🧩",
-          link: "/word-scramble/categories",
+          name: "Consonant Clash",
+          icon: "✖️",
+          link: "/consonant-clash",
         },
       ],
     };
@@ -82,13 +82,27 @@ export default {
 
 h1 {
   text-align: center;
+  font-family: "Comic Sans MS", cursive, sans-serif;
   color: #333;
+  margin-bottom: 20px;
 }
 
 .game-list {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .game-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .game-list {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
