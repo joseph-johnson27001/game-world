@@ -1,5 +1,9 @@
 <template>
-  <router-link :to="link" class="game-card">
+  <router-link
+    :to="link"
+    class="game-card"
+    :style="{ backgroundColor: bgColor }"
+  >
     <div class="game-card-icon">{{ icon }}</div>
     <div class="game-card-name">{{ name }}</div>
   </router-link>
@@ -20,6 +24,10 @@ export default {
       type: String,
       required: true,
     },
+    bgColor: {
+      type: String,
+      required: true,
+    },
   },
 };
 </script>
@@ -32,7 +40,6 @@ export default {
   justify-content: center;
   width: 150px;
   height: 150px;
-  background-color: #f9f9f9;
   border-radius: 15px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s, box-shadow 0.2s;

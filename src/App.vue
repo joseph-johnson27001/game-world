@@ -26,5 +26,7 @@ main {
 h1 {
   text-align: center;
   font-family: "Comic Sans MS", cursive, sans-serif;
+  color: #333;
+  margin-bottom: 20px;
 }
 </style>

@@ -8,6 +8,7 @@
         :name="game.name"
         :icon="game.icon"
         :link="game.link"
+        :bgColor="game.bgColor"
       />
     </div>
   </div>
@@ -24,49 +25,58 @@ export default {
     return {
       games: [
         {
-          name: "Word Scramble",
-          icon: "🧩",
-          link: "/word-scramble/categories",
-        },
-        {
-          name: "Word Grid",
-          icon: "🔠",
-          link: "/word-grid",
-        },
-        {
-          name: "Letter Blitz",
-          icon: "⚡",
-          link: "/letter-blitz",
-        },
-        {
-          name: "Quiz Quest",
-          icon: "❓",
-          link: "/quiz-quest",
-        },
-        {
           name: "Anagram Attack",
           icon: "🔤",
           link: "/anagram-attack",
-        },
-        {
-          name: "Synonym Search",
-          icon: "🔍",
-          link: "/synonym-search",
-        },
-        {
-          name: "Vowel Vault",
-          icon: "🅰️",
-          link: "/vowel-vault",
-        },
-        {
-          name: "Rhyme Time",
-          icon: "🎶",
-          link: "/rhyme-time",
+          bgColor: "#e6e6fa",
         },
         {
           name: "Consonant Clash",
           icon: "✖️",
           link: "/consonant-clash",
+          bgColor: "#fbc8ab",
+        },
+        {
+          name: "Letter Blitz",
+          icon: "⚡",
+          link: "/letter-blitz",
+          bgColor: "#d3f9d8",
+        },
+        {
+          name: "Quiz Quest",
+          icon: "❓",
+          link: "/quiz-quest",
+          bgColor: "#fefcbf",
+        },
+        {
+          name: "Rhyme Time",
+          icon: "🎶",
+          link: "/rhyme-time",
+          bgColor: "#d0f0c0",
+        },
+        {
+          name: "Synonym Search",
+          icon: "🔍",
+          link: "/synonym-search",
+          bgColor: "#ffe5d9",
+        },
+        {
+          name: "Vowel Vault",
+          icon: "🅰️",
+          link: "/vowel-vault",
+          bgColor: "#fbc8ab",
+        },
+        {
+          name: "Word Grid",
+          icon: "🔠",
+          link: "/word-grid",
+          bgColor: "#f9c5d1",
+        },
+        {
+          name: "Word Scramble",
+          icon: "🧩",
+          link: "/word-scramble/categories",
+          bgColor: "#aeeeee",
         },
       ],
     };
@@ -78,13 +88,6 @@ export default {
 .game-selection {
   min-height: 100vh;
   padding: 20px;
-}
-
-h1 {
-  text-align: center;
-  font-family: "Comic Sans MS", cursive, sans-serif;
-  color: #333;
-  margin-bottom: 20px;
 }
 
 .game-list {
