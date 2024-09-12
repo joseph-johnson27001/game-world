@@ -1,9 +1,5 @@
 <template>
-  <div
-    class="category-card"
-    @click="selectCategory"
-    :style="{ backgroundColor: '#f9f5f6' }"
-  >
+  <div class="category-card" @click="handleClick">
     <div class="category-name">{{ category.name }}</div>
   </div>
 </template>
@@ -17,7 +13,7 @@ export default {
     },
   },
   methods: {
-    selectCategory() {
+    handleClick() {
       this.$emit("selectCategory", this.category);
     },
   },
@@ -26,14 +22,19 @@ export default {
 
 <style scoped>
 .category-card {
+  display: block;
+  width: 100%;
+  background-color: #ff5722;
+  color: white;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   cursor: pointer;
+  text-align: center;
   transition: background-color 0.3s;
 }
 
 .category-card:hover {
-  background-color: #e3e0e1; /* Slightly different color on hover */
+  background-color: #e64a19;
 }
 </style>
