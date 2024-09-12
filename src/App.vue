@@ -1,26 +1,32 @@
 <template>
-  <router-view />
+  <main>
+    <router-view />
+  </main>
 </template>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  justify-content: center;
+  background-color: #f5f5f5;
+}
+
+main {
+  max-width: 1200px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height: 100vh;
+  background-color: white;
+}
+
+h1 {
   text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+  font-family: "Comic Sans MS", cursive, sans-serif;
 }
 </style>
