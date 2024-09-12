@@ -44,6 +44,7 @@ main {
   justify-content: center;
   padding-top: 60px;
   min-height: 100vh;
+  margin-top: 60px;
 }
 
 h1 {
