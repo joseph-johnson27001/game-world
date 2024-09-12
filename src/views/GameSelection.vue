@@ -75,6 +75,16 @@ export default {
 </script>
 
 <style scoped>
+.game-selection {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
 .game-list {
   display: flex;
   flex-wrap: wrap;

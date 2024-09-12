@@ -12,6 +12,7 @@
 }
 
 #app {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
   display: flex;
   justify-content: center;
   background-color: #f5f5f5;
@@ -19,10 +20,8 @@
 
 main {
   max-width: 1200px;
-  border: 1px solid #ccc;
   border-radius: 5px;
   height: 100vh;
-  background-color: white;
 }
 
 h1 {
