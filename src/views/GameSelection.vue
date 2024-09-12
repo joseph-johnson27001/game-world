@@ -24,14 +24,14 @@ export default {
     return {
       games: [
         {
-          name: "Word Scramble",
-          icon: "🧩",
-          link: "/word-scramble/categories",
+          name: "Anagram Attack",
+          icon: "🔤",
+          link: "/anagram-attack",
         },
         {
-          name: "Word Grid",
-          icon: "🔠",
-          link: "/word-grid",
+          name: "Consonant Clash",
+          icon: "✖️",
+          link: "/consonant-clash",
         },
         {
           name: "Letter Blitz",
@@ -44,9 +44,9 @@ export default {
           link: "/quiz-quest",
         },
         {
-          name: "Anagram Attack",
-          icon: "🔤",
-          link: "/anagram-attack",
+          name: "Rhyme Time",
+          icon: "🎶",
+          link: "/rhyme-time",
         },
         {
           name: "Synonym Search",
@@ -59,14 +59,14 @@ export default {
           link: "/vowel-vault",
         },
         {
-          name: "Rhyme Time",
-          icon: "🎶",
-          link: "/rhyme-time",
+          name: "Word Grid",
+          icon: "🔠",
+          link: "/word-grid",
         },
         {
-          name: "Consonant Clash",
-          icon: "✖️",
-          link: "/consonant-clash",
+          name: "Word Scramble",
+          icon: "🧩",
+          link: "/word-scramble/categories",
         },
       ],
     };
