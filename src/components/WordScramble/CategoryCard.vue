@@ -64,18 +64,9 @@ export default {
   z-index: 2;
 }
 
-@media (max-width: 768px) {
-  .category-card {
-    width: 150px;
-    height: 75px;
-  }
-}
-
 @media (max-width: 480px) {
   .category-card {
-    width: 100px;
-    height: 50px;
-    font-size: 14px;
+    height: 80px;
   }
 }
 </style>
