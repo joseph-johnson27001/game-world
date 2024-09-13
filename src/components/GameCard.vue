@@ -70,12 +70,20 @@ export default {
     max-width: 150px;
     max-height: 150px;
   }
+  .game-card-icon {
+    font-size: 38px;
+    margin-bottom: 5px;
+  }
 }
 
 @media (max-width: 320px) {
   .game-card {
     max-width: 250px;
     max-height: 250px;
+  }
+  .game-card-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
   }
 }
 </style>
