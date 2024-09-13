@@ -111,10 +111,4 @@ export default {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
-@media (max-width: 480px) {
-  .game-list {
-    grid-template-columns: 1fr;
-  }
-}
 </style>

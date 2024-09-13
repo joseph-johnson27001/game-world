@@ -34,7 +34,7 @@ export default {
 main {
   font-family: "Roboto", sans-serif;
   max-width: 768px;
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   border-radius: 5px;
   display: flex;

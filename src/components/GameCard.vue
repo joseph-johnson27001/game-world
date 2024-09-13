@@ -44,7 +44,6 @@ export default {
   text-align: center;
   width: 200px;
   height: 200px;
-
   position: relative;
 }
 
@@ -66,18 +65,10 @@ export default {
   letter-spacing: 0.04rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .game-card {
     width: 150px;
     height: 150px;
-  }
-}
-
-@media (max-width: 480px) {
-  .game-card {
-    width: 100px;
-    height: 100px;
-    font-size: 14px;
   }
 }
 </style>
