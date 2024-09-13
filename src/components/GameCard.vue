@@ -1,7 +1,7 @@
 <template>
   <router-link
     :to="link"
-    class="game-card"
+    class="card game-card"
     :style="{ backgroundColor: bgColor, borderColor: borderColor }"
   >
     <div class="game-card-icon">{{ icon }}</div>
@@ -38,37 +38,14 @@ export default {
 
 <style scoped>
 .game-card {
-  background-color: #ff7043;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
   width: 200px;
   height: 200px;
-  border-radius: 15px;
-  border: 2px solid;
-  transition: transform 0.3s, box-shadow 0.3s;
-  text-decoration: none;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  position: relative;
-}
 
-.game-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: inherit;
-  background: linear-gradient(
-    to bottom right,
-    rgba(255, 255, 255, 0.3),
-    rgba(255, 255, 255, 0) 60%
-  );
-  pointer-events: none;
-  z-index: 1;
+  position: relative;
 }
 
 .game-card:hover {

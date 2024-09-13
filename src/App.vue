@@ -41,7 +41,7 @@ main {
   justify-content: center;
   padding-top: 60px;
   min-height: 100vh;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 h1 {
@@ -52,6 +52,32 @@ h1 {
   font-weight: 500;
   font-size: 2.5rem;
   text-transform: uppercase;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.card {
+  border-radius: 10px;
+  border: 2px solid;
+  text-decoration: none;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.1s,
+    border-color 0.1s;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0) 60%
+  );
+  pointer-events: none;
+  z-index: 1;
 }
 </style>

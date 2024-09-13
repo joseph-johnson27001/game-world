@@ -15,10 +15,10 @@ export default {
 <style scoped>
 .navbar {
   width: 100%;
-  background-color: #8d53f9;
+  background-color: #4169e1;
   font-family: "Vibes", system-ui;
   color: white;
-  padding: 10px 0;
+  padding: 15px 0px 10px 0px;
   position: fixed;
   top: 0;
   left: 0;
@@ -40,20 +40,5 @@ export default {
   font-weight: bold;
   color: white;
   text-decoration: none;
-}
-
-.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-}
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-}
-
-.nav-links a:hover {
-  text-decoration: underline;
 }
 </style>
