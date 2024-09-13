@@ -28,55 +28,55 @@ export default {
           name: "Anagram Attack",
           icon: "🔤",
           link: "/anagram-attack",
-          bgColor: "#e6e6fa",
+          bgColor: "#6a1b9a", // Deep Purple
         },
         {
           name: "Consonant Clash",
           icon: "✖️",
           link: "/consonant-clash",
-          bgColor: "#fbc8ab",
+          bgColor: "#e53935", // Bright Red
         },
         {
           name: "Letter Blitz",
           icon: "⚡",
           link: "/letter-blitz",
-          bgColor: "#d3f9d8",
+          bgColor: "#43a047", // Bold Green
         },
         {
           name: "Quiz Quest",
           icon: "❓",
           link: "/quiz-quest",
-          bgColor: "#fefcbf",
+          bgColor: "#fdd835", // Vivid Yellow
         },
         {
           name: "Rhyme Time",
           icon: "🎶",
           link: "/rhyme-time",
-          bgColor: "#d0f0c0",
+          bgColor: "#1e88e5", // Vivid Blue
         },
         {
           name: "Synonym Search",
           icon: "🔍",
           link: "/synonym-search",
-          bgColor: "#ffe5d9",
+          bgColor: "#ff7043", // Orange Coral
         },
         {
           name: "Vowel Vault",
           icon: "🅰️",
           link: "/vowel-vault",
-          bgColor: "#fbc8ab",
+          bgColor: "#8e24aa", // Vibrant Magenta
         },
         {
           name: "Word Grid",
           icon: "🔠",
           link: "/word-grid",
-          bgColor: "#f9c5d1",
+          bgColor: "#3949ab", // Bold Indigo
         },
         {
           name: "Word Scramble",
           icon: "🧩",
           link: "/word-scramble/categories",
-          bgColor: "#aeeeee",
+          bgColor: "#00acc1", // Teal
         },
       ],
     };
