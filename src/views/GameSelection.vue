@@ -28,13 +28,13 @@ export default {
           name: "Anagram Attack",
           icon: "🔤",
           link: "/anagram-attack",
-          bgColor: "#6a1b9a",
+          bgColor: "#8e24aa",
         },
         {
           name: "Consonant Clash",
           icon: "✖️",
           link: "/consonant-clash",
-          bgColor: "#e53935",
+          bgColor: "#ff4f4f",
         },
         {
           name: "Letter Blitz",
@@ -64,7 +64,7 @@ export default {
           name: "Vowel Vault",
           icon: "🅰️",
           link: "/vowel-vault",
-          bgColor: "#8e24aa",
+          bgColor: "#2e8b57",
         },
         {
           name: "Word Grid",
@@ -76,7 +76,8 @@ export default {
           name: "Word Scramble",
           icon: "🧩",
           link: "/word-scramble/categories",
-          bgColor: "#00acc1",
+
+          bgColor: "#e53935",
         },
       ],
     };

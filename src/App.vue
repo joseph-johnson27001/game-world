@@ -25,9 +25,9 @@ export default {
 }
 
 #app {
+  background-color: #f5f5f5;
   display: flex;
   flex-direction: column;
-  background-color: #f5f5f5;
   min-height: 100vh;
 }
 
@@ -37,21 +37,22 @@ main {
   width: 90%;
   margin: 0 auto;
   border-radius: 5px;
-  background-color: #f5f5f5;
+  /* background-color: #f5f5f5; */
   display: flex;
   justify-content: center;
   padding-top: 60px;
   min-height: 100vh;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 h1 {
   text-align: center;
-  font-family: "Vibes", system-ui;
+  font-family: "Bangers", system-ui;
   font-style: normal;
   color: #1a1a1a;
   font-weight: 500;
-  font-size: 3rem;
+  font-size: 2.5rem;
   text-transform: uppercase;
+  margin-bottom: 15px;
 }
 </style>

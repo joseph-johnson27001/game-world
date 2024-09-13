@@ -5,7 +5,7 @@
     :style="{ backgroundColor: bgColor }"
   >
     <div class="game-card-icon">{{ icon }}</div>
-    <div class="game-card-name">{{ name }}</div>
+    <div class="game-card-name">{{ name.toUpperCase() }}</div>
   </router-link>
 </template>
 
@@ -62,12 +62,12 @@ export default {
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   padding: 10px;
   position: relative;
-  background-color: var(--bgColor);
+  /* border: 1px solid #999999; */
 }
 
 .game-card:hover {
-  transform: scale(1.05);
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
 }
 
 .game-card-icon {
@@ -76,10 +76,10 @@ export default {
 }
 
 .game-card-name {
-  color: white;
-  font-weight: 100;
+  color: #f5f5f5;
+  font-weight: bold;
   font-size: 1.3rem;
-  font-family: "Bangers", system-ui;
+  font-family: "Vibes", system-ui;
   letter-spacing: 0.04rem;
 }
 
