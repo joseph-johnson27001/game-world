@@ -15,7 +15,7 @@
       @click="startGame"
       class="start-game-button"
     >
-      Start Game
+      START GAME
     </button>
   </div>
 </template>
@@ -82,17 +82,24 @@ export default {
   display: block;
   margin: 20px auto;
   padding: 12px 24px;
-  font-size: 1.1rem;
-  color: #fff;
+  font-size: 1.6rem;
+  font-family: "Vibes", system-ui;
+  color: #f5f5f5;
   background-color: #4bb543;
-  border: none;
-  border-radius: 8px;
+  border: 2px solid #388e3c;
+  border-radius: 15px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.2s;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: bold;
 }
 
 .start-game-button:hover {
-  background-color: #0056b3;
+  background-color: #388e3c;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
 }
 
 .start-game-button:active {
