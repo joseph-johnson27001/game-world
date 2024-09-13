@@ -106,7 +106,7 @@ export default {
   justify-content: center;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 680px) {
   .game-list {
     grid-template-columns: repeat(2, 1fr);
   }

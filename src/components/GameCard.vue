@@ -65,7 +65,7 @@ export default {
   letter-spacing: 0.04rem;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 420px) {
   .game-card {
     max-width: 150px;
     max-height: 150px;
