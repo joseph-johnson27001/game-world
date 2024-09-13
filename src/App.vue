@@ -37,7 +37,6 @@ main {
   width: 90%;
   margin: 0 auto;
   border-radius: 5px;
-  /* background-color: #f5f5f5; */
   display: flex;
   justify-content: center;
   padding-top: 60px;

@@ -50,6 +50,7 @@ export default {
 }
 
 .game-card {
+  background-color: #ff7043;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -62,7 +63,6 @@ export default {
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   padding: 10px;
   position: relative;
-  /* border: 1px solid #999999; */
 }
 
 .game-card:hover {
