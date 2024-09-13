@@ -40,7 +40,7 @@ export default {
   cursor: pointer;
   text-align: center;
   transition: background-color 0.3s;
-  font-family: "Vibes", system-ui;
+  /* font-family: "Vibes", system-ui; */
 }
 
 .category-card:hover {

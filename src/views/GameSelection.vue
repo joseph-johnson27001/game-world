@@ -28,55 +28,55 @@ export default {
           name: "Anagram Attack",
           icon: "🔤",
           link: "/anagram-attack",
-          bgColor: "#6a1b9a", // Deep Purple
+          bgColor: "#6a1b9a",
         },
         {
           name: "Consonant Clash",
           icon: "✖️",
           link: "/consonant-clash",
-          bgColor: "#e53935", // Bright Red
+          bgColor: "#e53935",
         },
         {
           name: "Letter Blitz",
           icon: "⚡",
           link: "/letter-blitz",
-          bgColor: "#43a047", // Bold Green
+          bgColor: "#43a047",
         },
         {
           name: "Quiz Quest",
           icon: "❓",
           link: "/quiz-quest",
-          bgColor: "#fdd835", // Vivid Yellow
+          bgColor: "#6495ed",
         },
         {
           name: "Rhyme Time",
           icon: "🎶",
           link: "/rhyme-time",
-          bgColor: "#1e88e5", // Vivid Blue
+          bgColor: "#ff7043",
         },
         {
           name: "Synonym Search",
           icon: "🔍",
           link: "/synonym-search",
-          bgColor: "#ff7043", // Orange Coral
+          bgColor: "#1e88e5",
         },
         {
           name: "Vowel Vault",
           icon: "🅰️",
           link: "/vowel-vault",
-          bgColor: "#8e24aa", // Vibrant Magenta
+          bgColor: "#8e24aa",
         },
         {
           name: "Word Grid",
           icon: "🔠",
           link: "/word-grid",
-          bgColor: "#3949ab", // Bold Indigo
+          bgColor: "#3949ab",
         },
         {
           name: "Word Scramble",
           icon: "🧩",
           link: "/word-scramble/categories",
-          bgColor: "#00acc1", // Teal
+          bgColor: "#00acc1",
         },
       ],
     };
