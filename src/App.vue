@@ -52,5 +52,6 @@ h1 {
   font-family: "Roboto", sans-serif;
   color: #333;
   margin-bottom: 20px;
+  font-weight: 400;
 }
 </style>

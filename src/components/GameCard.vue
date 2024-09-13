@@ -49,6 +49,7 @@ export default {
   border: 1px solid black;
   font-family: "Roboto", sans-serif;
   font-weight: 100;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
 }
 
 .game-card:hover {
@@ -63,6 +64,6 @@ export default {
 
 .game-card-name {
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 400;
 }
 </style>
