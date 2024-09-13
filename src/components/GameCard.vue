@@ -67,8 +67,15 @@ export default {
 
 @media (max-width: 480px) {
   .game-card {
-    width: 150px;
-    height: 150px;
+    max-width: 150px;
+    max-height: 150px;
+  }
+}
+
+@media (max-width: 320px) {
+  .game-card {
+    max-width: 250px;
+    max-height: 250px;
   }
 }
 </style>

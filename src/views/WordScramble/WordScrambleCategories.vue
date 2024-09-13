@@ -74,7 +74,7 @@ export default {
 .category-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 10px;
 }
 
 .start-game-button {
@@ -104,5 +104,11 @@ export default {
 
 .start-game-button:active {
   transform: scale(0.98);
+}
+
+@media (max-width: 480px) {
+  .category-list {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

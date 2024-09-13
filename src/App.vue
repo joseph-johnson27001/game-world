@@ -80,4 +80,10 @@ h1 {
   pointer-events: none;
   z-index: 1;
 }
+
+@media (max-width: 480px) {
+  main {
+    margin-top: 10px;
+  }
+}
 </style>
