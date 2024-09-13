@@ -22,7 +22,6 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Roboto", sans-serif;
 }
 
 #app {
@@ -33,13 +32,12 @@ export default {
 }
 
 main {
+  font-family: "Roboto", sans-serif;
   max-width: 1200px;
   width: 90%;
   margin: 0 auto;
   border-radius: 5px;
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  background-color: #f5f5f5;
   display: flex;
   justify-content: center;
   padding-top: 60px;
@@ -49,9 +47,11 @@ main {
 
 h1 {
   text-align: center;
-  font-family: "Roboto", sans-serif;
-  color: #333;
-  margin-bottom: 20px;
-  font-weight: 400;
+  font-family: "Vibes", system-ui;
+  font-style: normal;
+  color: #1a1a1a;
+  font-weight: 500;
+  font-size: 3rem;
+  text-transform: uppercase;
 }
 </style>

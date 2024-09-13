@@ -1,6 +1,6 @@
 <template>
   <div class="game-selection">
-    <h1>Select a Game</h1>
+    <h1>Select Game</h1>
     <div class="game-list">
       <GameCard
         v-for="game in games"

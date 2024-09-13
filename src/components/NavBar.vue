@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar">
     <div class="navbar-content">
-      <router-link class="logo" to="/">Game World</router-link>
+      <router-link class="logo" to="/">GAME WORLD</router-link>
     </div>
   </nav>
 </template>
@@ -16,7 +16,7 @@ export default {
 .navbar {
   width: 100%;
   background-color: #8d53f9;
-
+  font-family: "Vibes", system-ui;
   color: white;
   padding: 10px 0;
   position: fixed;
@@ -36,6 +36,7 @@ export default {
 
 .logo {
   font-size: 1.5rem;
+  letter-spacing: 0.1rem;
   font-weight: bold;
   color: white;
   text-decoration: none;

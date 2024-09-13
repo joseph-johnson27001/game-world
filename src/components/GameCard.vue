@@ -5,7 +5,7 @@
     :style="{ backgroundColor: bgColor }"
   >
     <div class="game-card-icon">{{ icon }}</div>
-    <div class="game-card-name">{{ name }}</div>
+    <div class="game-card-name">{{ name.toUpperCase() }}</div>
   </router-link>
 </template>
 
@@ -47,8 +47,6 @@ export default {
   color: #333;
   padding: 10px;
   border: 1px solid black;
-  font-family: "Roboto", sans-serif;
-  font-weight: 100;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -64,6 +62,6 @@ export default {
 
 .game-card-name {
   font-size: 18px;
-  font-weight: 400;
+  color: #1a1a1a;
 }
 </style>
