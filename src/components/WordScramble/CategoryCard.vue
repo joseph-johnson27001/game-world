@@ -37,10 +37,10 @@ export default {
   width: 100%;
   height: 100px;
   border-radius: 15px;
-  background-color: #ff7043; /* Default orange background */
-  border: 2px solid #ff5722; /* Default orange border */
-  transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s,
-    border-color 0.3s;
+  background-color: #ff7043;
+  border: 2px solid #ff5722;
+  transition: transform 0.3s, box-shadow 0.3s, background-color 0.1s,
+    border-color 0.1s;
   cursor: pointer;
   text-align: center;
   overflow: hidden;
@@ -68,12 +68,12 @@ export default {
 }
 
 .category-card.selected {
-  background-color: #2196f3; /* Blue background for selected state */
-  border: 2px solid #1976d2; /* Darker blue border */
+  background-color: #2196f3;
+  border: 2px solid #1976d2;
 }
 
 .category-name {
-  color: #f5f5f5; /* Text color */
+  color: #f5f5f5;
   font-weight: bold;
   font-size: 1.3rem;
   font-family: "Vibes", system-ui;

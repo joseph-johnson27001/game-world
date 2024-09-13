@@ -2,7 +2,7 @@
   <router-link
     :to="link"
     class="game-card"
-    :style="{ backgroundColor: bgColor }"
+    :style="{ backgroundColor: bgColor, borderColor: borderColor }"
   >
     <div class="game-card-icon">{{ icon }}</div>
     <div class="game-card-name">{{ name.toUpperCase() }}</div>
@@ -28,10 +28,32 @@ export default {
       type: String,
       required: true,
     },
+    borderColor: {
+      type: String,
+      required: true,
+    },
   },
 };
 </script>
+
 <style scoped>
+.game-card {
+  background-color: #ff7043;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 15px;
+  border: 2px solid;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  position: relative;
+}
+
 .game-card::before {
   content: "";
   position: absolute;
@@ -47,22 +69,6 @@ export default {
   );
   pointer-events: none;
   z-index: 1;
-}
-
-.game-card {
-  background-color: #ff7043;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
-  width: 200px;
-  height: 200px;
-  border-radius: 15px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  text-decoration: none;
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  position: relative;
 }
 
 .game-card:hover {
