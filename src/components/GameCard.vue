@@ -91,9 +91,6 @@ export default {
     font-size: 38px;
     margin-bottom: 5px;
   }
-  .game-card-name {
-    font-size: 1rem;
-  }
 
   @media (max-width: 400px) {
     .game-card {
@@ -109,14 +106,20 @@ export default {
     }
   }
 
-  @media (max-width: 320px) {
+  @media (max-width: 340px) {
     .game-card {
-      height: 220px;
-      width: 220px;
+      height: 150px;
+      width: 150px;
     }
   }
 
-  @media (max-width: 260px) {
+  @media (max-width: 320px) {
+    .game-card {
+      height: 225px;
+      width: 225px;
+    }
+  }
+  @media (max-width: 230px) {
     .game-card {
       height: 200px;
       width: 200px;
