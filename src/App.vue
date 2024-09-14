@@ -41,7 +41,7 @@ main {
   justify-content: center;
   padding-top: 60px;
   min-height: 100vh;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 h1 {
@@ -56,7 +56,7 @@ h1 {
 }
 
 .card {
-  border-radius: 10px;
+  border-radius: 5px;
   border: 2px solid;
   text-decoration: none;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);

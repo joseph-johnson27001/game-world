@@ -23,7 +23,7 @@ export default {
 .navbar {
   width: 100%;
   background-color: #4169e1;
-  font-family: "Vibes", system-ui;
+  font-family: "Bangers", system-ui;
   color: white;
   padding: 15px 0px 10px 0px;
   position: fixed;
@@ -47,6 +47,7 @@ export default {
   font-weight: bold;
   color: white;
   text-decoration: none;
+  font-weight: 100;
 }
 
 .profile-icon {
