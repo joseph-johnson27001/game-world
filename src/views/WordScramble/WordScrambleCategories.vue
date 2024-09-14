@@ -68,16 +68,19 @@ export default {
 }
 
 .category-card {
-  width: 100px; /* Square size */
-  height: 100px; /* Square size */
-  background-color: #f0f0f0;
-  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 100%;
+  max-height: 100px;
+  max-width: 100px;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
 }
 
 .category-card:hover {
@@ -86,12 +89,12 @@ export default {
 
 .category-card.selected {
   border: 3px solid #007bff;
-  background-color: #e0e0e0;
+  /* background-color: #e0e0e0; */
 }
 
 .category-card img {
-  max-width: 80%;
-  max-height: 80%;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: cover;
 }
 
