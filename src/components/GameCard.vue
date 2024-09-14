@@ -74,6 +74,9 @@ export default {
     font-size: 38px;
     margin-bottom: 5px;
   }
+  .game-card-name {
+    font-size: 1rem;
+  }
 }
 
 @media (max-width: 320px) {
@@ -84,6 +87,9 @@ export default {
   .game-card-icon {
     font-size: 48px;
     margin-bottom: 10px;
+  }
+  .game-card-name {
+    font-size: 1.3rem;
   }
 }
 </style>
