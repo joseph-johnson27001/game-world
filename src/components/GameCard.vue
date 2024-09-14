@@ -31,6 +31,9 @@ export default {
   align-items: center;
   justify-content: center;
   width: 100%;
+  height: 100%;
+  max-height: 100px;
+  max-width: 100px;
   aspect-ratio: 1;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);

@@ -69,7 +69,7 @@ export default {
 
 .card-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 
@@ -82,5 +82,11 @@ export default {
 .game-name {
   margin-top: 8px;
   font-size: 1.2em;
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 </style>
