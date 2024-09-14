@@ -31,9 +31,8 @@ main {
   margin: 0 auto;
   display: flex;
   justify-content: center;
-  padding-top: 40px;
   min-height: 100vh;
-  margin-top: 20px;
+  padding-top: 40px;
 }
 
 h1 {

@@ -64,7 +64,6 @@ export default {
 <style scoped>
 .game-selection {
   text-align: center;
-  padding: 20px;
 }
 
 .card-container {
