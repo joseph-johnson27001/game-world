@@ -97,15 +97,22 @@ export default {
 
   @media (max-width: 400px) {
     .game-card {
-      height: 150px;
-      width: 150px;
+      height: 180px;
+      width: 180px;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .game-card {
+      height: 160px;
+      width: 160px;
     }
   }
 
   @media (max-width: 320px) {
     .game-card {
-      height: 225px;
-      width: 225px;
+      height: 220px;
+      width: 220px;
     }
   }
 
