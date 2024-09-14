@@ -96,7 +96,7 @@ export default {
 
 <style scoped>
 .game-selection {
-  padding: 20px;
+  padding: 20px 0px;
 }
 
 .game-list {
@@ -106,7 +106,7 @@ export default {
   justify-content: center;
 }
 
-@media (max-width: 680px) {
+@media (max-width: 580px) {
   .game-list {
     grid-template-columns: repeat(2, 1fr);
   }

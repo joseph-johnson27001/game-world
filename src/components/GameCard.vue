@@ -42,9 +42,12 @@ export default {
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  width: 200px;
-  height: 200px;
   position: relative;
+  aspect-ratio: 1 / 1;
+  border: 2px solid transparent;
+  transition: transform 0.3s, box-shadow 0.3s;
+  max-height: 225px;
+  max-width: 225px;
 }
 
 .game-card:hover {
@@ -65,10 +68,24 @@ export default {
   letter-spacing: 0.04rem;
 }
 
+@media (max-width: 580px) {
+  .game-card {
+    height: 225px;
+    width: 225px;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-card {
+    height: 200px;
+    width: 200px;
+  }
+}
+
 @media (max-width: 420px) {
   .game-card {
-    max-width: 150px;
-    max-height: 150px;
+    height: 180px;
+    width: 180px;
   }
   .game-card-icon {
     font-size: 38px;
@@ -77,19 +94,26 @@ export default {
   .game-card-name {
     font-size: 1rem;
   }
-}
 
-@media (max-width: 320px) {
-  .game-card {
-    max-width: 250px;
-    max-height: 250px;
+  @media (max-width: 400px) {
+    .game-card {
+      height: 150px;
+      width: 150px;
+    }
   }
-  .game-card-icon {
-    font-size: 48px;
-    margin-bottom: 10px;
+
+  @media (max-width: 320px) {
+    .game-card {
+      height: 225px;
+      width: 225px;
+    }
   }
-  .game-card-name {
-    font-size: 1.3rem;
+
+  @media (max-width: 260px) {
+    .game-card {
+      height: 200px;
+      width: 200px;
+    }
   }
 }
 </style>
