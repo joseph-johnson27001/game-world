@@ -20,12 +20,12 @@ export default {};
 #app {
   background-color: #e0e0d2;
   display: flex;
+  font-family: "Patrick Hand", cursive;
   flex-direction: column;
   min-height: 100vh;
 }
 
 main {
-  font-family: "Roboto", sans-serif;
   max-width: 768px;
   width: 100%;
   margin: 0 auto;
@@ -37,8 +37,7 @@ main {
 }
 
 h1 {
-  color: darkslategrey;
-  font-family: "Patrick Hand", cursive;
+  color: black;
   font-size: 3rem;
   font-weight: 100;
   margin-bottom: 20px;
