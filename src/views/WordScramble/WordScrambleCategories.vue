@@ -87,11 +87,6 @@ export default {
   transform: scale(1.05);
 }
 
-.category-card.selected {
-  border: 3px solid #007bff;
-  /* background-color: #e0e0e0; */
-}
-
 .category-card img {
   max-width: 100%;
   max-height: 100%;
@@ -101,5 +96,11 @@ export default {
 .category-name {
   margin-top: 8px;
   font-size: 1.2em;
+}
+
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 </style>
