@@ -1,16 +1,15 @@
 <template>
   <div class="game-selection">
-    <h1>Select Game</h1>
-    <div class="game-list">
-      <GameCard
-        v-for="game in games"
-        :key="game.name"
-        :name="game.name"
-        :icon="game.icon"
-        :link="game.link"
-        :bgColor="game.bgColor"
-        :borderColor="game.borderColor"
-      />
+    <h1>Game Selection</h1>
+    <div class="card-container">
+      <div v-for="game in games" :key="game.name" class="game-item">
+        <GameCard
+          :name="game.name"
+          :image="game.image"
+          @navigate="navigateToGame"
+        />
+        <div class="game-name">{{ game.name }}</div>
+      </div>
     </div>
   </div>
 </template>
@@ -19,102 +18,69 @@
 import GameCard from "@/components/GameCard.vue";
 
 export default {
+  name: "GameSelection",
   components: {
     GameCard,
   },
   data() {
     return {
       games: [
+        { name: "Connect Four", image: "/game-tile.JPG", route: "ConnectFour" },
+        { name: "Hangman", image: "/crossword.JPG", route: "Hangman" },
+        { name: "Minesweeper", image: "/crossword2.JPG", route: "Minesweeper" },
+        { name: "Memory Match", image: "/game2.JPG", route: "MemoryMatch" },
         {
-          name: "Anagram Attack",
-          icon: "🔤",
-          link: "/anagram-attack",
-          bgColor: "#8e24aa",
-          borderColor: "#6a1b9a", // Related purple border color
+          name: "Puzzle Mania",
+          image: "/crossword3.JPG",
+          route: "PuzzleMania",
         },
-        {
-          name: "Consonant Clash",
-          icon: "✖️",
-          link: "/consonant-clash",
-          bgColor: "#ff4f4f",
-          borderColor: "#c62828", // Related red border color
-        },
-        {
-          name: "Letter Blitz",
-          icon: "⚡",
-          link: "/letter-blitz",
-          bgColor: "#43a047",
-          borderColor: "#388e3c", // Related green border color
-        },
-        {
-          name: "Quiz Quest",
-          icon: "❓",
-          link: "/quiz-quest",
-          bgColor: "#6495ed",
-          borderColor: "#4169e1", // Related blue border color
-        },
-        {
-          name: "Rhyme Time",
-          icon: "🎶",
-          link: "/rhyme-time",
-          bgColor: "#ff7043",
-          borderColor: "#e64a19", // Related orange border color
-        },
-        {
-          name: "Synonym Search",
-          icon: "🔍",
-          link: "/synonym-search",
-          bgColor: "#1e88e5",
-          borderColor: "#1976d2", // Related blue border color
-        },
-        {
-          name: "Vowel Vault",
-          icon: "🅰️",
-          link: "/vowel-vault",
-          bgColor: "#2e8b57",
-          borderColor: "#1b5e20", // Related green border color
-        },
-        {
-          name: "Word Grid",
-          icon: "🔠",
-          link: "/word-grid",
-          bgColor: "#3949ab",
-          borderColor: "#303f9f", // Related blue border color
-        },
+        { name: "Quiz Show", image: "/crossword4.JPG", route: "QuizShow" },
+        { name: "Sudoku", image: "/crossword5.JPG", route: "Sudoku" },
+        { name: "Tic Tac Toe", image: "/tile2.JPG", route: "TicTacToe" },
+        { name: "Word Search", image: "/word-search.JPG", route: "WordSearch" },
         {
           name: "Word Scramble",
-          icon: "🧩",
-          link: "/word-scramble/categories",
-          bgColor: "#e53935",
-          borderColor: "#c62828", // Related red border color
+          image: "/Reading.JPG",
+          route: "WordScrambleCategories",
         },
+        { name: "Zuma", image: "/stones.JPG", route: "Zuma" },
+        { name: "Zen Sudoku", image: "/stones2.JPG", route: "ZenSudoku" },
       ],
     };
+  },
+  methods: {
+    navigateToGame(gameName) {
+      const game = this.games.find((game) => game.name === gameName);
+      if (game) {
+        this.$router.push({ name: game.route });
+      } else {
+        console.error(`No route found for game: ${gameName}`);
+      }
+    },
   },
 };
 </script>
 
 <style scoped>
 .game-selection {
-  padding: 20px 0px;
+  text-align: center;
+  padding: 20px;
 }
 
-.game-list {
+.card-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  justify-content: center;
+  gap: 20px;
 }
 
-@media (max-width: 580px) {
-  .game-list {
-    grid-template-columns: repeat(2, 1fr);
-  }
+.game-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-@media (max-width: 320px) {
-  .game-list {
-    grid-template-columns: 1fr;
-  }
+.game-name {
+  margin-top: 8px;
+  font-size: 1.2em;
 }
 </style>
