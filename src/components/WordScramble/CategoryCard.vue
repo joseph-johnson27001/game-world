@@ -36,8 +36,8 @@ export default {
   justify-content: center;
   width: 100%;
   height: 100px;
-  background-color: #ff4f4f;
-  border-color: #c62828;
+  background-color: #ff7043;
+  border-color: #e64a19;
   cursor: pointer;
   text-align: center;
   overflow: hidden;
