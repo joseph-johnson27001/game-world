@@ -159,6 +159,8 @@ export default {
 <style scoped>
 .word-scramble-game {
   text-align: center;
+  max-width: 600px; /* Limit the width to maintain a centered layout */
+  margin: 0 auto;
 }
 
 .selected-letters {
@@ -167,6 +169,8 @@ export default {
   align-items: center;
   gap: 10px;
   margin-bottom: 20px;
+  min-height: 100px; /* Fixed height for selected letters */
+  border-bottom: 2px solid #d8bf8e; /* Separator to visually distinguish answer and letters */
 }
 
 .letter-container {
@@ -215,6 +219,8 @@ export default {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  min-height: 75px;
+  min-width: 75px;
 }
 
 .delete-button:disabled {
