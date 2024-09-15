@@ -160,6 +160,7 @@ export default {
   text-align: center;
   max-width: 600px;
   margin: 0 auto;
+  padding: 0px 10px;
 }
 
 .selected-letters {
@@ -246,7 +247,7 @@ export default {
   margin-top: 10px;
   padding: 10px 20px;
   font-size: 1em;
-  background-color: #05bdba; /* Pastel blue color */
+  background-color: #05bdba;
   color: white;
   border: none;
   border-radius: 5px;
