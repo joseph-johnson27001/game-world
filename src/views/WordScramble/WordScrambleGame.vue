@@ -5,8 +5,15 @@
 
     <!-- Displaying the current progress of the word -->
     <div class="selected-letters">
-      <p>{{ userInput.join("") }}</p>
-      <!-- Display the input as continuous text -->
+      <input
+        type="text"
+        v-model="userInputString"
+        readonly
+        class="letter-input"
+        @click="focusInput"
+        ref="letterInput"
+        aria-label="Current word input"
+      />
     </div>
 
     <!-- Letter Tiles -->
@@ -32,14 +39,6 @@
         DEL
       </button>
     </div>
-
-    <!-- Hidden Textarea for Mobile Keyboard -->
-    <textarea
-      ref="hiddenInput"
-      class="hidden-input"
-      readonly
-      aria-hidden="true"
-    ></textarea>
 
     <!-- Game Status -->
     <div v-if="completed">
@@ -71,6 +70,9 @@ export default {
     currentWord() {
       return this.currentCategory.words[this.currentWordIndex] || "";
     },
+    userInputString() {
+      return this.userInput.join("");
+    },
   },
   watch: {
     // When the component is mounted or the word changes, shuffle the letters
@@ -88,19 +90,18 @@ export default {
       this.shuffleWord();
     }
 
-    // Focus on hidden input to ensure keyboard shows up on mobile
+    // Ensure that the input field is focused after the component is mounted
     this.$nextTick(() => {
-      setTimeout(() => {
-        this.$refs.hiddenInput.focus();
-      }, 100); // Adjust the delay if necessary
+      this.focusInput();
+      document.addEventListener("click", this.handleDocumentClick);
     });
 
     // Listen for keyboard input
     window.addEventListener("keydown", this.handleKeyInput);
   },
   beforeUnmount() {
-    // Changed from beforeDestroy to beforeUnmount
-    // Remove the keyboard listener when the component is destroyed
+    // Remove event listeners when the component is destroyed
+    document.removeEventListener("click", this.handleDocumentClick);
     window.removeEventListener("keydown", this.handleKeyInput);
   },
   methods: {
@@ -164,6 +165,20 @@ export default {
       }
     },
 
+    // Focus on the input field
+    focusInput() {
+      if (this.$refs.letterInput) {
+        this.$refs.letterInput.focus();
+      }
+    },
+
+    // Handle clicks outside of the input to prevent losing focus
+    handleDocumentClick(event) {
+      if (!this.$refs.letterInput.contains(event.target)) {
+        this.focusInput();
+      }
+    },
+
     // Navigate back to the word scramble categories page
     playAgain() {
       this.$router.push({ name: "WordScrambleCategories" });
@@ -191,11 +206,17 @@ export default {
   white-space: nowrap;
 }
 
-.selected-letters p {
+.letter-input {
   font-size: 1.5em;
-  margin: 0;
-  white-space: nowrap;
+  border: none;
+  background: transparent;
+  text-align: center;
+  width: 100%;
+  min-height: 50px;
+  cursor: text;
+  outline: none;
   overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
 }
 
@@ -271,15 +292,5 @@ export default {
   cursor: pointer;
   min-height: 60px;
   min-width: 60px;
-}
-
-.hidden-input {
-  position: absolute;
-  left: -9999px;
-  top: -9999px;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-  z-index: -1; /* Ensure it's not covered by other elements */
 }
 </style>
