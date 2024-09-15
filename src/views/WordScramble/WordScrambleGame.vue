@@ -33,14 +33,13 @@
       </button>
     </div>
 
-    <!-- Hidden Input for Mobile Keyboard -->
-    <input
-      type="text"
+    <!-- Hidden Textarea for Mobile Keyboard -->
+    <textarea
       ref="hiddenInput"
       class="hidden-input"
       readonly
       aria-hidden="true"
-    />
+    ></textarea>
 
     <!-- Game Status -->
     <div v-if="completed">
@@ -49,6 +48,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import { mapGetters, mapActions } from "vuex";
 
@@ -89,7 +89,11 @@ export default {
     }
 
     // Focus on hidden input to ensure keyboard shows up on mobile
-    this.$refs.hiddenInput.focus();
+    this.$nextTick(() => {
+      setTimeout(() => {
+        this.$refs.hiddenInput.focus();
+      }, 100); // Adjust the delay if necessary
+    });
 
     // Listen for keyboard input
     window.addEventListener("keydown", this.handleKeyInput);
@@ -167,6 +171,7 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 .word-scramble-game {
   text-align: center;
@@ -259,7 +264,7 @@ export default {
   margin-top: 10px;
   padding: 10px 20px;
   font-size: 1em;
-  background-color: #05bdba; /* Pastel blue color */
+  background-color: #05bdba;
   color: white;
   border: none;
   border-radius: 5px;
@@ -275,5 +280,6 @@ export default {
   width: 1px;
   height: 1px;
   opacity: 0;
+  z-index: -1; /* Ensure it's not covered by other elements */
 }
 </style>
