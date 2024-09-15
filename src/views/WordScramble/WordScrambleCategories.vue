@@ -59,14 +59,11 @@ export default {
   methods: {
     ...mapActions("wordScramble", ["selectCategory"]),
     startGame(category) {
-      // Set the selected category in the store
       this.selectCategory(category);
-      // Navigate to the game page
       this.$router.push({ name: "WordScrambleGame" });
     },
     goBack() {
-      // Navigate back to the game selection page
-      this.$router.go(-1);
+      this.$router.push({ name: "GameSelection" });
     },
   },
 };

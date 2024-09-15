@@ -52,6 +52,23 @@
         DEL
       </button>
     </div>
+    <!-- Back Button -->
+    <button class="back-button" @click="goBack">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="feather feather-chevron-left"
+      >
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
   </div>
 </template>
 
@@ -131,7 +148,7 @@ export default {
       if (this.userInput.length === this.currentWord.length) {
         if (this.userInput.join("") === this.currentWord) {
           this.isCorrect = true;
-          this.score++; // Increment the score for a correct word
+          this.score++;
           setTimeout(() => {
             this.isCorrect = false;
             this.nextWord();
@@ -146,7 +163,6 @@ export default {
 
     nextWord() {
       if (this.currentWordIndex < 19) {
-        // Adjusted to 19 for 20 words
         this.currentWordIndex++;
         this.shuffleWord();
       } else {
@@ -156,7 +172,7 @@ export default {
     },
 
     removeLastLetter() {
-      if (this.completed) return; // Prevent deletion if the game is completed
+      if (this.completed) return;
 
       const lastLetter = this.userInput.pop();
       const letterIndex = this.shuffledLetters.findIndex(
@@ -169,7 +185,7 @@ export default {
     },
 
     handleKeyInput(event) {
-      if (this.completed) return; // Prevent key input if the game is completed
+      if (this.completed) return;
 
       const key = event.key.toUpperCase();
       const letterIndex = this.shuffledLetters.findIndex(
@@ -188,7 +204,7 @@ export default {
     },
 
     startTimer() {
-      this.timer = 60; // Ensure the timer starts at the correct initial value
+      this.timer = 60;
       this.timerInterval = setInterval(() => {
         if (this.timer > 0) {
           this.timer--;
@@ -197,7 +213,7 @@ export default {
           clearInterval(this.timerInterval);
           this.$store.dispatch("wordScramble/setGameResults", {
             score: this.score,
-            time: 60 - this.timer, // Total time used
+            time: 60 - this.timer,
           });
           this.viewResults();
         }
@@ -207,13 +223,17 @@ export default {
     stopTimer() {
       clearInterval(this.timerInterval);
       if (!this.completed) {
-        // Only record results if the game is not already completed
         this.$store.commit("wordScramble/setGameResults", {
           score: this.score,
-          time: 60 - this.timer, // Total time used
+          time: 60 - this.timer,
         });
         this.viewResults();
       }
+    },
+
+    goBack() {
+      this.completed = true;
+      this.$router.push({ name: "WordScrambleCategories" });
     },
   },
 };
@@ -225,6 +245,28 @@ export default {
   max-width: 600px;
   margin: 0 auto;
   padding: 0 10px;
+}
+
+.back-button {
+  margin-top: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.back-button svg {
+  width: 40px;
+  height: 40px;
+  stroke: #333;
+  transition: stroke 0.3s ease;
+}
+
+.back-button svg:hover {
+  stroke: #000;
 }
 
 .timer {
