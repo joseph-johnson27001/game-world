@@ -33,6 +33,15 @@
       </button>
     </div>
 
+    <!-- Hidden Input for Mobile Keyboard -->
+    <input
+      type="text"
+      ref="hiddenInput"
+      class="hidden-input"
+      readonly
+      aria-hidden="true"
+    />
+
     <!-- Game Status -->
     <div v-if="completed">
       <p>Congratulations! You've completed the game.</p>
@@ -78,6 +87,9 @@ export default {
     } else {
       this.shuffleWord();
     }
+
+    // Focus on hidden input to ensure keyboard shows up on mobile
+    this.$refs.hiddenInput.focus();
 
     // Listen for keyboard input
     window.addEventListener("keydown", this.handleKeyInput);
@@ -160,7 +172,7 @@ export default {
   text-align: center;
   max-width: 600px;
   margin: 0 auto;
-  padding: 0px 10px;
+  padding: 0 10px;
 }
 
 .selected-letters {
@@ -247,12 +259,21 @@ export default {
   margin-top: 10px;
   padding: 10px 20px;
   font-size: 1em;
-  background-color: #05bdba;
+  background-color: #a2c2e3; /* Pastel blue color */
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   min-height: 60px;
   min-width: 60px;
+}
+
+.hidden-input {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
 }
 </style>
