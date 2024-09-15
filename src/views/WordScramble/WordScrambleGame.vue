@@ -167,7 +167,6 @@ export default {
   align-items: center;
   gap: 10px;
   margin-bottom: 20px;
-  min-height: 100px; /* Fixed height for selected letters */
 }
 
 .letter-container {
@@ -176,11 +175,10 @@ export default {
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 20px;
-  min-height: 100px; /* Fixed height for letter tiles */
 }
 
 .letter-tile {
-  background-color: #d8bf8e; /* Scrabble tile color */
+  background-color: #d8bf8e;
   border-radius: 5px;
   padding: 20px;
   font-size: 1.5em;
@@ -188,6 +186,8 @@ export default {
   cursor: pointer;
   transition: transform 0.2s;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  min-height: 75px;
+  min-width: 75px;
 }
 
 .letter-tile.selected {
