@@ -7,6 +7,22 @@
     <div class="selected-letters">
       <div class="letter-display">
         {{ userInputString }}
+        <span v-if="isCorrect" class="tick-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-check"
+          >
+            <path d="M20 6L9 17l-5-5"></path>
+          </svg>
+        </span>
       </div>
     </div>
 
@@ -54,6 +70,7 @@ export default {
       userInput: [],
       clickedTiles: [],
       completed: false,
+      isCorrect: false,
     };
   },
   computed: {
@@ -104,7 +121,11 @@ export default {
 
       if (this.userInput.length === this.currentWord.length) {
         if (this.userInput.join("") === this.currentWord) {
-          this.nextWord();
+          this.isCorrect = true;
+          setTimeout(() => {
+            this.isCorrect = false;
+            this.nextWord();
+          }, 250);
         } else {
           alert("Incorrect! Try again.");
           this.userInput = [];
@@ -150,6 +171,7 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 .word-scramble-game {
   text-align: center;
@@ -181,6 +203,24 @@ export default {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  position: relative;
+}
+
+.tick-icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.tick-icon svg {
+  color: #4caf50;
+  width: 2em;
+  height: 2em;
+}
+
+.letter-display.correct-answer .tick-icon {
+  opacity: 1;
 }
 
 .letter-container {
