@@ -259,7 +259,7 @@ export default {
   margin-top: 10px;
   padding: 10px 20px;
   font-size: 1em;
-  background-color: #a2c2e3; /* Pastel blue color */
+  background-color: #05bdba; /* Pastel blue color */
   color: white;
   border: none;
   border-radius: 5px;
