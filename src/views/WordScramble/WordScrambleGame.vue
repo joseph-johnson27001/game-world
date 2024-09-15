@@ -49,12 +49,6 @@
         DEL
       </button>
     </div>
-
-    <!-- Game Status -->
-    <div v-if="completed">
-      <p>Congratulations! You've completed the game.</p>
-      <button @click="playAgain" class="play-again-button">Play Again?</button>
-    </div>
   </div>
 </template>
 
@@ -140,6 +134,7 @@ export default {
         this.shuffleWord();
       } else {
         this.completed = true;
+        this.viewResults();
       }
     },
 
@@ -165,8 +160,8 @@ export default {
       }
     },
 
-    playAgain() {
-      this.$router.push({ name: "WordScrambleCategories" });
+    viewResults() {
+      this.$router.push({ name: "WordScrambleResults" });
     },
   },
 };
@@ -217,10 +212,6 @@ export default {
   color: #4caf50;
   width: 2em;
   height: 2em;
-}
-
-.letter-display.correct-answer .tick-icon {
-  opacity: 1;
 }
 
 .letter-container {
@@ -276,24 +267,5 @@ export default {
 .delete-button:disabled {
   background-color: #b3a089;
   cursor: not-allowed;
-}
-
-.completed {
-  margin-top: 20px;
-  font-size: 1.5em;
-  color: green;
-}
-
-.play-again-button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  font-size: 1em;
-  background-color: #05bdba;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  min-height: 60px;
-  min-width: 60px;
 }
 </style>

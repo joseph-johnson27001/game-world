@@ -1,0 +1,47 @@
+<template>
+  <div class="word-scramble-results">
+    <h1>Game Results</h1>
+    <p>Your score: {{ score }}</p>
+    <button @click="playAgain" class="play-again-button">Play Again</button>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "WordScrambleResults",
+  data() {
+    return {
+      score: 0,
+    };
+  },
+  mounted() {
+    this.score = this.$store.getters["wordScramble/getScore"]; // Adjust as needed
+  },
+  methods: {
+    playAgain() {
+      this.$router.push({ name: "WordScrambleCategories" });
+    },
+  },
+};
+</script>
+
+<style scoped>
+.word-scramble-results {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+.play-again-button {
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 15px 20px;
+  font-size: 1em;
+  background-color: #05bdba;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+</style>
