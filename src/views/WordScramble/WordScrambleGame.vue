@@ -3,6 +3,9 @@
     <!-- Category Name -->
     <h1>{{ currentCategory.name }}</h1>
 
+    <!-- Timer -->
+    <div class="timer">Time Left: {{ formattedTime }}</div>
+
     <!-- Displaying the current progress of the word -->
     <div class="selected-letters">
       <div class="letter-display">
@@ -32,7 +35,7 @@
         v-for="(letter, index) in shuffledLetters"
         :key="index"
         class="letter-tile"
-        :disabled="clickedTiles.includes(index)"
+        :disabled="clickedTiles.includes(index) || completed"
         @click="selectLetter(letter, index)"
       >
         {{ letter }}
@@ -44,7 +47,7 @@
       <button
         @click="removeLastLetter"
         class="delete-button"
-        :disabled="userInput.length === 0"
+        :disabled="userInput.length === 0 || completed"
       >
         DEL
       </button>
@@ -65,6 +68,8 @@ export default {
       clickedTiles: [],
       completed: false,
       isCorrect: false,
+      timer: 60, // starting timer value in seconds
+      timerInterval: null,
     };
   },
   computed: {
@@ -77,6 +82,11 @@ export default {
     },
     userInputString() {
       return this.userInput.join("");
+    },
+    formattedTime() {
+      const minutes = Math.floor(this.timer / 60);
+      const seconds = this.timer % 60;
+      return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
     },
   },
   watch: {
@@ -91,6 +101,7 @@ export default {
       this.$router.push({ name: "WordScrambleCategories" });
     } else {
       this.shuffleWord();
+      this.startTimer();
     }
 
     document.addEventListener("click", this.handleDocumentClick);
@@ -99,6 +110,7 @@ export default {
   beforeUnmount() {
     document.removeEventListener("click", this.handleDocumentClick);
     window.removeEventListener("keydown", this.handleKeyInput);
+    this.stopTimer();
   },
   methods: {
     ...mapActions("wordScramble", ["selectCategory"]),
@@ -110,6 +122,8 @@ export default {
     },
 
     selectLetter(letter, index) {
+      if (this.completed) return; // Prevent selection if the game is completed
+
       this.userInput.push(letter);
       this.clickedTiles.push(index);
 
@@ -129,25 +143,33 @@ export default {
     },
 
     nextWord() {
-      if (this.currentWordIndex < 2) {
+      if (this.currentWordIndex < 19) {
+        // Adjusted to 19 for 20 words
         this.currentWordIndex++;
         this.shuffleWord();
       } else {
         this.completed = true;
+        this.stopTimer();
         this.viewResults();
       }
     },
 
     removeLastLetter() {
+      if (this.completed) return; // Prevent deletion if the game is completed
+
       const lastLetter = this.userInput.pop();
       const letterIndex = this.shuffledLetters.findIndex(
         (letter, index) =>
           letter === lastLetter && this.clickedTiles.includes(index)
       );
-      this.clickedTiles.splice(this.clickedTiles.indexOf(letterIndex), 1);
+      if (letterIndex !== -1) {
+        this.clickedTiles.splice(this.clickedTiles.indexOf(letterIndex), 1);
+      }
     },
 
     handleKeyInput(event) {
+      if (this.completed) return; // Prevent key input if the game is completed
+
       const key = event.key.toUpperCase();
       const letterIndex = this.shuffledLetters.findIndex(
         (letter, index) => letter === key && !this.clickedTiles.includes(index)
@@ -163,6 +185,22 @@ export default {
     viewResults() {
       this.$router.push({ name: "WordScrambleResults" });
     },
+
+    startTimer() {
+      this.timerInterval = setInterval(() => {
+        if (this.timer > 0) {
+          this.timer--;
+        } else {
+          this.completed = true;
+          clearInterval(this.timerInterval);
+          this.viewResults();
+        }
+      }, 1000);
+    },
+
+    stopTimer() {
+      clearInterval(this.timerInterval);
+    },
   },
 };
 </script>
@@ -173,6 +211,12 @@ export default {
   max-width: 600px;
   margin: 0 auto;
   padding: 0 10px;
+}
+
+.timer {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  color: #333;
 }
 
 .selected-letters {
