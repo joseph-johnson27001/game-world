@@ -159,7 +159,7 @@ export default {
 <style scoped>
 .word-scramble-game {
   text-align: center;
-  max-width: 600px; /* Limit the width to maintain a centered layout */
+  max-width: 600px;
   margin: 0 auto;
 }
 
@@ -169,8 +169,8 @@ export default {
   align-items: center;
   gap: 10px;
   margin-bottom: 20px;
-  min-height: 100px; /* Fixed height for selected letters */
-  border-bottom: 2px solid #d8bf8e; /* Separator to visually distinguish answer and letters */
+  min-height: 100px;
+  border-bottom: 2px solid #d8bf8e;
 }
 
 .letter-container {
@@ -195,11 +195,11 @@ export default {
 }
 
 .letter-tile.selected {
-  background-color: #e8e0d0; /* Lighter color for selected letters */
+  background-color: #e8e0d0;
 }
 
 .letter-tile:disabled {
-  background-color: #b3a089; /* Disabled tile color */
+  background-color: #b3a089;
   cursor: not-allowed;
 }
 
