@@ -41,7 +41,7 @@ export default {
         {
           name: "Word Scramble",
           image: "/Reading.JPG",
-          route: "WordScrambleFormat",
+          route: "WordScrambleCategories",
         },
         { name: "Zuma", image: "/stones.JPG", route: "Zuma" },
         { name: "Zen Sudoku", image: "/stones2.JPG", route: "ZenSudoku" },
