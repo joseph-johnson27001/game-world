@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "WordScrambleCategories",
@@ -39,11 +39,11 @@ export default {
     },
   },
   methods: {
-    selectCategory(category) {
-      this.selectedCategory = category;
-    },
+    ...mapActions("wordScramble", ["selectCategory"]),
     startGame(category) {
+      // Set the selected category in the store
       this.selectCategory(category);
+      // Navigate to the game page
       this.$router.push({ name: "WordScrambleGame" });
     },
   },
