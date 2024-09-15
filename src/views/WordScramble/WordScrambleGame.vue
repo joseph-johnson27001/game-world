@@ -5,15 +5,9 @@
 
     <!-- Displaying the current progress of the word -->
     <div class="selected-letters">
-      <input
-        type="text"
-        v-model="userInputString"
-        class="letter-input"
-        @focus="focusInput"
-        ref="letterInput"
-        aria-label="Current word input"
-        readonly
-      />
+      <div class="letter-display">
+        {{ userInputString }}
+      </div>
     </div>
 
     <!-- Letter Tiles -->
@@ -88,11 +82,7 @@ export default {
       this.shuffleWord();
     }
 
-    this.$nextTick(() => {
-      this.focusInput();
-      document.addEventListener("click", this.handleDocumentClick);
-    });
-
+    document.addEventListener("click", this.handleDocumentClick);
     window.addEventListener("keydown", this.handleKeyInput);
   },
   beforeUnmount() {
@@ -154,24 +144,12 @@ export default {
       }
     },
 
-    focusInput() {
-      // Ensures the input is focused properly
-      this.$refs.letterInput.focus();
-    },
-
-    handleDocumentClick(event) {
-      if (!this.$refs.letterInput.contains(event.target)) {
-        this.focusInput();
-      }
-    },
-
     playAgain() {
       this.$router.push({ name: "WordScrambleCategories" });
     },
   },
 };
 </script>
-
 <style scoped>
 .word-scramble-game {
   text-align: center;
@@ -191,19 +169,18 @@ export default {
   white-space: nowrap;
 }
 
-.letter-input {
+.letter-display {
   font-size: 1.5em;
   border: none;
   background: transparent;
   text-align: center;
   width: 100%;
   min-height: 50px;
-  cursor: text;
+  cursor: default;
   outline: none;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  position: relative; /* Ensure it stays in place */
 }
 
 .letter-container {
