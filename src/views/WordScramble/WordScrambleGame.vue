@@ -4,10 +4,14 @@
     <h1>{{ currentCategory.name }}</h1>
 
     <!-- Displaying the current progress of the word -->
-    <div class="word-display">
-      <span v-for="(letter, index) in userInput" :key="index" class="letter">
+    <div class="selected-letters">
+      <div
+        v-for="(letter, index) in userInput"
+        :key="index"
+        class="letter-tile selected"
+      >
         {{ letter }}
-      </span>
+      </div>
     </div>
 
     <!-- Letter Tiles -->
@@ -23,30 +27,41 @@
       </button>
     </div>
 
+    <!-- Delete Button -->
+    <div class="controls">
+      <button
+        @click="removeLastLetter"
+        class="delete-button"
+        :disabled="userInput.length === 0"
+      >
+        DEL
+      </button>
+    </div>
+
     <!-- Game Status -->
     <div v-if="completed">
       <p>Congratulations! You've completed the game.</p>
     </div>
   </div>
 </template>
+
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "WordScrambleGame",
   data() {
     return {
-      currentWordIndex: 0, // Track the current word
+      currentWordIndex: 0, // Keep track of the current word
       shuffledLetters: [], // Shuffled letters for the current word
       userInput: [], // User's constructed word
-      clickedTiles: [], // To track which tiles are clicked
-      completed: false, // Track if the game is completed
+      clickedTiles: [], // To keep track of which tiles have been clicked
+      completed: false, // Whether the game is finished
     };
   },
   computed: {
     ...mapGetters("wordScramble", ["getCurrentCategory"]),
     currentCategory() {
-      // Just return the current category
       return this.getCurrentCategory || { name: "", words: [] };
     },
     currentWord() {
@@ -54,7 +69,7 @@ export default {
     },
   },
   watch: {
-    // Shuffle the word whenever the current word changes
+    // When the component is mounted or the word changes, shuffle the letters
     currentWord() {
       this.shuffleWord();
       this.userInput = [];
@@ -62,21 +77,32 @@ export default {
     },
   },
   mounted() {
-    // Check if the current category is null and redirect if needed
-    if (!this.currentCategory || !this.currentCategory.name) {
+    // If no category is selected, redirect back to category selection
+    if (!this.currentCategory) {
       this.$router.push({ name: "WordScrambleCategories" });
     } else {
       this.shuffleWord();
     }
+
+    // Listen for keyboard input
+    window.addEventListener("keydown", this.handleKeyInput);
+  },
+  beforeUnmount() {
+    // Changed from beforeDestroy to beforeUnmount
+    // Remove the keyboard listener when the component is destroyed
+    window.removeEventListener("keydown", this.handleKeyInput);
   },
   methods: {
+    ...mapActions("wordScramble", ["selectCategory"]),
+
     // Shuffle the letters of the current word
     shuffleWord() {
       this.shuffledLetters = this.currentWord
         .split("")
         .sort(() => Math.random() - 0.5);
     },
-    // Handle letter selection
+
+    // Handle when a letter tile is clicked
     selectLetter(letter, index) {
       this.userInput.push(letter);
       this.clickedTiles.push(index);
@@ -92,6 +118,7 @@ export default {
         }
       }
     },
+
     // Move to the next word, or finish the game after 3 words
     nextWord() {
       if (this.currentWordIndex < 2) {
@@ -99,6 +126,30 @@ export default {
         this.shuffleWord();
       } else {
         this.completed = true; // End the game after 3 words
+      }
+    },
+
+    // Remove the last letter and re-enable the corresponding tile
+    removeLastLetter() {
+      const lastLetter = this.userInput.pop(); // Remove the last letter from userInput
+      const letterIndex = this.shuffledLetters.findIndex(
+        (letter, index) =>
+          letter === lastLetter && this.clickedTiles.includes(index)
+      );
+      this.clickedTiles.splice(this.clickedTiles.indexOf(letterIndex), 1); // Re-enable the tile
+    },
+
+    // Handle keyboard input
+    handleKeyInput(event) {
+      const key = event.key.toUpperCase();
+      const letterIndex = this.shuffledLetters.findIndex(
+        (letter, index) => letter === key && !this.clickedTiles.includes(index)
+      );
+
+      if (letterIndex !== -1) {
+        this.selectLetter(this.shuffledLetters[letterIndex], letterIndex);
+      } else if (event.key === "Backspace") {
+        this.removeLastLetter();
       }
     },
   },
@@ -110,14 +161,12 @@ export default {
   text-align: center;
 }
 
-.word-display {
-  font-size: 2em;
+.selected-letters {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
   margin-bottom: 20px;
-}
-
-.letter {
-  display: inline-block;
-  margin: 0 10px;
+  min-height: 100px; /* Fixed height for selected letters */
 }
 
 .letter-container {
@@ -125,6 +174,8 @@ export default {
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
+  margin-bottom: 20px;
+  min-height: 100px; /* Fixed height for letter tiles */
 }
 
 .letter-tile {
@@ -138,6 +189,10 @@ export default {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
+.letter-tile.selected {
+  background-color: #e8e0d0; /* Lighter color for selected letters */
+}
+
 .letter-tile:disabled {
   background-color: #b3a089; /* Disabled tile color */
   cursor: not-allowed;
@@ -145,6 +200,25 @@ export default {
 
 .letter-tile:hover {
   transform: scale(1.1);
+}
+
+.controls {
+  margin-top: 20px;
+}
+
+.delete-button {
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-button:disabled {
+  background-color: #b3a089;
+  cursor: not-allowed;
 }
 
 .completed {

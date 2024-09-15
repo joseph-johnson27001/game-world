@@ -1,46 +1,23 @@
 <template>
-  <div class="word-scramble-game">
-    <!-- Category Name -->
-    <h1>{{ currentCategory.name }}</h1>
-
-    <!-- Displaying the current progress of the word -->
-    <div class="selected-letters">
+  <div class="word-scramble-categories">
+    <h1>Select Category</h1>
+    <div class="card-container">
       <div
-        v-for="(letter, index) in userInput"
-        :key="index"
-        class="letter-tile selected"
+        v-for="category in categories"
+        :key="category.id"
+        class="category-item"
       >
-        {{ letter }}
+        <div
+          class="category-card"
+          :class="{
+            selected: selectedCategory && selectedCategory.id === category.id,
+          }"
+          @click="startGame(category)"
+        >
+          <img src="/game-tile.jpg" alt="Category Image" />
+        </div>
+        <div class="category-name">{{ category.name }}</div>
       </div>
-    </div>
-
-    <!-- Letter Tiles -->
-    <div class="letter-container">
-      <button
-        v-for="(letter, index) in shuffledLetters"
-        :key="index"
-        class="letter-tile"
-        :disabled="clickedTiles.includes(index)"
-        @click="selectLetter(letter, index)"
-      >
-        {{ letter }}
-      </button>
-    </div>
-
-    <!-- Delete Button -->
-    <div class="controls">
-      <button
-        @click="removeLastLetter"
-        class="delete-button"
-        :disabled="userInput.length === 0"
-      >
-        Delete
-      </button>
-    </div>
-
-    <!-- Game Status -->
-    <div v-if="completed">
-      <p>Congratulations! You've completed the game.</p>
     </div>
   </div>
 </template>
@@ -49,181 +26,81 @@
 import { mapGetters, mapActions } from "vuex";
 
 export default {
-  name: "WordScrambleGame",
+  name: "WordScrambleCategories",
   data() {
     return {
-      currentWordIndex: 0, // Keep track of the current word
-      shuffledLetters: [], // Shuffled letters for the current word
-      userInput: [], // User's constructed word
-      clickedTiles: [], // To keep track of which tiles have been clicked
-      completed: false, // Whether the game is finished
+      selectedCategory: null,
     };
   },
   computed: {
-    ...mapGetters("wordScramble", ["getCurrentCategory"]),
-    currentCategory() {
-      return this.getCurrentCategory || { name: "", words: [] };
+    ...mapGetters("wordScramble", ["getCategories"]),
+    categories() {
+      return this.getCategories;
     },
-    currentWord() {
-      return this.currentCategory.words[this.currentWordIndex] || "";
-    },
-  },
-  watch: {
-    // When the component is mounted or the word changes, shuffle the letters
-    currentWord() {
-      this.shuffleWord();
-      this.userInput = [];
-      this.clickedTiles = [];
-    },
-  },
-  mounted() {
-    // If no category is selected, redirect back to category selection
-    if (!this.currentCategory) {
-      this.$router.push({ name: "WordScrambleCategories" });
-    } else {
-      this.shuffleWord();
-    }
-
-    // Listen for keyboard input
-    window.addEventListener("keydown", this.handleKeyInput);
-  },
-  beforeUnmount() {
-    // Changed from beforeDestroy to beforeUnmount
-    // Remove the keyboard listener when the component is destroyed
-    window.removeEventListener("keydown", this.handleKeyInput);
   },
   methods: {
     ...mapActions("wordScramble", ["selectCategory"]),
-
-    // Shuffle the letters of the current word
-    shuffleWord() {
-      this.shuffledLetters = this.currentWord
-        .split("")
-        .sort(() => Math.random() - 0.5);
-    },
-
-    // Handle when a letter tile is clicked
-    selectLetter(letter, index) {
-      this.userInput.push(letter);
-      this.clickedTiles.push(index);
-
-      // Check if the user has completed the word
-      if (this.userInput.length === this.currentWord.length) {
-        if (this.userInput.join("") === this.currentWord) {
-          this.nextWord();
-        } else {
-          alert("Incorrect! Try again.");
-          this.userInput = [];
-          this.clickedTiles = [];
-        }
-      }
-    },
-
-    // Move to the next word, or finish the game after 3 words
-    nextWord() {
-      if (this.currentWordIndex < 2) {
-        this.currentWordIndex++;
-        this.shuffleWord();
-      } else {
-        this.completed = true; // End the game after 3 words
-      }
-    },
-
-    // Remove the last letter and re-enable the corresponding tile
-    removeLastLetter() {
-      const lastLetter = this.userInput.pop(); // Remove the last letter from userInput
-      const letterIndex = this.shuffledLetters.findIndex(
-        (letter, index) =>
-          letter === lastLetter && this.clickedTiles.includes(index)
-      );
-      this.clickedTiles.splice(this.clickedTiles.indexOf(letterIndex), 1); // Re-enable the tile
-    },
-
-    // Handle keyboard input
-    handleKeyInput(event) {
-      const key = event.key.toUpperCase();
-      const letterIndex = this.shuffledLetters.findIndex(
-        (letter, index) => letter === key && !this.clickedTiles.includes(index)
-      );
-
-      if (letterIndex !== -1) {
-        this.selectLetter(this.shuffledLetters[letterIndex], letterIndex);
-      } else if (event.key === "Backspace") {
-        this.removeLastLetter();
-      }
+    startGame(category) {
+      // Set the selected category in the store
+      this.selectCategory(category);
+      // Navigate to the game page
+      this.$router.push({ name: "WordScrambleGame" });
     },
   },
 };
 </script>
 
 <style scoped>
-.word-scramble-game {
+.word-scramble-categories {
   text-align: center;
 }
 
-.selected-letters {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px;
-  min-height: 100px; /* Fixed height for selected letters */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
-.letter-container {
+.category-item {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 20px;
-  min-height: 100px; /* Fixed height for letter tiles */
+  flex-direction: column;
+  align-items: center;
 }
 
-.letter-tile {
-  background-color: #d8bf8e; /* Scrabble tile color */
-  border-radius: 5px;
-  padding: 20px;
-  font-size: 1.5em;
-  border: none;
+.category-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  max-height: 100px;
+  max-width: 100px;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
   cursor: pointer;
   transition: transform 0.2s;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-.letter-tile.selected {
-  background-color: #e8e0d0;
+.category-card:hover {
+  transform: scale(1.05);
 }
 
-.letter-tile:disabled {
-  background-color: #b3a089;
-  cursor: not-allowed;
+.category-card img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
 }
 
-.letter-tile:hover {
-  transform: scale(1.1);
+.category-name {
+  margin-top: 8px;
+  font-size: 1.2em;
 }
 
-.controls {
-  margin-top: 20px;
-}
-
-.delete-button {
-  padding: 10px 20px;
-  font-size: 1em;
-  background-color: #d9534f;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.delete-button:disabled {
-  background-color: #b3a089;
-  cursor: not-allowed;
-}
-
-.completed {
-  margin-top: 20px;
-  font-size: 1.5em;
-  color: green;
+@media (max-width: 768px) {
+  .card-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 </style>
