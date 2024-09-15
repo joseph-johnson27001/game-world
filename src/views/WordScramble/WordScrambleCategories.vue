@@ -1,5 +1,6 @@
 <template>
   <div class="word-scramble-categories">
+    <!-- Category Selection -->
     <h1>Select Category</h1>
     <div class="card-container">
       <div
@@ -19,6 +20,23 @@
         <div class="category-name">{{ category.name }}</div>
       </div>
     </div>
+    <!-- Back Button -->
+    <button class="back-button" @click="goBack">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="feather feather-chevron-left"
+      >
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
   </div>
 </template>
 
@@ -46,6 +64,10 @@ export default {
       // Navigate to the game page
       this.$router.push({ name: "WordScrambleGame" });
     },
+    goBack() {
+      // Navigate back to the game selection page
+      this.$router.go(-1);
+    },
   },
 };
 </script>
@@ -53,6 +75,27 @@ export default {
 <style scoped>
 .word-scramble-categories {
   text-align: center;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 50px;
+}
+
+.back-button svg {
+  width: 40px;
+  height: 40px;
+  stroke: #333;
+  transition: stroke 0.3s ease;
+}
+
+.back-button svg:hover {
+  stroke: #000;
 }
 
 .card-container {
