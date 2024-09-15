@@ -164,6 +164,7 @@ export default {
 .selected-letters {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 10px;
   margin-bottom: 20px;
   min-height: 100px; /* Fixed height for selected letters */
