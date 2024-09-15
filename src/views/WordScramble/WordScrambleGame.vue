@@ -36,10 +36,10 @@
     <!-- Game Status -->
     <div v-if="completed">
       <p>Congratulations! You've completed the game.</p>
+      <button @click="playAgain" class="play-again-button">Play Again?</button>
     </div>
   </div>
 </template>
-
 <script>
 import { mapGetters, mapActions } from "vuex";
 
@@ -147,6 +147,11 @@ export default {
         this.removeLastLetter();
       }
     },
+
+    // Navigate back to the word scramble categories page
+    playAgain() {
+      this.$router.push({ name: "WordScrambleCategories" });
+    },
   },
 };
 </script>
@@ -235,5 +240,18 @@ export default {
   margin-top: 20px;
   font-size: 1.5em;
   color: green;
+}
+
+.play-again-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #05bdba; /* Pastel blue color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  min-height: 60px;
+  min-width: 60px;
 }
 </style>
