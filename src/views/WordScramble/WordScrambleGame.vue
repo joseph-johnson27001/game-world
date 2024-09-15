@@ -68,8 +68,9 @@ export default {
       clickedTiles: [],
       completed: false,
       isCorrect: false,
-      timer: 60, // starting timer value in seconds
+      timer: 60,
       timerInterval: null,
+      score: 0,
     };
   },
   computed: {
@@ -122,7 +123,7 @@ export default {
     },
 
     selectLetter(letter, index) {
-      if (this.completed) return; // Prevent selection if the game is completed
+      if (this.completed) return;
 
       this.userInput.push(letter);
       this.clickedTiles.push(index);
@@ -130,6 +131,7 @@ export default {
       if (this.userInput.length === this.currentWord.length) {
         if (this.userInput.join("") === this.currentWord) {
           this.isCorrect = true;
+          this.score++; // Increment the score for a correct word
           setTimeout(() => {
             this.isCorrect = false;
             this.nextWord();
@@ -150,7 +152,6 @@ export default {
       } else {
         this.completed = true;
         this.stopTimer();
-        this.viewResults();
       }
     },
 
@@ -187,12 +188,17 @@ export default {
     },
 
     startTimer() {
+      this.timer = 60; // Ensure the timer starts at the correct initial value
       this.timerInterval = setInterval(() => {
         if (this.timer > 0) {
           this.timer--;
         } else {
           this.completed = true;
           clearInterval(this.timerInterval);
+          this.$store.dispatch("wordScramble/setGameResults", {
+            score: this.score,
+            time: 60 - this.timer, // Total time used
+          });
           this.viewResults();
         }
       }, 1000);
@@ -200,6 +206,14 @@ export default {
 
     stopTimer() {
       clearInterval(this.timerInterval);
+      if (!this.completed) {
+        // Only record results if the game is not already completed
+        this.$store.commit("wordScramble/setGameResults", {
+          score: this.score,
+          time: 60 - this.timer, // Total time used
+        });
+        this.viewResults();
+      }
     },
   },
 };

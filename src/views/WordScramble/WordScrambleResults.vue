@@ -2,6 +2,7 @@
   <div class="word-scramble-results">
     <h1>Game Results</h1>
     <p>Your score: {{ score }}</p>
+    <p>Time Taken: {{ formattedTime }}</p>
     <button @click="playAgain" class="play-again-button">Play Again</button>
   </div>
 </template>
@@ -9,14 +10,20 @@
 <script>
 export default {
   name: "WordScrambleResults",
-  data() {
-    return {
-      score: 0,
-    };
+  computed: {
+    score() {
+      return this.$store.getters["wordScramble/getScore"];
+    },
+    time() {
+      return this.$store.getters["wordScramble/getTime"];
+    },
+    formattedTime() {
+      const minutes = Math.floor(this.time / 60);
+      const seconds = this.time % 60;
+      return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+    },
   },
-  mounted() {
-    this.score = this.$store.getters["wordScramble/getScore"]; // Adjust as needed
-  },
+
   methods: {
     playAgain() {
       this.$router.push({ name: "WordScrambleCategories" });

@@ -247,15 +247,25 @@ export default {
       },
     ],
     currentCategory: null,
+    gameResults: {
+      score: 0,
+      time: 0,
+    },
   },
   mutations: {
     setCategory(state, category) {
       state.currentCategory = category;
     },
+    setGameResults(state, results) {
+      state.gameResults = results;
+    },
   },
   actions: {
     selectCategory({ commit }, category) {
       commit("setCategory", category);
+    },
+    setGameResults({ commit }, results) {
+      commit("setGameResults", results);
     },
   },
   getters: {
@@ -264,6 +274,12 @@ export default {
     },
     getCurrentCategory(state) {
       return state.currentCategory;
+    },
+    getScore(state) {
+      return state.gameResults.score;
+    },
+    getTime(state) {
+      return state.gameResults.time;
     },
   },
 };
