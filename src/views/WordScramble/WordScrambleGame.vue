@@ -8,11 +8,11 @@
       <input
         type="text"
         v-model="userInputString"
-        readonly
         class="letter-input"
-        @click="focusInput"
+        @focus="focusInput"
         ref="letterInput"
         aria-label="Current word input"
+        readonly
       />
     </div>
 
@@ -55,11 +55,11 @@ export default {
   name: "WordScrambleGame",
   data() {
     return {
-      currentWordIndex: 0, // Keep track of the current word
-      shuffledLetters: [], // Shuffled letters for the current word
-      userInput: [], // User's constructed word
-      clickedTiles: [], // To keep track of which tiles have been clicked
-      completed: false, // Whether the game is finished
+      currentWordIndex: 0,
+      shuffledLetters: [],
+      userInput: [],
+      clickedTiles: [],
+      completed: false,
     };
   },
   computed: {
@@ -75,7 +75,6 @@ export default {
     },
   },
   watch: {
-    // When the component is mounted or the word changes, shuffle the letters
     currentWord() {
       this.shuffleWord();
       this.userInput = [];
@@ -83,43 +82,36 @@ export default {
     },
   },
   mounted() {
-    // If no category is selected, redirect back to category selection
     if (!this.currentCategory) {
       this.$router.push({ name: "WordScrambleCategories" });
     } else {
       this.shuffleWord();
     }
 
-    // Ensure that the input field is focused after the component is mounted
     this.$nextTick(() => {
       this.focusInput();
       document.addEventListener("click", this.handleDocumentClick);
     });
 
-    // Listen for keyboard input
     window.addEventListener("keydown", this.handleKeyInput);
   },
   beforeUnmount() {
-    // Remove event listeners when the component is destroyed
     document.removeEventListener("click", this.handleDocumentClick);
     window.removeEventListener("keydown", this.handleKeyInput);
   },
   methods: {
     ...mapActions("wordScramble", ["selectCategory"]),
 
-    // Shuffle the letters of the current word
     shuffleWord() {
       this.shuffledLetters = this.currentWord
         .split("")
         .sort(() => Math.random() - 0.5);
     },
 
-    // Handle when a letter tile is clicked
     selectLetter(letter, index) {
       this.userInput.push(letter);
       this.clickedTiles.push(index);
 
-      // Check if the user has completed the word
       if (this.userInput.length === this.currentWord.length) {
         if (this.userInput.join("") === this.currentWord) {
           this.nextWord();
@@ -131,27 +123,24 @@ export default {
       }
     },
 
-    // Move to the next word, or finish the game after 3 words
     nextWord() {
       if (this.currentWordIndex < 2) {
         this.currentWordIndex++;
         this.shuffleWord();
       } else {
-        this.completed = true; // End the game after 3 words
+        this.completed = true;
       }
     },
 
-    // Remove the last letter and re-enable the corresponding tile
     removeLastLetter() {
-      const lastLetter = this.userInput.pop(); // Remove the last letter from userInput
+      const lastLetter = this.userInput.pop();
       const letterIndex = this.shuffledLetters.findIndex(
         (letter, index) =>
           letter === lastLetter && this.clickedTiles.includes(index)
       );
-      this.clickedTiles.splice(this.clickedTiles.indexOf(letterIndex), 1); // Re-enable the tile
+      this.clickedTiles.splice(this.clickedTiles.indexOf(letterIndex), 1);
     },
 
-    // Handle keyboard input
     handleKeyInput(event) {
       const key = event.key.toUpperCase();
       const letterIndex = this.shuffledLetters.findIndex(
@@ -165,21 +154,17 @@ export default {
       }
     },
 
-    // Focus on the input field
     focusInput() {
-      if (this.$refs.letterInput) {
-        this.$refs.letterInput.focus();
-      }
+      // Ensures the input is focused properly
+      this.$refs.letterInput.focus();
     },
 
-    // Handle clicks outside of the input to prevent losing focus
     handleDocumentClick(event) {
       if (!this.$refs.letterInput.contains(event.target)) {
         this.focusInput();
       }
     },
 
-    // Navigate back to the word scramble categories page
     playAgain() {
       this.$router.push({ name: "WordScrambleCategories" });
     },
@@ -218,6 +203,7 @@ export default {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  position: relative; /* Ensure it stays in place */
 }
 
 .letter-container {
