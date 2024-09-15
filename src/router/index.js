@@ -3,6 +3,7 @@ import GameSelection from "../views/GameSelection.vue";
 import WordScrambleCategories from "../views/WordScramble/WordScrambleCategories.vue";
 import WordScrambleGame from "../views/WordScramble/WordScrambleGame.vue";
 import WordScrambleResults from "../views/WordScramble/WordScrambleResults.vue";
+import WordScrambleFormat from "../views/WordScramble/WordScrambleGameFormat.vue";
 
 const routes = [
   { path: "/", name: "GameSelection", component: GameSelection },
@@ -20,6 +21,11 @@ const routes = [
     path: "/word-scramble/results",
     name: "WordScrambleResults",
     component: WordScrambleResults,
+  },
+  {
+    path: "/word-scramble/format",
+    name: "WordScrambleFormat",
+    component: WordScrambleFormat,
   },
   // More routes for other games can be added here
 ];
