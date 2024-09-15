@@ -5,13 +5,8 @@
 
     <!-- Displaying the current progress of the word -->
     <div class="selected-letters">
-      <div
-        v-for="(letter, index) in userInput"
-        :key="index"
-        class="letter-tile selected"
-      >
-        {{ letter }}
-      </div>
+      <p>{{ userInput.join("") }}</p>
+      <!-- Display the input as continuous text -->
     </div>
 
     <!-- Letter Tiles -->
@@ -155,7 +150,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 .word-scramble-game {
   text-align: center;
@@ -167,10 +161,19 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-  min-height: 100px;
+  margin-bottom: 10px;
+  min-height: 50px;
   border-bottom: 2px solid #d8bf8e;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.selected-letters p {
+  font-size: 1.5em;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .letter-container {
@@ -190,8 +193,8 @@ export default {
   cursor: pointer;
   transition: transform 0.2s;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  min-height: 75px;
-  min-width: 75px;
+  min-height: 60px;
+  min-width: 60px;
 }
 
 .letter-tile.selected {
@@ -219,8 +222,8 @@ export default {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  min-height: 75px;
-  min-width: 75px;
+  min-height: 60px;
+  min-width: 60px;
 }
 
 .delete-button:disabled {
