@@ -149,7 +149,7 @@ export default {
     },
 
     nextWord() {
-      if (this.currentWordIndex < 19) {
+      if (this.currentWordIndex < this.currentCategory.words.length - 1) {
         this.currentWordIndex++;
         this.shuffleWord();
       } else {
@@ -210,12 +210,13 @@ export default {
     stopTimer() {
       clearInterval(this.timerInterval);
       if (!this.completed) {
-        this.$store.commit("wordScramble/setGameResults", {
-          score: this.score,
-          time: 60 - this.timer,
-        });
-        this.viewResults();
+        this.completed = true;
       }
+      this.$store.dispatch("wordScramble/setGameResults", {
+        score: this.score,
+        time: 60 - this.timer,
+      });
+      this.viewResults();
     },
   },
 };
