@@ -112,10 +112,8 @@ export default {
     window.addEventListener("keydown", this.handleKeyInput);
   },
   beforeUnmount() {
-    this.completed = true;
     document.removeEventListener("click", this.handleDocumentClick);
     window.removeEventListener("keydown", this.handleKeyInput);
-    this.stopTimer();
   },
   methods: {
     ...mapActions("wordScramble", ["selectCategory"]),
@@ -217,6 +215,12 @@ export default {
         time: 60 - this.timer,
       });
       this.viewResults();
+    },
+
+    handleNavigation() {
+      if (this.completed) {
+        this.stopTimer();
+      }
     },
   },
 };
