@@ -2,8 +2,8 @@
 <template>
   <div id="app">
     <!-- Back Button Component -->
-    <BackButton />
     <main>
+      <BackButton />
       <router-view />
     </main>
   </div>
@@ -28,6 +28,7 @@ export default {
 }
 
 #app {
+  position: relative;
   background-color: #e0e0d2;
   display: flex;
   font-family: "Patrick Hand", cursive;

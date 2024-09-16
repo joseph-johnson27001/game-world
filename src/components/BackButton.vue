@@ -49,7 +49,7 @@ export default {
 
 <style scoped>
 .back-button {
-  position: fixed;
+  position: relative;
   top: 30px;
   left: 20px;
   background: none;
@@ -59,6 +59,7 @@ export default {
   align-items: center;
   justify-content: center;
   width: 30px;
+  min-width: 30px;
   height: 30px;
   border-radius: 50%;
   background-color: #eaeae1;
