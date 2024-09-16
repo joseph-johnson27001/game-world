@@ -89,7 +89,7 @@ h1 {
   font-size: 1.2em;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 540px) {
   .card-container {
     grid-template-columns: repeat(3, 1fr);
   }

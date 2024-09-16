@@ -99,7 +99,7 @@ export default {
   font-size: 1.2em;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .card-container {
     grid-template-columns: repeat(3, 1fr);
   }
