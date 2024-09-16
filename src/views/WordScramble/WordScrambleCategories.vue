@@ -4,11 +4,7 @@
     <div class="heading-container">
       <!-- HIDDEN CLOCK FOR LEFT HAND SIDE - REMOVE LATER -->
       <span>
-        <button
-          class="clock-button"
-          style="display: none"
-          @click="goToSettings"
-        >
+        <button class="clock-button" style="opacity: 0" @click="goToSettings">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
