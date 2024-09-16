@@ -1,5 +1,8 @@
+<!-- src/App.vue -->
 <template>
   <div id="app">
+    <!-- Back Button Component -->
+    <BackButton />
     <main>
       <router-view />
     </main>
@@ -7,7 +10,14 @@
 </template>
 
 <script>
-export default {};
+import BackButton from "./components/BackButton.vue";
+
+export default {
+  name: "App",
+  components: {
+    BackButton,
+  },
+};
 </script>
 
 <style>
@@ -27,18 +37,18 @@ export default {};
 
 main {
   max-width: 768px;
-  width: 100%;
+  width: 95vw;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   min-height: 100vh;
-  padding-top: 40px;
 }
 
 h1 {
   color: black;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 100;
   margin-bottom: 20px;
+  padding-top: 20px;
 }
 </style>

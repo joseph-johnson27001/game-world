@@ -52,23 +52,6 @@
         DEL
       </button>
     </div>
-    <!-- Back Button -->
-    <button class="back-button" @click="goBack">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="feather feather-chevron-left"
-      >
-        <polyline points="15 18 9 12 15 6"></polyline>
-      </svg>
-    </button>
   </div>
 </template>
 
@@ -121,11 +104,11 @@ export default {
       this.shuffleWord();
       this.startTimer();
     }
-
     document.addEventListener("click", this.handleDocumentClick);
     window.addEventListener("keydown", this.handleKeyInput);
   },
   beforeUnmount() {
+    this.completed = true;
     document.removeEventListener("click", this.handleDocumentClick);
     window.removeEventListener("keydown", this.handleKeyInput);
     this.stopTimer();
@@ -230,11 +213,6 @@ export default {
         this.viewResults();
       }
     },
-
-    goBack() {
-      this.completed = true;
-      this.$router.push({ name: "WordScrambleCategories" });
-    },
   },
 };
 </script>
@@ -245,28 +223,6 @@ export default {
   max-width: 600px;
   margin: 0 auto;
   padding: 0 10px;
-}
-
-.back-button {
-  margin-top: 20px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-bottom: 20px;
-}
-
-.back-button svg {
-  width: 40px;
-  height: 40px;
-  stroke: #333;
-  transition: stroke 0.3s ease;
-}
-
-.back-button svg:hover {
-  stroke: #000;
 }
 
 .timer {

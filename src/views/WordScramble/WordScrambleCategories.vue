@@ -1,24 +1,8 @@
 <template>
   <div class="word-scramble-categories">
-    <!-- Back Button -->
-    <button class="back-button" @click="goBack">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="feather feather-chevron-left"
-      >
-        <polyline points="15 18 9 12 15 6"></polyline>
-      </svg>
-    </button>
     <!-- Category Selection -->
     <h1>Select Category</h1>
+
     <div class="card-container">
       <div
         v-for="category in categories"
@@ -72,26 +56,7 @@ export default {
 <style scoped>
 .word-scramble-categories {
   text-align: center;
-}
-
-.back-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  /* margin-top: 50px; */
-}
-
-.back-button svg {
-  width: 25px;
-  height: 25px;
-  stroke: #333;
-}
-
-.back-button:hover {
-  background-color: white;
+  position: relative;
 }
 
 .card-container {
