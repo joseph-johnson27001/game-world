@@ -92,10 +92,6 @@ export default {
 </script>
 
 <style scoped>
-.game-format-options {
-  margin-top: 20px;
-}
-
 h3 {
   margin: 10px 0;
 }
