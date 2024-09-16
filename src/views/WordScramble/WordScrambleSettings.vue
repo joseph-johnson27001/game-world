@@ -15,21 +15,21 @@
         <div
           class="format-option"
           :class="{ active: selectedOption === '60s' }"
-          @click="selectOption('60s')"
+          @click="selectOption('timed', '60s')"
         >
           1 minute
         </div>
         <div
           class="format-option"
           :class="{ active: selectedOption === '120s' }"
-          @click="selectOption('120s')"
+          @click="selectOption('timed', '120s')"
         >
           2 minutes
         </div>
         <div
           class="format-option"
           :class="{ active: selectedOption === '5min' }"
-          @click="selectOption('5min')"
+          @click="selectOption('timed', '5min')"
         >
           5 minutes
         </div>
@@ -41,21 +41,21 @@
         <div
           class="format-option"
           :class="{ active: selectedOption === '10rounds' }"
-          @click="selectOption('10rounds')"
+          @click="selectOption('rounds', '10rounds')"
         >
           10 Rounds
         </div>
         <div
           class="format-option"
           :class="{ active: selectedOption === '20rounds' }"
-          @click="selectOption('20rounds')"
+          @click="selectOption('rounds', '20rounds')"
         >
           20 Rounds
         </div>
         <div
           class="format-option"
           :class="{ active: selectedOption === '40rounds' }"
-          @click="selectOption('40rounds')"
+          @click="selectOption('rounds', '40rounds')"
         >
           40 Rounds
         </div>
@@ -67,7 +67,7 @@
         <div
           class="format-option"
           :class="{ active: selectedOption === 'freePlay' }"
-          @click="selectOption('freePlay')"
+          @click="selectOption('freePlay', 'freePlay')"
         >
           Free Play
         </div>
@@ -77,16 +77,35 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   data() {
     return {
-      selectedOption: "",
+      selectedOption: "", // Stores the currently selected option locally
     };
   },
-  methods: {
-    selectOption(option) {
-      this.selectedOption = option;
+  computed: {
+    ...mapGetters("wordScramble", ["getGameFormat"]),
+    prettyState() {
+      // Return the Vuex state as a pretty JSON string
+      return JSON.stringify(this.$store.state, null, 2);
     },
+  },
+  methods: {
+    ...mapActions("wordScramble", ["selectGameFormat"]),
+
+    selectOption(type, value) {
+      this.selectedOption = value;
+      this.selectGameFormat({ type, value });
+    },
+  },
+  mounted() {
+    // Initialize the local selectedOption from Vuex store if there's already a selected game format
+    const currentFormat = this.getGameFormat;
+    if (currentFormat && currentFormat.value) {
+      this.selectedOption = currentFormat.value;
+    }
   },
 };
 </script>
@@ -122,5 +141,13 @@ h3 {
   color: black;
   border: 1px solid black;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+pre {
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 5px;
+  max-height: 300px;
+  overflow: auto;
 }
 </style>

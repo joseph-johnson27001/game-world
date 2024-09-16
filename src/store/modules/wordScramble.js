@@ -251,6 +251,10 @@ export default {
       score: 0,
       time: 0,
     },
+    gameFormat: {
+      type: null,
+      value: null,
+    },
   },
   mutations: {
     setCategory(state, category) {
@@ -259,6 +263,10 @@ export default {
     setGameResults(state, results) {
       state.gameResults = results;
     },
+    setGameFormat(state, format) {
+      state.gameFormat.type = format.type;
+      state.gameFormat.value = format.value;
+    },
   },
   actions: {
     selectCategory({ commit }, category) {
@@ -266,6 +274,9 @@ export default {
     },
     setGameResults({ commit }, results) {
       commit("setGameResults", results);
+    },
+    selectGameFormat({ commit }, format) {
+      commit("setGameFormat", format);
     },
   },
   getters: {
@@ -280,6 +291,9 @@ export default {
     },
     getTime(state) {
       return state.gameResults.time;
+    },
+    getGameFormat(state) {
+      return state.gameFormat;
     },
   },
 };
