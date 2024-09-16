@@ -2,27 +2,53 @@
   <div class="word-scramble-categories">
     <!-- Category Selection -->
     <div class="heading-container">
-      <span></span>
+      <!-- HIDDEN CLOCK FOR LEFT HAND SIDE - REMOVE LATER -->
+      <span>
+        <button
+          class="clock-button"
+          style="display: none"
+          @click="goToSettings"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-stopwatch"
+          >
+            <circle cx="12" cy="13" r="8" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="1" x2="12" y2="4" />
+            <line x1="17" y1="4" x2="7" y2="4" />
+            <polyline points="19.2 5.6 17 4 19.2 2.4" />
+          </svg>
+        </button>
+      </span>
       <h1>Select Category</h1>
       <!-- Stopwatch Icon Button -->
-      <button class="clock-button" @click="goToSettings">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="feather feather-stopwatch"
-        >
-          <circle cx="12" cy="13" r="8" />
-          <line x1="12" y1="9" x2="12" y2="13" />
-          <line x1="12" y1="1" x2="12" y2="4" />
-          <line x1="17" y1="4" x2="7" y2="4" />
-          <polyline points="19.2 5.6 17 4 19.2 2.4" />
-        </svg>
-      </button>
+      <span>
+        <button class="clock-button" @click="goToSettings">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-stopwatch"
+          >
+            <circle cx="12" cy="13" r="8" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="1" x2="12" y2="4" />
+            <line x1="17" y1="4" x2="7" y2="4" />
+            <polyline points="19.2 5.6 17 4 19.2 2.4" />
+          </svg>
+        </button>
+      </span>
     </div>
 
     <div class="card-container">
