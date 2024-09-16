@@ -1,5 +1,22 @@
 <template>
   <div class="word-scramble-categories">
+    <!-- Back Button -->
+    <button class="back-button" @click="goBack">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="feather feather-chevron-left"
+      >
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+    </button>
     <!-- Category Selection -->
     <h1>Select Category</h1>
     <div class="card-container">
@@ -20,23 +37,6 @@
         <div class="category-name">{{ category.name }}</div>
       </div>
     </div>
-    <!-- Back Button -->
-    <button class="back-button" @click="goBack">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="feather feather-chevron-left"
-      >
-        <polyline points="15 18 9 12 15 6"></polyline>
-      </svg>
-    </button>
   </div>
 </template>
 
@@ -81,18 +81,17 @@ export default {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-top: 50px;
+  /* margin-top: 50px; */
 }
 
 .back-button svg {
-  width: 40px;
-  height: 40px;
+  width: 25px;
+  height: 25px;
   stroke: #333;
-  transition: stroke 0.3s ease;
 }
 
-.back-button svg:hover {
-  stroke: #000;
+.back-button:hover {
+  background-color: white;
 }
 
 .card-container {
