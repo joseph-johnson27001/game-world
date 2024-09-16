@@ -46,9 +46,6 @@ export default {
       this.selectCategory(category);
       this.$router.push({ name: "WordScrambleGame" });
     },
-    goBack() {
-      this.$router.push({ name: "GameSelection" });
-    },
   },
 };
 </script>
