@@ -45,10 +45,16 @@ main {
 }
 
 h1 {
-  color: black;
+  color: #001a33;
   font-size: 2.5rem;
   font-weight: 100;
-  margin-bottom: 20px;
+}
+
+.heading-container {
   padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 </style>

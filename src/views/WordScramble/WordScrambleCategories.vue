@@ -1,7 +1,29 @@
 <template>
   <div class="word-scramble-categories">
     <!-- Category Selection -->
-    <h1>Select Category</h1>
+    <div class="heading-container">
+      <span></span>
+      <h1>Select Category</h1>
+      <!-- Stopwatch Icon Button -->
+      <button class="clock-button" @click="goToSettings">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="feather feather-stopwatch"
+        >
+          <circle cx="12" cy="13" r="8" />
+          <line x1="12" y1="9" x2="12" y2="13" />
+          <line x1="12" y1="1" x2="12" y2="4" />
+          <line x1="17" y1="4" x2="7" y2="4" />
+          <polyline points="19.2 5.6 17 4 19.2 2.4" />
+        </svg>
+      </button>
+    </div>
 
     <div class="card-container">
       <div
@@ -45,6 +67,10 @@ export default {
     startGame(category) {
       this.selectCategory(category);
       this.$router.push({ name: "WordScrambleGame" });
+    },
+    goToSettings() {
+      // Route to WordScrambleSettings page
+      this.$router.push({ name: "WordScrambleSettings" });
     },
   },
 };
@@ -99,6 +125,23 @@ export default {
   font-size: 1.2em;
 }
 
+.clock-button {
+  margin-top: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock-button svg {
+  width: 34px;
+  height: 34px;
+  stroke: #001a33;
+  transition: stroke 0.3s ease;
+}
+
 @media (max-width: 540px) {
   .card-container {
     grid-template-columns: repeat(3, 1fr);
@@ -108,6 +151,22 @@ export default {
 @media (max-width: 360px) {
   .card-container {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .clock-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 10px;
+  }
+
+  .clock-button svg {
+    width: 32px;
+    height: 32px;
+    stroke: #000;
+    transition: stroke 0.3s ease;
   }
 }
 </style>

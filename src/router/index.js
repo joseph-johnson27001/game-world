@@ -1,8 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
 import GameSelection from "../views/GameSelection.vue";
+
+// WORD SCRAMBLE
 import WordScrambleCategories from "../views/WordScramble/WordScrambleCategories.vue";
 import WordScrambleGame from "../views/WordScramble/WordScrambleGame.vue";
 import WordScrambleResults from "../views/WordScramble/WordScrambleResults.vue";
+import WordScrambleSettings from "../views/WordScramble/WordScrambleSettings.vue";
 
 const routes = [
   { path: "/", name: "GameSelection", component: GameSelection },
@@ -20,6 +23,11 @@ const routes = [
     path: "/word-scramble/results",
     name: "WordScrambleResults",
     component: WordScrambleResults,
+  },
+  {
+    path: "/word-scramble/settings",
+    name: "WordScrambleSettings",
+    component: WordScrambleSettings,
   },
   // More routes for other games can be added here
 ];
