@@ -46,7 +46,7 @@ main {
 
 h1 {
   color: black;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: 100;
   margin-bottom: 20px;
   padding-top: 20px;

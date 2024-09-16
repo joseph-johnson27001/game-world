@@ -50,7 +50,7 @@ export default {
 <style scoped>
 .back-button {
   position: fixed;
-  top: 27px;
+  top: 35px;
   left: 20px;
   background: none;
   border: none;
