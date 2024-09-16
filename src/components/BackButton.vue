@@ -78,4 +78,10 @@ export default {
   stroke: #333;
   transition: color ease 0.2s;
 }
+
+@media (max-width: 360px) {
+  .back-button {
+    left: 5px;
+  }
+}
 </style>

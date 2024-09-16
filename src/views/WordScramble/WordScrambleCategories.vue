@@ -104,4 +104,10 @@ export default {
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+@media (max-width: 360px) {
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 </style>
