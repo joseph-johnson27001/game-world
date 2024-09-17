@@ -3,7 +3,7 @@
     <!-- Category Selection -->
     <div class="heading-container">
       <!-- HIDDEN CLOCK FOR LEFT HAND SIDE - REMOVE LATER -->
-      <span>
+      <!-- <span>
         <button class="clock-button" style="opacity: 0" @click="goToSettings">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -22,10 +22,12 @@
             <polyline points="19.2 5.6 17 4 19.2 2.4" />
           </svg>
         </button>
-      </span>
+      </span> -->
+      <span></span>
       <h1>Select Category</h1>
+      <span></span>
       <!-- Stopwatch Icon Button -->
-      <span>
+      <!-- <span>
         <button class="clock-button" @click="goToSettings">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +46,7 @@
             <polyline points="19.2 5.6 17 4 19.2 2.4" />
           </svg>
         </button>
-      </span>
+      </span> -->
     </div>
 
     <div class="card-container">
