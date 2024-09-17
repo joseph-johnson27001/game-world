@@ -54,7 +54,7 @@ export default {
           "FINLAND",
           "SOUTH KOREA",
         ],
-        image: "/WordScramble/countries-tile.JPG",
+        image: "/WordScramble/world-tile.JPG",
       },
       {
         id: 3,
