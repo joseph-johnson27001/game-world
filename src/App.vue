@@ -46,8 +46,8 @@ main {
 }
 
 h1 {
-  color: #001a33;
-  font-size: 3rem;
+  color: #000000;
+  font-size: 3.5rem;
   font-weight: 100;
 }
 

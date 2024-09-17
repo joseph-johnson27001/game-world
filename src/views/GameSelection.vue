@@ -54,8 +54,8 @@ export default {
           route: "PuzzleMania",
         },
         {
-          name: "Quiz Show",
-          image: "GameSelection/crossword4.JPG",
+          name: "Quiz World",
+          image: "GameSelection/quiz-tile.JPG",
           route: "QuizShow",
         },
         {
