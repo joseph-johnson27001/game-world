@@ -27,7 +27,7 @@ export default {
           "SHARK",
           "DOLPHIN",
         ],
-        image: "/WordScramble/world-tile.JPG",
+        image: "/WordScramble/animals-tile.JPG",
       },
       {
         id: 2,
@@ -81,7 +81,7 @@ export default {
           "SEOUL",
           "SAO PAULO",
         ],
-        image: "/WordScramble/world-tile.JPG",
+        image: "/WordScramble/cities-tile.JPG",
       },
       {
         id: 4,
