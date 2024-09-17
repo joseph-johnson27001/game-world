@@ -30,6 +30,23 @@
             <path d="M20 6L9 17l-5-5"></path>
           </svg>
         </span>
+        <span v-if="isFalse" class="cross-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-x"
+          >
+            <path d="M18 6L6 18"></path>
+            <path d="M6 6l12 12"></path>
+          </svg>
+        </span>
       </div>
     </div>
 
@@ -75,6 +92,7 @@ export default {
       timer: 60,
       timerInterval: null,
       score: 0,
+      isFalse: false,
     };
   },
   computed: {
@@ -139,9 +157,12 @@ export default {
             this.nextWord();
           }, 250);
         } else {
-          alert("Incorrect! Try again.");
-          this.userInput = [];
-          this.clickedTiles = [];
+          this.isFalse = true;
+          setTimeout(() => {
+            this.isFalse = false;
+            this.userInput = [];
+            this.clickedTiles = [];
+          }, 250);
         }
       }
     },
@@ -275,6 +296,19 @@ export default {
 
 .tick-icon svg {
   color: #4caf50;
+  width: 2em;
+  height: 2em;
+}
+
+.cross-icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.cross-icon svg {
+  color: #d9534f;
   width: 2em;
   height: 2em;
 }
