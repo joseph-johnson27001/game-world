@@ -33,6 +33,11 @@ export default {
           route: "ConnectFour",
         },
         {
+          name: "Flag Finder",
+          image: "GameSelection/flag-tile.JPG",
+          route: "FlagFinder",
+        },
+        {
           name: "Hangman",
           image: "GameSelection/crossword.JPG",
           route: "Hangman",
@@ -42,11 +47,7 @@ export default {
           image: "GameSelection/crossword2.JPG",
           route: "Minesweeper",
         },
-        {
-          name: "Memory Match",
-          image: "GameSelection/game2.JPG",
-          route: "MemoryMatch",
-        },
+
         {
           name: "Puzzle Mania",
           image: "GameSelection/crossword3.JPG",
@@ -69,12 +70,12 @@ export default {
         },
         {
           name: "Word Search",
-          image: "GameSelection/word-search.JPG",
+          image: "GameSelection/Reading.JPG",
           route: "WordSearch",
         },
         {
           name: "Word Scramble",
-          image: "GameSelection/Reading.JPG",
+          image: "GameSelection/scrable-pieces-tile.JPG",
           route: "WordScrambleCategories",
         },
         { name: "Zuma", image: "GameSelection/stones.JPG", route: "Zuma" },
