@@ -8,7 +8,7 @@
     </div>
 
     <!-- Timer -->
-    <div class="timer">Time Left: {{ formattedTime }}</div>
+    <!-- <div class="timer">Time Left: {{ formattedTime }}</div> -->
 
     <!-- Displaying the current progress of the word -->
     <div class="selected-letters">
@@ -88,11 +88,11 @@ export default {
     userInputString() {
       return this.userInput.join("");
     },
-    formattedTime() {
-      const minutes = Math.floor(this.timer / 60);
-      const seconds = this.timer % 60;
-      return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
-    },
+    // formattedTime() {
+    //   const minutes = Math.floor(this.timer / 60);
+    //   const seconds = this.timer % 60;
+    //   return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+    // },
   },
   watch: {
     currentWord() {
@@ -106,7 +106,7 @@ export default {
       this.$router.push({ name: "WordScrambleCategories" });
     } else {
       this.shuffleWord();
-      this.startTimer();
+      // this.startTimer();
     }
     document.addEventListener("click", this.handleDocumentClick);
     window.addEventListener("keydown", this.handleKeyInput);
@@ -152,7 +152,7 @@ export default {
         this.shuffleWord();
       } else {
         this.completed = true;
-        this.stopTimer();
+        // this.stopTimer();
       }
     },
 
@@ -188,40 +188,40 @@ export default {
       this.$router.push({ name: "WordScrambleResults" });
     },
 
-    startTimer() {
-      this.timer = 60;
-      this.timerInterval = setInterval(() => {
-        if (this.timer > 0) {
-          this.timer--;
-        } else {
-          this.completed = true;
-          clearInterval(this.timerInterval);
-          this.$store.dispatch("wordScramble/setGameResults", {
-            score: this.score,
-            time: 60 - this.timer,
-          });
-          this.viewResults();
-        }
-      }, 1000);
-    },
+    // startTimer() {
+    //   this.timer = 60;
+    //   this.timerInterval = setInterval(() => {
+    //     if (this.timer > 0) {
+    //       this.timer--;
+    //     } else {
+    //       this.completed = true;
+    //       clearInterval(this.timerInterval);
+    //       this.$store.dispatch("wordScramble/setGameResults", {
+    //         score: this.score,
+    //         time: 60 - this.timer,
+    //       });
+    //       this.viewResults();
+    //     }
+    //   }, 1000);
+    // },
 
-    stopTimer() {
-      clearInterval(this.timerInterval);
-      if (!this.completed) {
-        this.completed = true;
-      }
-      this.$store.dispatch("wordScramble/setGameResults", {
-        score: this.score,
-        time: 60 - this.timer,
-      });
-      this.viewResults();
-    },
+    // stopTimer() {
+    //   clearInterval(this.timerInterval);
+    //   if (!this.completed) {
+    //     this.completed = true;
+    //   }
+    //   this.$store.dispatch("wordScramble/setGameResults", {
+    //     score: this.score,
+    //     time: 60 - this.timer,
+    //   });
+    //   this.viewResults();
+    // },
 
-    handleNavigation() {
-      if (this.completed) {
-        this.stopTimer();
-      }
-    },
+    // handleNavigation() {
+    //   if (this.completed) {
+    //     this.stopTimer();
+    //   }
+    // },
   },
 };
 </script>
