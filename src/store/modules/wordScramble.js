@@ -81,7 +81,7 @@ export default {
           "SEOUL",
           "SAO PAULO",
         ],
-        image: "/WordScramble/city-skyline-tile.JPG",
+        image: "/WordScramble/cities-tile.JPG",
       },
       {
         id: 4,
