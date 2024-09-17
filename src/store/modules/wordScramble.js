@@ -54,7 +54,7 @@ export default {
           "FINLAND",
           "SOUTH KOREA",
         ],
-        image: "/WordScramble/world-tile.JPG",
+        image: "/WordScramble/countries-tile.JPG",
       },
       {
         id: 3,
@@ -81,7 +81,7 @@ export default {
           "SEOUL",
           "SAO PAULO",
         ],
-        image: "/WordScramble/cities-tile.JPG",
+        image: "/WordScramble/city-skyline-tile.JPG",
       },
       {
         id: 4,
@@ -108,7 +108,7 @@ export default {
           "BEIGE",
           "TURQUOISE",
         ],
-        image: "/WordScramble/world-tile.JPG",
+        image: "/WordScramble/colours-tile.JPG",
       },
       {
         id: 5,
@@ -135,7 +135,7 @@ export default {
           "OATMEAL",
           "FRUIT",
         ],
-        image: "/WordScramble/world-tile.JPG",
+        image: "/WordScramble/food-tile.JPG",
       },
       {
         id: 6,
@@ -162,7 +162,7 @@ export default {
           "INCEPTION",
           "MATRIX",
         ],
-        image: "/WordScramble/world-tile.JPG",
+        image: "/WordScramble/movie-tile.JPG",
       },
       {
         id: 7,
@@ -189,7 +189,7 @@ export default {
           "BADMINTON",
           "DARTS",
         ],
-        image: "/WordScramble/world-tile.JPG",
+        image: "/WordScramble/sports-tile.JPG",
       },
       {
         id: 8,
@@ -216,7 +216,7 @@ export default {
           "LATINO",
           "FUNK",
         ],
-        image: "/WordScramble/world-tile.JPG",
+        image: "/WordScramble/music-tile.JPG",
       },
       {
         id: 9,
@@ -243,7 +243,7 @@ export default {
           "CART",
           "RICKSHAW",
         ],
-        image: "/WordScramble/world-tile.JPG",
+        image: "/WordScramble/vehichles-tile.JPG",
       },
     ],
     currentCategory: null,

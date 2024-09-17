@@ -60,7 +60,11 @@
           }"
           @click="startGame(category)"
         >
-          <img :src="category.image" :alt="category.name + ' Image'" />
+          <img
+            :src="category.image"
+            :alt="category.name + ' Image'"
+            class="category-image"
+          />
         </div>
         <div class="category-name">{{ category.name }}</div>
       </div>
@@ -162,6 +166,12 @@ export default {
   height: 34px;
   stroke: #001a33;
   transition: stroke 0.3s ease;
+}
+
+.category-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 @media (max-width: 540px) {
