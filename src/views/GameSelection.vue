@@ -28,6 +28,11 @@ export default {
     return {
       games: [
         {
+          name: "Code Word",
+          image: "GameSelection/code-word-tile.JPG",
+          route: "CodeWord",
+        },
+        {
           name: "Connect Four",
           image: "GameSelection/game-tile.JPG",
           route: "ConnectFour",
@@ -78,12 +83,8 @@ export default {
           image: "GameSelection/scrable-pieces-tile.JPG",
           route: "WordScrambleCategories",
         },
+
         { name: "Zuma", image: "GameSelection/stones.JPG", route: "Zuma" },
-        {
-          name: "Zen Sudoku",
-          image: "GameSelection/stones2.JPG",
-          route: "ZenSudoku",
-        },
       ],
     };
   },
