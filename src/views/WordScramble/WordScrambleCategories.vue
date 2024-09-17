@@ -60,7 +60,7 @@
           }"
           @click="startGame(category)"
         >
-          <img src="/game-tile.jpg" alt="Category Image" />
+          <img :src="category.image" :alt="category.name + ' Image'" />
         </div>
         <div class="category-name">{{ category.name }}</div>
       </div>

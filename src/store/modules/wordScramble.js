@@ -27,7 +27,7 @@ export default {
           "SHARK",
           "DOLPHIN",
         ],
-        image: "/images/game-tile.JPG",
+        image: "/WordScramble/world-tile.JPG",
       },
       {
         id: 2,
@@ -54,7 +54,7 @@ export default {
           "FINLAND",
           "SOUTH KOREA",
         ],
-        image: "/images/crossword.JPG",
+        image: "/WordScramble/world-tile.JPG",
       },
       {
         id: 3,
@@ -81,7 +81,7 @@ export default {
           "SEOUL",
           "SAO PAULO",
         ],
-        image: "/images/crossword2.JPG",
+        image: "/WordScramble/world-tile.JPG",
       },
       {
         id: 4,
@@ -108,7 +108,7 @@ export default {
           "BEIGE",
           "TURQUOISE",
         ],
-        image: "/images/game2.JPG",
+        image: "/WordScramble/world-tile.JPG",
       },
       {
         id: 5,
@@ -135,7 +135,7 @@ export default {
           "OATMEAL",
           "FRUIT",
         ],
-        image: "/images/crossword3.JPG",
+        image: "/WordScramble/world-tile.JPG",
       },
       {
         id: 6,
@@ -162,7 +162,7 @@ export default {
           "INCEPTION",
           "MATRIX",
         ],
-        image: "/images/crossword4.JPG",
+        image: "/WordScramble/world-tile.JPG",
       },
       {
         id: 7,
@@ -189,7 +189,7 @@ export default {
           "BADMINTON",
           "DARTS",
         ],
-        image: "/images/crossword5.JPG",
+        image: "/WordScramble/world-tile.JPG",
       },
       {
         id: 8,
@@ -216,7 +216,7 @@ export default {
           "LATINO",
           "FUNK",
         ],
-        image: "/images/tile2.JPG",
+        image: "/WordScramble/world-tile.JPG",
       },
       {
         id: 9,
@@ -243,7 +243,7 @@ export default {
           "CART",
           "RICKSHAW",
         ],
-        image: "/images/word-search.JPG",
+        image: "/WordScramble/world-tile.JPG",
       },
     ],
     currentCategory: null,
