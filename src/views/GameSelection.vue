@@ -27,26 +27,62 @@ export default {
   data() {
     return {
       games: [
-        { name: "Connect Four", image: "/game-tile.JPG", route: "ConnectFour" },
-        { name: "Hangman", image: "/crossword.JPG", route: "Hangman" },
-        { name: "Minesweeper", image: "/crossword2.JPG", route: "Minesweeper" },
-        { name: "Memory Match", image: "/game2.JPG", route: "MemoryMatch" },
+        {
+          name: "Connect Four",
+          image: "GameSelection/game-tile.JPG",
+          route: "ConnectFour",
+        },
+        {
+          name: "Hangman",
+          image: "GameSelection/crossword.JPG",
+          route: "Hangman",
+        },
+        {
+          name: "Minesweeper",
+          image: "GameSelection/crossword2.JPG",
+          route: "Minesweeper",
+        },
+        {
+          name: "Memory Match",
+          image: "GameSelection/game2.JPG",
+          route: "MemoryMatch",
+        },
         {
           name: "Puzzle Mania",
-          image: "/crossword3.JPG",
+          image: "GameSelection/crossword3.JPG",
           route: "PuzzleMania",
         },
-        { name: "Quiz Show", image: "/crossword4.JPG", route: "QuizShow" },
-        { name: "Sudoku", image: "/crossword5.JPG", route: "Sudoku" },
-        { name: "Tic Tac Toe", image: "/tile2.JPG", route: "TicTacToe" },
-        { name: "Word Search", image: "/word-search.JPG", route: "WordSearch" },
+        {
+          name: "Quiz Show",
+          image: "GameSelection/crossword4.JPG",
+          route: "QuizShow",
+        },
+        {
+          name: "Sudoku",
+          image: "GameSelection/crossword5.JPG",
+          route: "Sudoku",
+        },
+        {
+          name: "Tic Tac Toe",
+          image: "GameSelection/tile2.JPG",
+          route: "TicTacToe",
+        },
+        {
+          name: "Word Search",
+          image: "GameSelection/word-search.JPG",
+          route: "WordSearch",
+        },
         {
           name: "Word Scramble",
-          image: "/Reading.JPG",
+          image: "GameSelection/Reading.JPG",
           route: "WordScrambleCategories",
         },
-        { name: "Zuma", image: "/stones.JPG", route: "Zuma" },
-        { name: "Zen Sudoku", image: "/stones2.JPG", route: "ZenSudoku" },
+        { name: "Zuma", image: "GameSelection/stones.JPG", route: "Zuma" },
+        {
+          name: "Zen Sudoku",
+          image: "GameSelection/stones2.JPG",
+          route: "ZenSudoku",
+        },
       ],
     };
   },

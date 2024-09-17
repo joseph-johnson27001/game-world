@@ -3,20 +3,20 @@
   <div id="app">
     <!-- Back Button Component -->
     <main>
-      <BackButton />
+      <!-- <BackButton /> -->
       <router-view />
     </main>
   </div>
 </template>
 
 <script>
-import BackButton from "./components/BackButton.vue";
+// import BackButton from "./components/BackButton.vue";
 
 export default {
   name: "App",
-  components: {
-    BackButton,
-  },
+  // components: {
+  //   BackButton,
+  // },
 };
 </script>
 
