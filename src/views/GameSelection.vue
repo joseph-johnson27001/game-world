@@ -81,7 +81,7 @@ export default {
         },
         {
           name: "Word Scramble",
-          image: "GameSelection/scrable-pieces-tile.JPG",
+          image: "GameSelection/word-scramble-tile.JPG",
           route: "WordScrambleCategories",
         },
 
