@@ -66,7 +66,7 @@ export default {
         },
         {
           name: "Sum It Up",
-          image: "GameSelection/sum-it-up-tile.JPG",
+          image: "GameSelection/numbers-tile.JPG",
           route: "SumItUp",
         },
         {
