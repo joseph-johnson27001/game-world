@@ -29,7 +29,7 @@ export default {
 
 #app {
   position: relative;
-  background-color: #e0e0d2;
+  background: linear-gradient(to bottom, #ffdab9, #f5f5f5);
   display: flex;
   font-family: "Patrick Hand", cursive;
   flex-direction: column;

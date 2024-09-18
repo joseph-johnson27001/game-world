@@ -322,7 +322,7 @@ export default {
 }
 
 .letter-tile {
-  background-color: #d8bf8e;
+  background-color: #f0c774;
   border-radius: 5px;
   padding: 20px;
   font-size: 1.5em;
