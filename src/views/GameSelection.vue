@@ -50,7 +50,7 @@ export default {
         },
         {
           name: "Memory Match",
-          image: "GameSelection/memory-match-tile.JPG",
+          image: "GameSelection/memory-tile.JPG",
           route: "Memory Match",
         },
 
