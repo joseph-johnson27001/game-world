@@ -36,7 +36,7 @@ export default {
   max-width: 100px;
   aspect-ratio: 1;
   border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.2s;
