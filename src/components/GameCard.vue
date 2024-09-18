@@ -1,6 +1,6 @@
 <template>
   <div class="game-card" @click="handleClick">
-    <img :src="image" alt="Game Image" class="game-image" />
+    <img :src="image" :alt="name + ' Image'" class="game-image" />
   </div>
 </template>
 
