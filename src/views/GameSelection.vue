@@ -28,33 +28,34 @@ export default {
     return {
       games: [
         {
+          name: "Breakout",
+          image: "GameSelection/breakout-tile.JPG",
+          route: "Breakout",
+        },
+        {
           name: "Code Word",
           image: "GameSelection/code-word-tile.JPG",
           route: "CodeWord",
         },
-        {
-          name: "Connect Four",
-          image: "GameSelection/game-tile.JPG",
-          route: "ConnectFour",
-        },
+
         {
           name: "Flag Finder",
           image: "GameSelection/flag-tile.JPG",
           route: "FlagFinder",
         },
         {
-          name: "Hangman",
-          image: "GameSelection/crossword.JPG",
-          route: "Hangman",
+          name: "Letter Twist",
+          image: "GameSelection/letter-twist-tile.JPG",
+          route: "LetterTwist",
         },
         {
-          name: "Minesweeper",
+          name: "Memory Match",
           image: "GameSelection/crossword2.JPG",
-          route: "Minesweeper",
+          route: "Memory Match",
         },
 
         {
-          name: "Puzzle Mania",
+          name: "Update",
           image: "GameSelection/crossword3.JPG",
           route: "PuzzleMania",
         },
@@ -64,17 +65,17 @@ export default {
           route: "QuizShow",
         },
         {
-          name: "Sudoku",
+          name: "Sum It Up",
           image: "GameSelection/crossword5.JPG",
-          route: "Sudoku",
+          route: "SumItUp",
         },
         {
-          name: "Tic Tac Toe",
+          name: "Update",
           image: "GameSelection/tile2.JPG",
           route: "TicTacToe",
         },
         {
-          name: "Word Search",
+          name: "Update",
           image: "GameSelection/Reading.JPG",
           route: "WordSearch",
         },
@@ -84,7 +85,7 @@ export default {
           route: "WordScrambleCategories",
         },
 
-        { name: "Zuma", image: "GameSelection/stones.JPG", route: "Zuma" },
+        { name: "Update", image: "GameSelection/stones.JPG", route: "Zuma" },
       ],
     };
   },
