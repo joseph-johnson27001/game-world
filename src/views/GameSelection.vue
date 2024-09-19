@@ -61,7 +61,7 @@ export default {
         },
         {
           name: "Quiz World",
-          image: "GameSelection/quiz-tile.JPG",
+          image: "GameSelection/quiz-app-tile.JPG",
           route: "QuizShow",
         },
         {
