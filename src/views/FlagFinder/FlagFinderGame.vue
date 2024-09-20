@@ -159,7 +159,7 @@ export default {
   width: 80%;
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 550px) {
   .options-container {
     grid-template-columns: 1fr 1fr;
   }
