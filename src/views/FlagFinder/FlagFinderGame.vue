@@ -59,11 +59,11 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   data() {
     return {
-      currentQuestion: null, // Current flag or country
-      options: [], // Array of 4 options to display
-      correctAnswer: null, // Track the correct answer
-      questionsAsked: 0, // Count of questions asked
-      usedFlags: new Set(), // To track used flags
+      currentQuestion: null,
+      options: [],
+      correctAnswer: null,
+      questionsAsked: 0,
+      usedFlags: new Set(),
     };
   },
   computed: {
@@ -82,41 +82,36 @@ export default {
   methods: {
     ...mapActions("flagFinder", ["decrementLives", "resetLives"]),
 
-    // Set up a new round/question
     setNewQuestion() {
       const flags = this.getFlagsByDifficulty;
 
-      // Check if we've used all flags
       if (this.usedFlags.size >= flags.length) {
-        this.redirectToResults(); // Redirect to results if all flags used
+        this.redirectToResults();
         return;
       }
 
       let randomFlag;
       do {
         randomFlag = flags[Math.floor(Math.random() * flags.length)];
-      } while (this.usedFlags.has(randomFlag.name)); // Ensure no repeats
+      } while (this.usedFlags.has(randomFlag.name));
 
       this.currentQuestion = randomFlag;
       this.correctAnswer = randomFlag;
-      this.usedFlags.add(randomFlag.name); // Mark this flag as used
+      this.usedFlags.add(randomFlag.name);
       this.questionsAsked++;
 
-      // Generate 3 random incorrect options
       let incorrectOptions = flags.filter(
         (flag) =>
           flag.name !== randomFlag.name && !this.usedFlags.has(flag.name)
       );
       incorrectOptions = this.shuffleArray(incorrectOptions).slice(0, 3);
 
-      // Combine correct and incorrect options and shuffle them
       this.options = this.shuffleArray([randomFlag, ...incorrectOptions]);
     },
 
-    // Handle answer selection
     checkAnswer(option) {
       if (option.name === this.correctAnswer.name) {
-        this.setNewQuestion(); // Move to the next question
+        this.setNewQuestion();
       } else {
         this.decrementLives();
         if (this.lives === 0) {
@@ -125,23 +120,21 @@ export default {
       }
     },
 
-    // Shuffle array (used for randomizing answer options)
     shuffleArray(array) {
       return array.sort(() => Math.random() - 0.5);
     },
 
-    // End game and redirect to results
     endGame() {
       this.resetLives();
       this.$router.push({
         name: "FlagFinderResults",
         params: {
-          correctAnswers: this.correctAnswersCount, // Add your logic to count correct answers
+          correctAnswers: this.correctAnswersCount, // Logic to count correct answers needs to be added
           totalQuestions: this.questionsAsked,
         },
       });
     },
-    // Redirect to results page
+
     redirectToResults() {
       this.$router.push({
         name: "ResultsPage",
@@ -150,7 +143,7 @@ export default {
     },
   },
   mounted() {
-    this.setNewQuestion(); // Set the first question when the component is mounted
+    this.setNewQuestion();
   },
 };
 </script>
@@ -160,7 +153,6 @@ export default {
   min-width: 95%;
 }
 
-/* Lives Counter Styling */
 .lives-container {
   text-align: center;
   margin-bottom: 1em;
@@ -168,20 +160,12 @@ export default {
   color: #333;
 }
 
-.lives-container p {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Heart Icon Styling */
 .heart-icon {
-  width: 30px; /* Adjust size as needed */
-  height: 30px; /* Adjust size as needed */
-  margin: 0 5px; /* Spacing between hearts */
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
 }
 
-/* Flag Styling */
 .flag-image {
   width: 300px;
   height: 180px;
@@ -191,7 +175,6 @@ export default {
   border-radius: 10px;
 }
 
-/* Options Container Styling */
 .options-container {
   display: grid;
   grid-template-columns: 1fr;
@@ -206,7 +189,6 @@ export default {
   }
 }
 
-/* Option Card Styling */
 .option-card {
   display: flex;
   align-items: center;
@@ -227,31 +209,9 @@ export default {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.option-card span {
-  font-size: 1.2em;
-  text-align: center;
-}
-
 .option-flag {
   max-width: 80px;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Button Styling for Game Over */
-button {
-  background-color: #e74c3c;
-  color: white;
-  padding: 0.75em 1.5em;
-  font-size: 1.2em;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 1.5em;
-}
-
-button:hover {
-  background-color: #c0392b;
 }
 </style>
