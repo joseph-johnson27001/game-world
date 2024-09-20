@@ -26,13 +26,20 @@
 
       <!-- Options -->
       <div class="options-container">
-        <button
+        <div
           v-for="(option, index) in options"
           :key="index"
+          class="option-card"
           @click="checkAnswer(option)"
         >
-          {{ gameMode === "flagToCountry" ? option.name : option.flag }}
-        </button>
+          <img
+            v-if="gameMode === 'countryToFlag'"
+            :src="option.flag"
+            alt="Flag Option"
+            class="option-flag"
+          />
+          <span v-if="gameMode === 'flagToCountry'">{{ option.name }}</span>
+        </div>
       </div>
     </div>
 
@@ -91,12 +98,10 @@ export default {
     // Handle answer selection
     checkAnswer(option) {
       if (option.name === this.correctAnswer.name) {
-        alert("Correct!");
         this.setNewQuestion(); // Move to the next question
       } else {
-        alert("Incorrect!");
         this.decrementLives(); // Lose a life
-        if (this.lives === 1) {
+        if (this.lives === 0) {
           this.endGame();
         }
       }
@@ -125,43 +130,85 @@ export default {
 </script>
 
 <style scoped>
+/* Lives Counter Styling */
 .lives-container {
   text-align: center;
   margin-bottom: 1em;
-  font-size: 1.2em;
+  font-size: 1.5em;
+  color: #333;
 }
 
+/* Flag Styling */
 .flag-image {
-  max-width: 200px;
-  margin: 1.5em auto;
+  max-width: 300px;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
 }
 
+/* Options Container Styling */
 .options-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
+  margin: 2em auto;
+  width: 80%;
+}
+
+@media screen and (min-width: 768px) {
+  .options-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Option Card Styling */
+.option-card {
   display: flex;
-  flex-direction: column;
   align-items: center;
-}
-
-.options-container button {
-  margin: 0.5em;
-  padding: 1em 2em;
-  font-size: 1.1em;
-  cursor: pointer;
-}
-
-button {
-  background-color: #007bff;
+  justify-content: center;
+  flex-direction: column;
+  padding: 1em;
+  background: linear-gradient(135deg, #3498db, #2980b9);
   color: white;
-  border: none;
+  border-radius: 15px;
+  border: 3px solid #2980b9;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.option-card:hover {
+  background: linear-gradient(135deg, #2980b9, #3498db);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.option-card span {
+  font-size: 1.2em;
+  text-align: center;
+  margin-top: 0.5em;
+}
+
+.option-flag {
+  max-width: 80px;
   border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Styling for Game Over */
+button {
+  background-color: #e74c3c;
+  color: white;
+  padding: 0.75em 1.5em;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
   transition: background-color 0.3s ease;
+  margin-top: 1.5em;
 }
 
 button:hover {
-  background-color: #0056b3;
-}
-
-.game-over {
-  text-align: center;
+  background-color: #c0392b;
 }
 </style>
