@@ -13,6 +13,14 @@ import QuizMasterCategories from "@/views/QuizMaster/QuizMasterCategories.vue";
 import QuizMasterGame from "@/views/QuizMaster/QuizMasterGame.vue";
 import QuizMasterResults from "@/views/QuizMaster/QuizMasterResults.vue";
 
+// FLAG FINDER
+
+import FlagFinderCategories from "@/views/FlagFinder/FlagFinderCategories.vue";
+import FlagFinderGame from "@/views/FlagFinder/FlagFinderGame.vue";
+import FlagFinderResults from "@/views/FlagFinder/FlagFinderResults.vue";
+
+// ROUTES
+
 const routes = [
   { path: "/", name: "GameSelection", component: GameSelection },
   {
@@ -20,6 +28,25 @@ const routes = [
     name: "WordScrambleCategories",
     component: WordScrambleCategories,
   },
+
+  // FLAG FINDER
+
+  {
+    path: "/flag-finder/categories",
+    name: "FlagFinderCategories",
+    component: FlagFinderCategories,
+  },
+  {
+    path: "/flag-finder/results",
+    name: "FlagFinderResults",
+    component: FlagFinderResults,
+  },
+  {
+    path: "/flag-finder/game",
+    name: "FlagFinderGame",
+    component: FlagFinderGame,
+  },
+
   // WORD SCRAMBLE
   {
     path: "/word-scramble/game",

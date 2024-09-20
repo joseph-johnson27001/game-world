@@ -41,7 +41,7 @@ export default {
         {
           name: "Flag Finder",
           image: "GameSelection/flag-tile.JPG",
-          route: "FlagFinder",
+          route: "FlagFinderCategories",
         },
         {
           name: "Letter Twist",
