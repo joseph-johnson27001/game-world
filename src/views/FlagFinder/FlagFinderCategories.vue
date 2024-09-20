@@ -46,6 +46,14 @@ export default {
   margin: 2em auto;
 }
 
+/* Media Query for Smaller Viewports */
+@media (max-width: 600px) {
+  .difficulty-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .difficulty-card {
   display: flex;
   flex-direction: column;
