@@ -6,14 +6,22 @@
       <span></span>
     </div>
 
-    <!-- Lives Counter -->
+    <!-- Lives Counter with Heart Icons -->
     <div class="lives-container">
-      <p>Lives: {{ lives }}</p>
+      <p>
+        Lives:
+        <img
+          v-for="index in lives"
+          :key="index"
+          src="@/assets/icons/heart.svg"
+          alt="Heart"
+          class="heart-icon"
+        />
+      </p>
     </div>
 
     <!-- Game Area -->
     <div v-if="currentQuestion">
-      <!-- Display Flag if mode is 'flagToCountry', else display country name -->
       <div class="game-question">
         <img
           v-if="gameMode === 'flagToCountry'"
@@ -47,7 +55,6 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-// import { useRouter } from "vue-router";
 
 export default {
   data() {
@@ -123,7 +130,7 @@ export default {
       return array.sort(() => Math.random() - 0.5);
     },
 
-    // End game and reset lives
+    // End game and redirect to results
     endGame() {
       this.$router.push({
         name: "FlagFinderResults",
@@ -133,7 +140,6 @@ export default {
 
     // Redirect to results page
     redirectToResults() {
-      // You can redirect to a results page using Vue Router
       this.$router.push({
         name: "ResultsPage",
         params: { questionsAsked: this.questionsAsked, lives: this.lives },
@@ -158,12 +164,26 @@ export default {
 .flag-finder-game {
   min-width: 95%;
 }
+
 /* Lives Counter Styling */
 .lives-container {
   text-align: center;
   margin-bottom: 1em;
   font-size: 1.5em;
   color: #333;
+}
+
+.lives-container p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Heart Icon Styling */
+.heart-icon {
+  width: 30px; /* Adjust size as needed */
+  height: 30px; /* Adjust size as needed */
+  margin: 0 5px; /* Spacing between hearts */
 }
 
 /* Flag Styling */
@@ -215,7 +235,6 @@ export default {
 .option-card span {
   font-size: 1.2em;
   text-align: center;
-  /* margin-top: 0.5em; */
 }
 
 .option-flag {
