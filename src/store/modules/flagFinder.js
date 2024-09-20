@@ -3,6 +3,7 @@
 export default {
   namespaced: true,
   state: {
+    // Flag data divided by difficulty levels
     easy: [
       {
         name: "United States",
@@ -69,15 +70,16 @@ export default {
         flag: "https://flagcdn.com/w320/nr.png",
       },
     ],
+    // Game settings
     gameSettings: {
-      difficulty: "easy", // Can be easy, medium, or hard
-      gameMode: "flagToCountry", // Can be flagToCountry or countryToFlag
-      lives: 3,
+      difficulty: null, // Initially null, will be set by the user
+      gameMode: "flagToCountry", // Can be 'flagToCountry' or 'countryToFlag'
+      lives: 3, // Lives to keep track of the user's performance
     },
   },
   getters: {
-    getFlagsByDifficulty: (state) => (difficulty) => {
-      return state[difficulty];
+    getFlagsByDifficulty: (state) => {
+      return state[state.gameSettings.difficulty]; // Return flags based on selected difficulty
     },
     getGameMode: (state) => {
       return state.gameSettings.gameMode;
@@ -85,10 +87,13 @@ export default {
     getLives: (state) => {
       return state.gameSettings.lives;
     },
+    getCurrentDifficulty: (state) => {
+      return state.gameSettings.difficulty;
+    },
   },
   mutations: {
     SET_DIFFICULTY(state, difficulty) {
-      state.gameSettings.difficulty = difficulty;
+      state.gameSettings.difficulty = difficulty; // Update selected difficulty
     },
     SET_GAME_MODE(state, mode) {
       state.gameSettings.gameMode = mode;

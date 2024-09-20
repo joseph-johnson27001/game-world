@@ -30,7 +30,6 @@ const routes = [
   },
 
   // FLAG FINDER
-
   {
     path: "/flag-finder/categories",
     name: "FlagFinderCategories",
