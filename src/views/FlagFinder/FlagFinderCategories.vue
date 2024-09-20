@@ -9,17 +9,23 @@
     <!-- Difficulty Buttons -->
     <div class="difficulty-buttons">
       <div class="difficulty-card easy" @click="selectDifficulty('easy')">
-        <div class="icon"></div>
+        <div class="icon">
+          <img src="@/assets/icons/easy-icon.svg" alt="Easy" />
+        </div>
         <h2>Easy</h2>
       </div>
 
       <div class="difficulty-card medium" @click="selectDifficulty('medium')">
-        <div class="icon"></div>
+        <div class="icon">
+          <img src="@/assets/icons/medium-icon.svg" alt="Medium" />
+        </div>
         <h2>Medium</h2>
       </div>
 
       <div class="difficulty-card hard" @click="selectDifficulty('hard')">
-        <div class="icon"></div>
+        <div class="icon">
+          <img src="@/assets/icons/hard-icon.svg" alt="Hard" />
+        </div>
         <h2>Hard</h2>
       </div>
     </div>
@@ -36,7 +42,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 /* General Layout for Difficulty Buttons */
 .difficulty-buttons {
@@ -70,16 +75,19 @@ export default {
   position: relative;
 }
 
-/* Styling the Icon Placeholder */
+/* Updated Styling for Icons */
 .difficulty-card .icon {
-  background-color: white;
   width: 60px;
   height: 60px;
-  border-radius: 50%;
   margin-bottom: 0.75em;
-  position: relative;
-  background: linear-gradient(to bottom, #fff, #f0f0f0);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.difficulty-card .icon img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 /* Text Styling */
