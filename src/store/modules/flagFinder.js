@@ -5,71 +5,62 @@ export default {
   state: {
     // Flag data divided by difficulty levels
     easy: [
-      {
-        name: "United States",
-        flag: "https://flagcdn.com/w320/us.png",
-      },
-      {
-        name: "Canada",
-        flag: "https://flagcdn.com/w320/ca.png",
-      },
-      {
-        name: "United Kingdom",
-        flag: "https://flagcdn.com/w320/gb.png",
-      },
-      {
-        name: "France",
-        flag: "https://flagcdn.com/w320/fr.png",
-      },
-      {
-        name: "Germany",
-        flag: "https://flagcdn.com/w320/de.png",
-      },
+      { name: "United States", flag: "https://flagcdn.com/w320/us.png" },
+      { name: "Canada", flag: "https://flagcdn.com/w320/ca.png" },
+      { name: "United Kingdom", flag: "https://flagcdn.com/w320/gb.png" },
+      { name: "France", flag: "https://flagcdn.com/w320/fr.png" },
+      { name: "Germany", flag: "https://flagcdn.com/w320/de.png" },
+      { name: "Australia", flag: "https://flagcdn.com/w320/au.png" },
+      { name: "Japan", flag: "https://flagcdn.com/w320/jp.png" },
+      { name: "South Africa", flag: "https://flagcdn.com/w320/za.png" },
+      { name: "Spain", flag: "https://flagcdn.com/w320/es.png" },
+      { name: "Brazil", flag: "https://flagcdn.com/w320/br.png" },
     ],
+
     medium: [
-      {
-        name: "Argentina",
-        flag: "https://flagcdn.com/w320/ar.png",
-      },
-      {
-        name: "Brazil",
-        flag: "https://flagcdn.com/w320/br.png",
-      },
-      {
-        name: "Mexico",
-        flag: "https://flagcdn.com/w320/mx.png",
-      },
-      {
-        name: "Italy",
-        flag: "https://flagcdn.com/w320/it.png",
-      },
-      {
-        name: "Japan",
-        flag: "https://flagcdn.com/w320/jp.png",
-      },
+      { name: "Italy", flag: "https://flagcdn.com/w320/it.png" },
+      { name: "Mexico", flag: "https://flagcdn.com/w320/mx.png" },
+      { name: "India", flag: "https://flagcdn.com/w320/in.png" },
+      { name: "China", flag: "https://flagcdn.com/w320/cn.png" },
+      { name: "Russia", flag: "https://flagcdn.com/w320/ru.png" },
+      { name: "Thailand", flag: "https://flagcdn.com/w320/th.png" },
+      { name: "Egypt", flag: "https://flagcdn.com/w320/eg.png" },
+      { name: "Argentina", flag: "https://flagcdn.com/w320/ar.png" },
+      { name: "Philippines", flag: "https://flagcdn.com/w320/ph.png" },
+      { name: "Vietnam", flag: "https://flagcdn.com/w320/vn.png" },
     ],
+
     hard: [
+      { name: "Bhutan", flag: "https://flagcdn.com/w320/bt.png" },
+      { name: "Lesotho", flag: "https://flagcdn.com/w320/ls.png" },
+      { name: "Comoros", flag: "https://flagcdn.com/w320/km.png" },
+      { name: "Tuvalu", flag: "https://flagcdn.com/w320/tv.png" },
+      { name: "Nauru", flag: "https://flagcdn.com/w320/nr.png" },
+      { name: "Djibouti", flag: "https://flagcdn.com/w320/dj.png" },
       {
-        name: "Bhutan",
-        flag: "https://flagcdn.com/w320/bt.png",
+        name: "Sao Tome and Principe",
+        flag: "https://flagcdn.com/w320/st.png",
       },
+      { name: "Vanuatu", flag: "https://flagcdn.com/w320/vu.png" },
+      { name: "Micronesia", flag: "https://flagcdn.com/w320/fm.png" },
+      { name: "Brunei", flag: "https://flagcdn.com/w320/bn.png" },
+      { name: "Kiribati", flag: "https://flagcdn.com/w320/ki.png" },
+      { name: "Tajikistan", flag: "https://flagcdn.com/w320/tj.png" },
+      { name: "Suriname", flag: "https://flagcdn.com/w320/sr.png" },
       {
-        name: "Lesotho",
-        flag: "https://flagcdn.com/w320/ls.png",
+        name: "Central African Republic",
+        flag: "https://flagcdn.com/w320/cf.png",
       },
+      { name: "Equatorial Guinea", flag: "https://flagcdn.com/w320/gq.png" },
+      { name: "Chad", flag: "https://flagcdn.com/w320/td.png" },
+      { name: "Seychelles", flag: "https://flagcdn.com/w320/sc.png" },
+      { name: "Gabon", flag: "https://flagcdn.com/w320/ga.png" },
       {
-        name: "Comoros",
-        flag: "https://flagcdn.com/w320/km.png",
-      },
-      {
-        name: "Tuvalu",
-        flag: "https://flagcdn.com/w320/tv.png",
-      },
-      {
-        name: "Nauru",
-        flag: "https://flagcdn.com/w320/nr.png",
+        name: "Saint Kitts and Nevis",
+        flag: "https://flagcdn.com/w320/kn.png",
       },
     ],
+
     // Game settings
     gameSettings: {
       difficulty: null,
