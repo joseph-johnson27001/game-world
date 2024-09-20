@@ -151,6 +151,7 @@ export default {
     },
   },
   mounted() {
+    this.$store.dispatch("flagFinder/resetQuestionsAndAnswers");
     this.setNewQuestion();
   },
 };

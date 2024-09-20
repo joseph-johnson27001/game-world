@@ -34,7 +34,6 @@ export default {
   },
   methods: {
     playAgain() {
-      this.$store.dispatch("flagFinder/resetQuestionsAndAnswers");
       this.$router.push({ name: "FlagFinderCategories" });
     },
   },
