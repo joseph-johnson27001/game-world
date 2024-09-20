@@ -39,7 +39,7 @@
           :key="index"
           class="option-card"
           @click="checkAnswer(option)"
-          :class="{ disabled: option.disabled }"
+          :class="{ disabled: option.disabled, correct: option.isCorrect }"
         >
           <img
             v-if="gameMode === 'countryToFlag'"
@@ -119,6 +119,7 @@ export default {
         (option) => ({
           ...option,
           disabled: false, // Reset disabled state for all options
+          isCorrect: false, // Reset correct state
         })
       );
     },
@@ -131,9 +132,16 @@ export default {
       option.disabled = true;
 
       if (option.name === this.correctAnswer.name) {
+        // Mark this option as correct
+        option.isCorrect = true; // Set a property for the correct option
+
         this.correctAnswersCount++;
         this.incrementCorrectAnswers();
-        this.setNewQuestion();
+
+        // Wait 0.3 seconds before setting the next question
+        setTimeout(() => {
+          this.setNewQuestion();
+        }, 300);
       } else {
         this.decrementLives();
         if (this.lives === 0) {
@@ -229,7 +237,14 @@ export default {
 
 .option-card.disabled {
   background: gray;
+  border-color: gray;
   cursor: not-allowed;
+}
+
+.option-card.correct {
+  background: green;
+  border-color: green;
+  transition: all 0.3s ease;
 }
 
 .option-card:hover:not(.disabled) {
