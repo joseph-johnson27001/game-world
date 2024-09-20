@@ -3,7 +3,6 @@
 export default {
   namespaced: true,
   state: {
-    // Flag data divided by difficulty levels
     easy: [
       { name: "United States", flag: "https://flagcdn.com/w320/us.png" },
       { name: "Canada", flag: "https://flagcdn.com/w320/ca.png" },
@@ -98,8 +97,8 @@ export default {
       difficulty: null,
       gameMode: "flagToCountry",
       lives: 3,
-      questionsAsked: 0, // New state for tracking questions asked
-      correctAnswersCount: 0, // New state for tracking correct answers
+      questionsAsked: 0,
+      correctAnswersCount: 0,
     },
   },
   getters: {
@@ -116,10 +115,10 @@ export default {
       return state.gameSettings.difficulty;
     },
     getQuestionsAsked: (state) => {
-      return state.gameSettings.questionsAsked; // Getter for questions asked
+      return state.gameSettings.questionsAsked;
     },
     getCorrectAnswersCount: (state) => {
-      return state.gameSettings.correctAnswersCount; // Getter for correct answers
+      return state.gameSettings.correctAnswersCount;
     },
   },
   mutations: {

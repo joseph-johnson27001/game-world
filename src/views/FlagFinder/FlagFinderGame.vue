@@ -62,6 +62,8 @@ export default {
       currentQuestion: null,
       options: [],
       correctAnswer: null,
+      questionsAsked: 0,
+      correctAnswersCount: 0, // Track correct answers
       usedFlags: new Set(),
     };
   },
@@ -70,8 +72,6 @@ export default {
       "getFlagsByDifficulty",
       "getGameMode",
       "getLives",
-      "getQuestionsAsked",
-      "getCorrectAnswersCount",
     ]),
     lives() {
       return this.getLives;
@@ -104,8 +104,8 @@ export default {
       this.currentQuestion = randomFlag;
       this.correctAnswer = randomFlag;
       this.usedFlags.add(randomFlag.name);
-      this.incrementQuestionsAsked(); // Increment questions asked in the store
-
+      this.questionsAsked++;
+      this.incrementQuestionsAsked();
       let incorrectOptions = flags.filter(
         (flag) =>
           flag.name !== randomFlag.name && !this.usedFlags.has(flag.name)
@@ -117,7 +117,8 @@ export default {
 
     checkAnswer(option) {
       if (option.name === this.correctAnswer.name) {
-        this.incrementCorrectAnswers(); // Increment correct answers in the store
+        this.correctAnswersCount++;
+        this.incrementCorrectAnswers();
         this.setNewQuestion();
       } else {
         this.decrementLives();
@@ -133,16 +134,19 @@ export default {
 
     endGame() {
       this.resetLives();
-      this.redirectToResults();
+      this.$router.push({
+        name: "FlagFinderResults",
+        params: {
+          correctAnswers: this.correctAnswersCount,
+          totalQuestions: this.questionsAsked,
+        },
+      });
     },
 
     redirectToResults() {
       this.$router.push({
-        name: "FlagFinderResults",
-        params: {
-          correctAnswers: this.getCorrectAnswersCount,
-          totalQuestions: this.getQuestionsAsked,
-        },
+        name: "ResultsPage",
+        params: { questionsAsked: this.questionsAsked, lives: this.lives },
       });
     },
   },

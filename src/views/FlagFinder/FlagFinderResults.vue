@@ -22,19 +22,20 @@ import { mapGetters } from "vuex";
 export default {
   computed: {
     ...mapGetters("flagFinder", [
-      "getCorrectAnswersCount", // Use the correct getter name
-      "getQuestionsAsked", // Use the correct getter name
+      "getCorrectAnswersCount",
+      "getQuestionsAsked",
     ]),
     correctAnswers() {
-      return this.getCorrectAnswersCount; // Use the correct getter
+      return this.getCorrectAnswersCount;
     },
     totalQuestions() {
-      return this.getQuestionsAsked; // Use the correct getter
+      return this.getQuestionsAsked;
     },
   },
   methods: {
     playAgain() {
-      this.$router.push({ name: "FlagFinderCategories" }); // Navigate to the category selection page
+      this.$store.dispatch("flagFinder/resetQuestionsAndAnswers");
+      this.$router.push({ name: "FlagFinderCategories" });
     },
   },
 };
