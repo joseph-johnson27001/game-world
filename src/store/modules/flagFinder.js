@@ -98,6 +98,8 @@ export default {
       difficulty: null,
       gameMode: "flagToCountry",
       lives: 3,
+      questionsAsked: 0, // New state for tracking questions asked
+      correctAnswersCount: 0, // New state for tracking correct answers
     },
   },
   getters: {
@@ -112,6 +114,12 @@ export default {
     },
     getCurrentDifficulty: (state) => {
       return state.gameSettings.difficulty;
+    },
+    getQuestionsAsked: (state) => {
+      return state.gameSettings.questionsAsked; // Getter for questions asked
+    },
+    getCorrectAnswersCount: (state) => {
+      return state.gameSettings.correctAnswersCount; // Getter for correct answers
     },
   },
   mutations: {
@@ -129,6 +137,25 @@ export default {
     RESET_LIVES(state) {
       state.gameSettings.lives = 3;
     },
+    INCREMENT_QUESTIONS_ASKED(state) {
+      console.log(
+        "Questions Asked Incremented:",
+        state.gameSettings.questionsAsked
+      );
+      state.gameSettings.questionsAsked++;
+    },
+
+    INCREMENT_CORRECT_ANSWERS(state) {
+      console.log(
+        "Correct Answers Incremented:",
+        state.gameSettings.correctAnswersCount
+      );
+      state.gameSettings.correctAnswersCount++;
+    },
+    RESET_QUESTIONS_AND_ANSWERS(state) {
+      state.gameSettings.questionsAsked = 0;
+      state.gameSettings.correctAnswersCount = 0;
+    },
   },
   actions: {
     setDifficulty({ commit }, difficulty) {
@@ -142,6 +169,15 @@ export default {
     },
     resetLives({ commit }) {
       commit("RESET_LIVES");
+    },
+    incrementQuestionsAsked({ commit }) {
+      commit("INCREMENT_QUESTIONS_ASKED");
+    },
+    incrementCorrectAnswers({ commit }) {
+      commit("INCREMENT_CORRECT_ANSWERS");
+    },
+    resetQuestionsAndAnswers({ commit }) {
+      commit("RESET_QUESTIONS_AND_ANSWERS");
     },
   },
 };

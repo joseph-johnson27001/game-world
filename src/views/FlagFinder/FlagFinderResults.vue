@@ -17,15 +17,19 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
-  props: {
-    correctAnswers: {
-      type: Number,
-      required: true,
+  computed: {
+    ...mapGetters("flagFinder", [
+      "getCorrectAnswersCount", // Use the correct getter name
+      "getQuestionsAsked", // Use the correct getter name
+    ]),
+    correctAnswers() {
+      return this.getCorrectAnswersCount; // Use the correct getter
     },
-    totalQuestions: {
-      type: Number,
-      required: true,
+    totalQuestions() {
+      return this.getQuestionsAsked; // Use the correct getter
     },
   },
   methods: {

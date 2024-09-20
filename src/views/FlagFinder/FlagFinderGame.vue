@@ -62,7 +62,6 @@ export default {
       currentQuestion: null,
       options: [],
       correctAnswer: null,
-      questionsAsked: 0,
       usedFlags: new Set(),
     };
   },
@@ -71,6 +70,8 @@ export default {
       "getFlagsByDifficulty",
       "getGameMode",
       "getLives",
+      "getQuestionsAsked",
+      "getCorrectAnswersCount",
     ]),
     lives() {
       return this.getLives;
@@ -80,7 +81,12 @@ export default {
     },
   },
   methods: {
-    ...mapActions("flagFinder", ["decrementLives", "resetLives"]),
+    ...mapActions("flagFinder", [
+      "decrementLives",
+      "resetLives",
+      "incrementQuestionsAsked",
+      "incrementCorrectAnswers",
+    ]),
 
     setNewQuestion() {
       const flags = this.getFlagsByDifficulty;
@@ -98,7 +104,7 @@ export default {
       this.currentQuestion = randomFlag;
       this.correctAnswer = randomFlag;
       this.usedFlags.add(randomFlag.name);
-      this.questionsAsked++;
+      this.incrementQuestionsAsked(); // Increment questions asked in the store
 
       let incorrectOptions = flags.filter(
         (flag) =>
@@ -111,6 +117,7 @@ export default {
 
     checkAnswer(option) {
       if (option.name === this.correctAnswer.name) {
+        this.incrementCorrectAnswers(); // Increment correct answers in the store
         this.setNewQuestion();
       } else {
         this.decrementLives();
@@ -126,19 +133,16 @@ export default {
 
     endGame() {
       this.resetLives();
-      this.$router.push({
-        name: "FlagFinderResults",
-        params: {
-          correctAnswers: this.correctAnswersCount, // Logic to count correct answers needs to be added
-          totalQuestions: this.questionsAsked,
-        },
-      });
+      this.redirectToResults();
     },
 
     redirectToResults() {
       this.$router.push({
-        name: "ResultsPage",
-        params: { questionsAsked: this.questionsAsked, lives: this.lives },
+        name: "FlagFinderResults",
+        params: {
+          correctAnswers: this.getCorrectAnswersCount,
+          totalQuestions: this.getQuestionsAsked,
+        },
       });
     },
   },
