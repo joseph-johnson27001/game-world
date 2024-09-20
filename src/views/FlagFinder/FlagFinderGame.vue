@@ -148,14 +148,6 @@ export default {
         params: { questionsAsked: this.questionsAsked, lives: this.lives },
       });
     },
-
-    // Reset the game
-    resetGame() {
-      this.resetLives(); // Reset lives in Vuex store
-      this.questionsAsked = 0; // Reset question count
-      this.usedFlags.clear(); // Clear used flags
-      this.setNewQuestion(); // Start a new game
-    },
   },
   mounted() {
     this.setNewQuestion(); // Set the first question when the component is mounted
