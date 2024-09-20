@@ -62,7 +62,7 @@ export default {
         {
           name: "Quiz Master",
           image: "GameSelection/quiz-app-tile.JPG",
-          route: "QuizMaster",
+          route: "QuizMasterCategories",
         },
         {
           name: "Sum It Up",

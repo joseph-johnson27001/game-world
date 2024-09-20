@@ -7,6 +7,12 @@ import WordScrambleGame from "../views/WordScramble/WordScrambleGame.vue";
 import WordScrambleResults from "../views/WordScramble/WordScrambleResults.vue";
 import WordScrambleSettings from "../views/WordScramble/WordScrambleSettings.vue";
 
+// QUIZ MASTER
+
+import QuizMasterCategories from "@/views/QuizMaster/QuizMasterCategories.vue";
+import QuizMasterGame from "@/views/QuizMaster/QuizMasterGame.vue";
+import QuizMasterResults from "@/views/QuizMaster/QuizMasterResults.vue";
+
 const routes = [
   { path: "/", name: "GameSelection", component: GameSelection },
   {
@@ -14,6 +20,7 @@ const routes = [
     name: "WordScrambleCategories",
     component: WordScrambleCategories,
   },
+  // WORD SCRAMBLE
   {
     path: "/word-scramble/game",
     name: "WordScrambleGame",
@@ -29,7 +36,22 @@ const routes = [
     name: "WordScrambleSettings",
     component: WordScrambleSettings,
   },
-  // More routes for other games can be added here
+  // QUIZ MASTER
+  {
+    path: "/quiz-master/game",
+    name: "QuizMasterGame",
+    component: QuizMasterGame,
+  },
+  {
+    path: "/quiz-master/categories",
+    name: "QuizMasterCategories",
+    component: QuizMasterCategories,
+  },
+  {
+    path: "/quiz-master/results",
+    name: "QuizMasterResults",
+    component: QuizMasterResults,
+  },
 ];
 
 const router = createRouter({
