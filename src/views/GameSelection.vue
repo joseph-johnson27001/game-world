@@ -60,9 +60,9 @@ export default {
           route: "PuzzleMania",
         },
         {
-          name: "Quiz World",
+          name: "Quiz Master",
           image: "GameSelection/quiz-app-tile.JPG",
-          route: "QuizShow",
+          route: "QuizMaster",
         },
         {
           name: "Sum It Up",
