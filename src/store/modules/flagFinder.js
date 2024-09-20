@@ -79,7 +79,7 @@ export default {
   },
   getters: {
     getFlagsByDifficulty: (state) => {
-      return state[state.gameSettings.difficulty]; // Return flags based on selected difficulty
+      return state[state.gameSettings.difficulty];
     },
     getGameMode: (state) => {
       return state.gameSettings.gameMode;
