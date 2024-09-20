@@ -11,6 +11,7 @@
         You answered {{ correctAnswers }} out of {{ totalQuestions }} questions
         correctly!
       </p>
+      <button @click="goToHome">Home</button>
       <button @click="playAgain">Play again?</button>
     </div>
   </div>
@@ -36,6 +37,9 @@ export default {
     playAgain() {
       this.$router.push({ name: "FlagFinderCategories" });
     },
+    goToHome() {
+      this.$router.push({ path: "/" });
+    },
   },
 };
 </script>
@@ -60,6 +64,7 @@ button {
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin: 0.5em; /* Optional: Add some margin for spacing */
 }
 
 button:hover {
