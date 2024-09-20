@@ -72,9 +72,9 @@ export default {
     ],
     // Game settings
     gameSettings: {
-      difficulty: null, // Initially null, will be set by the user
-      gameMode: "flagToCountry", // Can be 'flagToCountry' or 'countryToFlag'
-      lives: 3, // Lives to keep track of the user's performance
+      difficulty: null,
+      gameMode: "flagToCountry",
+      lives: 3,
     },
   },
   getters: {
@@ -93,7 +93,7 @@ export default {
   },
   mutations: {
     SET_DIFFICULTY(state, difficulty) {
-      state.gameSettings.difficulty = difficulty; // Update selected difficulty
+      state.gameSettings.difficulty = difficulty;
     },
     SET_GAME_MODE(state, mode) {
       state.gameSettings.gameMode = mode;
