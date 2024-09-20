@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flag-finder-game">
     <div class="heading-container">
       <span></span>
       <h1>Flag Finder</h1>
@@ -130,6 +130,9 @@ export default {
 </script>
 
 <style scoped>
+.flag-finder-game {
+  min-width: 95%;
+}
 /* Lives Counter Styling */
 .lives-container {
   text-align: center;
@@ -186,7 +189,7 @@ export default {
 .option-card span {
   font-size: 1.2em;
   text-align: center;
-  margin-top: 0.5em;
+  /* margin-top: 0.5em; */
 }
 
 .option-flag {
