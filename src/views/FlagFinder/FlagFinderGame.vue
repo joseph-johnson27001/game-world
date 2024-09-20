@@ -143,7 +143,8 @@ export default {
 
 /* Flag Styling */
 .flag-image {
-  max-width: 300px;
+  width: 300px;
+  height: 180px;
   display: block;
   margin: 0 auto;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
