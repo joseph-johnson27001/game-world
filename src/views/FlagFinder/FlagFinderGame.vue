@@ -63,7 +63,7 @@ export default {
       options: [],
       correctAnswer: null,
       questionsAsked: 0,
-      correctAnswersCount: 0, // Track correct answers
+      correctAnswersCount: 0,
       usedFlags: new Set(),
     };
   },
@@ -84,15 +84,15 @@ export default {
     ...mapActions("flagFinder", [
       "decrementLives",
       "resetLives",
-      "incrementQuestionsAsked",
       "incrementCorrectAnswers",
+      "incrementQuestionsAsked",
     ]),
 
     setNewQuestion() {
       const flags = this.getFlagsByDifficulty;
 
-      if (this.usedFlags.size >= flags.length) {
-        this.redirectToResults();
+      if (this.usedFlags.size >= flags.length || this.questionsAsked >= 20) {
+        this.endGame();
         return;
       }
 
@@ -106,6 +106,7 @@ export default {
       this.usedFlags.add(randomFlag.name);
       this.questionsAsked++;
       this.incrementQuestionsAsked();
+
       let incorrectOptions = flags.filter(
         (flag) =>
           flag.name !== randomFlag.name && !this.usedFlags.has(flag.name)
@@ -119,6 +120,7 @@ export default {
       if (option.name === this.correctAnswer.name) {
         this.correctAnswersCount++;
         this.incrementCorrectAnswers();
+
         this.setNewQuestion();
       } else {
         this.decrementLives();
@@ -140,13 +142,6 @@ export default {
           correctAnswers: this.correctAnswersCount,
           totalQuestions: this.questionsAsked,
         },
-      });
-    },
-
-    redirectToResults() {
-      this.$router.push({
-        name: "ResultsPage",
-        params: { questionsAsked: this.questionsAsked, lives: this.lives },
       });
     },
   },
