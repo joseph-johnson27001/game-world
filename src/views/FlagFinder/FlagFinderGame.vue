@@ -39,6 +39,7 @@
           :key="index"
           class="option-card"
           @click="checkAnswer(option)"
+          :class="{ disabled: option.disabled }"
         >
           <img
             v-if="gameMode === 'countryToFlag'"
@@ -113,14 +114,25 @@ export default {
       );
       incorrectOptions = this.shuffleArray(incorrectOptions).slice(0, 3);
 
-      this.options = this.shuffleArray([randomFlag, ...incorrectOptions]);
+      // Combine options and reset disabled state
+      this.options = this.shuffleArray([randomFlag, ...incorrectOptions]).map(
+        (option) => ({
+          ...option,
+          disabled: false, // Reset disabled state for all options
+        })
+      );
     },
 
     checkAnswer(option) {
+      // If the option is disabled, do nothing
+      if (option.disabled) return;
+
+      // Disable the clicked option
+      option.disabled = true;
+
       if (option.name === this.correctAnswer.name) {
         this.correctAnswersCount++;
         this.incrementCorrectAnswers();
-
         this.setNewQuestion();
       } else {
         this.decrementLives();
@@ -212,11 +224,15 @@ export default {
   border: 3px solid #2980b9;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
-.option-card:hover {
-  background: linear-gradient(135deg, #2980b9, #3498db);
+.option-card.disabled {
+  background: gray;
+  cursor: not-allowed;
+}
+
+.option-card:hover:not(.disabled) {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 

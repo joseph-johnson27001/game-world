@@ -28,13 +28,13 @@ export default {
       { name: "Argentina", flag: "https://flagcdn.com/w320/ar.png" },
       { name: "Thailand", flag: "https://flagcdn.com/w320/th.png" },
       { name: "Vietnam", flag: "https://flagcdn.com/w320/vn.png" },
-      { name: "Philippines", flag: "https://flagcdn.com/w320/ph.png" },
       { name: "Belgium", flag: "https://flagcdn.com/w320/be.png" },
       { name: "Portugal", flag: "https://flagcdn.com/w320/pt.png" },
       { name: "Egypt", flag: "https://flagcdn.com/w320/eg.png" },
     ],
 
     medium: [
+      { name: "Philippines", flag: "https://flagcdn.com/w320/ph.png" },
       { name: "Colombia", flag: "https://flagcdn.com/w320/co.png" },
       { name: "Ukraine", flag: "https://flagcdn.com/w320/ua.png" },
       { name: "Malaysia", flag: "https://flagcdn.com/w320/my.png" },
