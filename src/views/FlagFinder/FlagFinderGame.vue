@@ -160,6 +160,12 @@ export default {
   color: #333;
 }
 
+.lives-container p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .heart-icon {
   width: 30px;
   height: 30px;
@@ -167,7 +173,8 @@ export default {
 }
 
 .flag-image {
-  width: 300px;
+  max-width: 300px;
+  width: 100%;
   height: 180px;
   display: block;
   margin: 0 auto;
