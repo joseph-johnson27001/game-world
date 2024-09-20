@@ -42,17 +42,12 @@
         </div>
       </div>
     </div>
-
-    <!-- Game Over Message -->
-    <div v-else>
-      <h2>Game Over! You ran out of lives.</h2>
-      <button @click="resetGame">Play Again</button>
-    </div>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+// import { useRouter } from "vue-router";
 
 export default {
   data() {
@@ -60,6 +55,8 @@ export default {
       currentQuestion: null, // Current flag or country
       options: [], // Array of 4 options to display
       correctAnswer: null, // Track the correct answer
+      questionsAsked: 0, // Count of questions asked
+      usedFlags: new Set(), // To track used flags
     };
   },
   computed: {
@@ -81,13 +78,27 @@ export default {
     // Set up a new round/question
     setNewQuestion() {
       const flags = this.getFlagsByDifficulty;
-      const randomFlag = flags[Math.floor(Math.random() * flags.length)]; // Randomly select a flag
+
+      // Check if we've used all flags
+      if (this.usedFlags.size >= flags.length) {
+        this.redirectToResults(); // Redirect to results if all flags used
+        return;
+      }
+
+      let randomFlag;
+      do {
+        randomFlag = flags[Math.floor(Math.random() * flags.length)];
+      } while (this.usedFlags.has(randomFlag.name)); // Ensure no repeats
+
       this.currentQuestion = randomFlag;
       this.correctAnswer = randomFlag;
+      this.usedFlags.add(randomFlag.name); // Mark this flag as used
+      this.questionsAsked++;
 
       // Generate 3 random incorrect options
       let incorrectOptions = flags.filter(
-        (flag) => flag.name !== randomFlag.name
+        (flag) =>
+          flag.name !== randomFlag.name && !this.usedFlags.has(flag.name)
       );
       incorrectOptions = this.shuffleArray(incorrectOptions).slice(0, 3);
 
@@ -114,12 +125,26 @@ export default {
 
     // End game and reset lives
     endGame() {
-      this.currentQuestion = null; // Hide game interface
+      this.$router.push({
+        name: "FlagFinderResults",
+        params: { questionsAsked: this.questionsAsked, lives: this.lives },
+      });
+    },
+
+    // Redirect to results page
+    redirectToResults() {
+      // You can redirect to a results page using Vue Router
+      this.$router.push({
+        name: "ResultsPage",
+        params: { questionsAsked: this.questionsAsked, lives: this.lives },
+      });
     },
 
     // Reset the game
     resetGame() {
       this.resetLives(); // Reset lives in Vuex store
+      this.questionsAsked = 0; // Reset question count
+      this.usedFlags.clear(); // Clear used flags
       this.setNewQuestion(); // Start a new game
     },
   },
