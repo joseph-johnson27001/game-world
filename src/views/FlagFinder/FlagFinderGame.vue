@@ -118,7 +118,7 @@ export default {
       if (option.name === this.correctAnswer.name) {
         this.setNewQuestion(); // Move to the next question
       } else {
-        this.decrementLives(); // Lose a life
+        this.decrementLives();
         if (this.lives === 0) {
           this.endGame();
         }
@@ -132,12 +132,15 @@ export default {
 
     // End game and redirect to results
     endGame() {
+      this.resetLives();
       this.$router.push({
         name: "FlagFinderResults",
-        params: { questionsAsked: this.questionsAsked, lives: this.lives },
+        params: {
+          correctAnswers: this.correctAnswersCount, // Add your logic to count correct answers
+          totalQuestions: this.questionsAsked,
+        },
       });
     },
-
     // Redirect to results page
     redirectToResults() {
       this.$router.push({
