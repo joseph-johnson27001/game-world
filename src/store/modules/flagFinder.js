@@ -103,7 +103,11 @@ export default {
   },
   getters: {
     getFlagsByDifficulty: (state) => {
-      return state[state.gameSettings.difficulty];
+      if (state.gameSettings.difficulty === "random") {
+        return [...state.easy, ...state.medium, ...state.hard];
+      } else {
+        return state[state.gameSettings.difficulty];
+      }
     },
     getGameMode: (state) => {
       return state.gameSettings.gameMode;

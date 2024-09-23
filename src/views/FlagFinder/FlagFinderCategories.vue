@@ -28,6 +28,14 @@
         </div>
         <h2>Hard</h2>
       </div>
+
+      <!-- New Random Option -->
+      <div class="difficulty-card random" @click="selectDifficulty('random')">
+        <div class="icon">
+          <img src="@/assets/icons/random-icon.svg" alt="Random" />
+        </div>
+        <h2>Random</h2>
+      </div>
     </div>
   </div>
 </template>
@@ -42,6 +50,7 @@ export default {
   },
 };
 </script>
+
 <style scoped>
 /* General Layout for Difficulty Buttons */
 .difficulty-buttons {
@@ -125,6 +134,16 @@ export default {
 }
 .hard:hover {
   background: linear-gradient(135deg, #c0392b, #e74c3c);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Random Difficulty Styles */
+.random {
+  background: linear-gradient(135deg, #8e44ad, #9b59b6);
+  border-color: #8e44ad;
+}
+.random:hover {
+  background: linear-gradient(135deg, #9b59b6, #8e44ad);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 </style>
