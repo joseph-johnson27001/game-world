@@ -34,7 +34,7 @@
         <div class="icon">
           <img src="@/assets/icons/random-icon.svg" alt="Random" />
         </div>
-        <h2>Random</h2>
+        <h2>Mix</h2>
       </div>
     </div>
   </div>

@@ -1,3 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="green" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <path d="M12 2C10.29 2 8.68 2.81 7.49 4.06C5.12 6.54 5.12 10.46 7.49 12.94C9.57 14.92 12 16.28 12 20V22H14V20C14 16.28 16.43 14.92 18.51 12.94C20.88 10.46 20.88 6.54 18.51 4.06C17.32 2.81 15.71 2 14 2H12Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Arrows pointing in different directions to indicate randomness -->
+  <g stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+    <!-- Arrow 1 (top right) - bright yellow -->
+    <path d="M12 12L52 12L52 22L62 12L52 2L52 12" fill="none" stroke="#f1c40f"/>
+    <!-- Arrow 2 (bottom left) - bright white -->
+    <path d="M52 52L12 52L12 42L2 52L12 62L12 52" fill="none" stroke="#ecf0f1"/>
+  </g>
 </svg>
