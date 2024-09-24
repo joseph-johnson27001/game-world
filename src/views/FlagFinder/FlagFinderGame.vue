@@ -232,7 +232,7 @@ export default {
   border: 3px solid #2980b9;
   cursor: pointer;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.2s ease;
+  transition: all 0.1s linear;
 }
 
 .option-card.disabled {
@@ -244,7 +244,6 @@ export default {
 .option-card.correct {
   background: green;
   border-color: green;
-  transition: all 0.3s ease;
 }
 
 .option-card:hover:not(.disabled) {
