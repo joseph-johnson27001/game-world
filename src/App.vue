@@ -1,9 +1,7 @@
 <!-- src/App.vue -->
 <template>
   <div id="app">
-    <!-- Back Button Component -->
     <main>
-      <!-- <BackButton /> -->
       <router-view />
     </main>
   </div>

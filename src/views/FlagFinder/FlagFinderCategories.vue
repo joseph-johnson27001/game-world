@@ -37,8 +37,8 @@ export default {
       difficulties: [
         { id: "easy", name: "Easy", icon: "flag-one-icon.PNG" },
         { id: "medium", name: "Medium", icon: "flag-two-icon.PNG" },
-        { id: "hard", name: "Hard", icon: "flag-three-icon.PNG" },
-        { id: "random", name: "Mix", icon: "flag-four-icon.PNG" },
+        { id: "hard", name: "Hard", icon: "flag-four-icon.PNG" },
+        { id: "random", name: "Mix", icon: "flag-three-icon.PNG" },
       ],
       selectedDifficulty: null,
     };
