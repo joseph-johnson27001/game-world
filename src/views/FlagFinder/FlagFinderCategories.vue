@@ -60,7 +60,6 @@ export default {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   flex-wrap: wrap;
   gap: 1em;
-  margin-top: 2em;
 }
 
 /* Category Item */
