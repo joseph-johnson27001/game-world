@@ -80,7 +80,7 @@ export default {
           route: "WordSearch",
         },
         {
-          name: "Word Scramble",
+          name: "Word Smash",
           image: "GameSelection/word-scramble-tile.JPG",
           route: "WordScrambleCategories",
         },

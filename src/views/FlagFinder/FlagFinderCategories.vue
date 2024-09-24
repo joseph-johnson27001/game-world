@@ -57,9 +57,9 @@ export default {
 /* General Layout for Card Container */
 .card-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
   flex-wrap: wrap;
-  gap: 1em;
+  gap: 20px;
 }
 
 /* Category Item */
@@ -87,44 +87,40 @@ export default {
   transition: transform 0.2s;
 }
 
-/* Add visual effect when selected */
-.category-card.selected {
-  border: 4px solid #3498db; /* Highlighted border for selected card */
+.category-card:hover {
+  transform: scale(1.05);
 }
 
 /* Category Image Styling */
 .category-image {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
 /* Category Name Styling */
 .category-name {
-  margin-top: 0.75em;
+  margin-top: 8px;
   font-size: 1.2em;
-  font-weight: bold;
-  color: #333;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-/* Hover Effect */
-.category-card:hover {
-  transform: scale(1.05);
 }
 
 /* Media Query for Smaller Viewports */
-@media (max-width: 473px) {
+@media (max-width: 540px) {
   .card-container {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 /* Media Query for Smaller Viewports */
 @media (max-width: 360px) {
   .card-container {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 250px) {
+    .card-container {
+      grid-template-columns: 1fr;
+    }
   }
 }
 </style>
