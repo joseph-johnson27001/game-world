@@ -6,35 +6,25 @@
       <span></span>
     </div>
 
-    <!-- Difficulty Buttons -->
-    <div class="difficulty-buttons">
-      <div class="difficulty-card easy" @click="selectDifficulty('easy')">
-        <div class="icon">
-          <img src="@/assets/icons/easy-icon.svg" alt="Easy" />
+    <!-- Updated Category Buttons Layout -->
+    <div class="card-container">
+      <div
+        v-for="difficulty in difficulties"
+        :key="difficulty.id"
+        class="category-item"
+      >
+        <div
+          class="category-card"
+          :class="{ selected: selectedDifficulty === difficulty.id }"
+          @click="selectDifficulty(difficulty.id)"
+        >
+          <img
+            :src="`/FlagFinder/${difficulty.icon}`"
+            :alt="difficulty.name + ' Image'"
+            class="category-image"
+          />
         </div>
-        <h2>Easy</h2>
-      </div>
-
-      <div class="difficulty-card medium" @click="selectDifficulty('medium')">
-        <div class="icon">
-          <img src="@/assets/icons/medium-icon.svg" alt="Medium" />
-        </div>
-        <h2>Medium</h2>
-      </div>
-
-      <div class="difficulty-card hard" @click="selectDifficulty('hard')">
-        <div class="icon">
-          <img src="@/assets/icons/hard-icon.svg" alt="Hard" />
-        </div>
-        <h2>Hard</h2>
-      </div>
-
-      <!-- New Random Option -->
-      <div class="difficulty-card random" @click="selectDifficulty('random')">
-        <div class="icon">
-          <img src="@/assets/icons/random-icon.svg" alt="Random" />
-        </div>
-        <h2>Mix</h2>
+        <div class="category-name">{{ difficulty.name }}</div>
       </div>
     </div>
   </div>
@@ -42,8 +32,20 @@
 
 <script>
 export default {
+  data() {
+    return {
+      difficulties: [
+        { id: "easy", name: "Easy", icon: "flag-one-icon.PNG" },
+        { id: "medium", name: "Medium", icon: "flag-two-icon.PNG" },
+        { id: "hard", name: "Hard", icon: "flag-three-icon.PNG" },
+        { id: "random", name: "Mix", icon: "flag-four-icon.PNG" },
+      ],
+      selectedDifficulty: null,
+    };
+  },
   methods: {
     selectDifficulty(difficulty) {
+      this.selectedDifficulty = difficulty;
       this.$store.dispatch("flagFinder/setDifficulty", difficulty);
       this.$router.push({ name: "FlagFinderGame" });
     },
@@ -52,98 +54,71 @@ export default {
 </script>
 
 <style scoped>
-/* General Layout for Difficulty Buttons */
-.difficulty-buttons {
-  display: flex;
-  justify-content: center;
+/* General Layout for Card Container */
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  flex-wrap: wrap;
   gap: 1em;
-  margin: 2em auto;
+  margin-top: 2em;
 }
 
-/* Media Query for Smaller Viewports */
-@media (max-width: 600px) {
-  .difficulty-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
-.difficulty-card {
+/* Category Item */
+.category-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 150px;
-  height: 150px;
-  border-radius: 15px;
-  border: 4px solid transparent;
-  padding: 1.5em;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  position: relative;
 }
 
-/* Updated Styling for Icons */
-.difficulty-card .icon {
-  width: 60px;
-  height: 60px;
-  margin-bottom: 0.75em;
+/* Category Card Styling */
+.category-card {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 100%;
+  height: 100%;
+  max-height: 100px;
+  max-width: 100px;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
 
-.difficulty-card .icon img {
+/* Add visual effect when selected */
+.category-card.selected {
+  border: 4px solid #3498db; /* Highlighted border for selected card */
+}
+
+/* Category Image Styling */
+.category-image {
   max-width: 100%;
   max-height: 100%;
+  object-fit: cover;
 }
 
-/* Text Styling */
-.difficulty-card h2 {
-  font-size: 1.4em;
+/* Category Name Styling */
+.category-name {
+  margin-top: 0.75em;
+  font-size: 1.2em;
   font-weight: bold;
-  color: #fff;
+  color: #333;
+  text-align: center;
   text-transform: uppercase;
 }
 
-/* Easy Difficulty Styles */
-.easy {
-  background: linear-gradient(135deg, #27ae60, #2ecc71);
-  border-color: #1e8449;
-}
-.easy:hover {
-  background: linear-gradient(135deg, #2ecc71, #27ae60);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+/* Hover Effect */
+.category-card:hover {
+  transform: scale(1.05);
 }
 
-/* Medium Difficulty Styles */
-.medium {
-  background: linear-gradient(135deg, #f39c12, #f1c40f);
-  border-color: #e67e22;
-}
-.medium:hover {
-  background: linear-gradient(135deg, #f1c40f, #f39c12);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* Hard Difficulty Styles */
-.hard {
-  background: linear-gradient(135deg, #e74c3c, #c0392b);
-  border-color: #c0392b;
-}
-.hard:hover {
-  background: linear-gradient(135deg, #c0392b, #e74c3c);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* Random Difficulty Styles */
-.random {
-  background: linear-gradient(135deg, #8e44ad, #9b59b6);
-  border-color: #8e44ad;
-}
-.random:hover {
-  background: linear-gradient(135deg, #9b59b6, #8e44ad);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+/* Media Query for Smaller Viewports */
+@media (max-width: 473px) {
+  .card-container {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 </style>
