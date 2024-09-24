@@ -75,8 +75,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
+  width: 100px;
+  height: 100px;
   max-height: 100px;
   max-width: 100px;
   aspect-ratio: 1;
