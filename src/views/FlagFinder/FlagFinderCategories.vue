@@ -117,6 +117,13 @@ export default {
 /* Media Query for Smaller Viewports */
 @media (max-width: 473px) {
   .card-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* Media Query for Smaller Viewports */
+@media (max-width: 360px) {
+  .card-container {
     grid-template-columns: 1fr 1fr;
   }
 }
