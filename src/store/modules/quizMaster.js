@@ -1301,8 +1301,21 @@ const actions = {
     commit("setNumQuestions", num);
   },
   startQuiz({ state }) {
-    const categoryQuestions = state.questions[state.selectedCategory];
-    return categoryQuestions.slice(0, state.numQuestions);
+    let questionsToReturn = [];
+
+    if (state.selectedCategory === "Random") {
+      Object.keys(state.questions).forEach((category) => {
+        if (category !== "Random") {
+          questionsToReturn = questionsToReturn.concat(
+            state.questions[category]
+          );
+        }
+      });
+    } else {
+      questionsToReturn = state.questions[state.selectedCategory];
+    }
+    questionsToReturn = questionsToReturn.sort(() => Math.random() - 0.5);
+    return questionsToReturn.slice(0, state.numQuestions);
   },
 };
 
