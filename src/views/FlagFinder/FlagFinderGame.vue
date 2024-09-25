@@ -211,7 +211,6 @@ export default {
   grid-template-columns: 1fr;
   gap: 1em;
   margin: 2em auto;
-  width: 80%;
 }
 
 @media screen and (min-width: 550px) {
