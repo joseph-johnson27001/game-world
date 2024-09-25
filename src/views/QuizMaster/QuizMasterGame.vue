@@ -12,8 +12,11 @@
         :class="[
           'answer-button',
           {
-            correct: isCorrect && answer === currentQuestion.correctAnswer,
-            wrong: !isCorrect && answer === selectedAnswer,
+            correct: isAnswered && answer === currentQuestion.correctAnswer,
+            wrong:
+              isAnswered &&
+              answer === selectedAnswer &&
+              selectedAnswer !== currentQuestion.correctAnswer,
           },
         ]"
         @click="selectAnswer(answer)"
@@ -21,16 +24,6 @@
       >
         {{ answer }}
       </button>
-    </div>
-
-    <div v-if="isAnswered" class="feedback">
-      <p :class="isCorrect ? 'correct' : 'wrong'">
-        {{
-          isCorrect
-            ? "Correct!"
-            : `Incorrect! The correct answer is: ${currentQuestion.correctAnswer}`
-        }}
-      </p>
     </div>
 
     <button
@@ -126,13 +119,13 @@ export default {
 
 .answer-button {
   background-color: #007bff;
+  border: 1px solid white;
   color: white;
   padding: 15px;
-  border: none;
   border-radius: 8px;
   font-size: 1.2rem;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.1s linear;
 }
 
 .answer-button.correct {
@@ -141,11 +134,6 @@ export default {
 
 .answer-button.wrong {
   background-color: red;
-}
-
-.feedback {
-  margin: 10px 0;
-  font-size: 1.2rem;
 }
 
 .next-button,
