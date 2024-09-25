@@ -3,6 +3,7 @@
 const state = {
   selectedCategory: null,
   numQuestions: 20,
+  score: 0,
   questions: {
     Science: [
       {
@@ -1291,6 +1292,12 @@ const mutations = {
   mutateNumQuestions(state, num) {
     state.numQuestions = num;
   },
+  mutateScore(state, score) {
+    state.score = score;
+  },
+  mutateIncrementScore(state) {
+    state.score++;
+  },
 };
 
 const actions = {
@@ -1299,6 +1306,15 @@ const actions = {
   },
   setNumQuestions({ commit }, num) {
     commit("mutateNumQuestions", num);
+  },
+  setScore({ commit }, score) {
+    commit("mutateScore", score);
+  },
+  incrementScore({ commit }) {
+    commit("mutateIncrementScore");
+  },
+  resetScore({ commit }) {
+    commit("mutateScore", 0);
   },
   startQuiz({ state }) {
     let questionsToReturn = [];
@@ -1324,6 +1340,7 @@ const getters = {
   getQuestionsByCategory: (state) => (category) => {
     return state.questions[category] || [];
   },
+  getScore: (state) => state.score,
 };
 
 export default {

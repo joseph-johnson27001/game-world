@@ -41,13 +41,13 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from "vuex";
+import { mapState, mapGetters, mapActions } from "vuex";
 
 export default {
   name: "QuizMasterGame",
   computed: {
     ...mapState("quizMaster", ["numQuestions", "selectedCategory"]),
-    ...mapGetters("quizMaster", ["getQuestionsByCategory"]),
+    ...mapGetters("quizMaster", ["getQuestionsByCategory", "getScore"]),
     currentQuestion() {
       return this.questions[this.currentIndex] || {};
     },
@@ -71,12 +71,19 @@ export default {
   },
   created() {
     this.questions = this.getQuestionsByCategory(this.selectedCategory);
+    this.resetScore();
   },
   methods: {
+    ...mapActions("quizMaster", ["incrementScore", "resetScore"]),
+
     selectAnswer(answer) {
       this.selectedAnswer = answer;
       this.isAnswered = true;
       this.isCorrect = answer === this.currentQuestion.correctAnswer;
+
+      if (this.isCorrect) {
+        this.incrementScore();
+      }
 
       if (this.currentIndex === this.numQuestions - 1) {
         this.isFinished = true;
@@ -88,7 +95,6 @@ export default {
       this.isAnswered = false;
       this.isCorrect = false;
 
-      // Check if we have more questions left
       if (this.currentIndex >= this.questions.length) {
         this.isFinished = true;
       }
