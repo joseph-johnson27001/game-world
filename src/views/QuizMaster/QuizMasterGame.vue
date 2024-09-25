@@ -78,7 +78,7 @@ export default {
 
     selectAnswer(answer) {
       this.selectedAnswer = answer;
-      this.isAnswered = true;
+      this.isAnswered = true; // This will trigger the dynamic class to activate
       this.isCorrect = answer === this.currentQuestion.correctAnswer;
 
       if (this.isCorrect) {
@@ -137,11 +137,11 @@ export default {
 }
 
 .answer-button.correct {
-  background-color: green;
+  background: #28a745;
 }
 
 .answer-button.wrong {
-  background-color: red;
+  background: #dc3545;
 }
 
 .next-button,
