@@ -239,8 +239,7 @@ export default {
 }
 
 .option-card.correct {
-  background: green;
-  border-color: green;
+  background: #28a745;
 }
 
 .option-flag {
