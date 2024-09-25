@@ -1,8 +1,9 @@
 <template>
   <div class="quiz-categories">
     <div class="heading-container" style="justify-content: center">
-      <h1>Select Quiz Category</h1>
+      <h1>Select Category</h1>
     </div>
+
     <div class="card-container">
       <div
         v-for="category in categories"
@@ -26,11 +27,12 @@
         min="1"
         max="50"
         placeholder="Select number of questions"
+        class="question-input"
       />
     </div>
 
     <div class="action-buttons">
-      <button @click="startQuiz">Start Quiz</button>
+      <button @click="startQuiz" class="start-button">Start Quiz</button>
     </div>
   </div>
 </template>
@@ -46,7 +48,7 @@ export default {
   },
   data() {
     return {
-      numQuestions: 10, // Default to 10 questions
+      numQuestions: 20, // Default to 20 questions
     };
   },
   computed: {
@@ -63,10 +65,7 @@ export default {
         { name: "Music", image: "QuizMaster/music.jpg" },
         { name: "Technology", image: "QuizMaster/technology.jpg" },
         { name: "Art", image: "QuizMaster/art.jpg" },
-        {
-          name: "General",
-          image: "QuizMaster/general-knowledge.jpg",
-        },
+        { name: "General", image: "QuizMaster/general-knowledge.jpg" },
         { name: "Random", image: "QuizMaster/random.jpg" },
       ];
     },
@@ -116,6 +115,47 @@ export default {
 
 .settings-container {
   margin-top: 20px;
+}
+
+h2 {
+  margin-bottom: 10px;
+}
+
+/* Style for the number of questions input */
+.question-input {
+  padding: 10px;
+  width: 200px;
+  border-radius: 6px;
+  border: 2px solid #ccc;
+  font-size: 1rem;
+  text-align: center;
+  transition: border-color 0.2s ease-in-out;
+}
+
+.question-input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Style for the Start Quiz button */
+.start-button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.start-button:hover {
+  background-color: #218838;
+}
+
+.start-button:active {
+  background-color: #1e7e34;
 }
 
 .action-buttons {
