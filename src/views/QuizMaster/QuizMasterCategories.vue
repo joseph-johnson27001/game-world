@@ -13,46 +13,40 @@
         <QuizCard
           :name="category.name"
           :image="category.image"
-          @selectCategory="selectCategory"
+          @selectCategory="selectCategoryAndStart(category.name)"
         />
         <div class="category-name">{{ category.name }}</div>
       </div>
     </div>
 
     <div class="settings-container">
-      <h2>Number of Questions</h2>
-      <input
-        type="number"
-        v-model.number="numQuestions"
-        min="1"
-        max="50"
-        placeholder="Select number of questions"
-        class="question-input"
-      />
-    </div>
-
-    <div class="action-buttons">
-      <button @click="startQuiz" class="start-button">Start Quiz</button>
+      <h2>Select Number of Questions</h2>
+      <div class="question-buttons">
+        <button @click="updateNumQuestions(15)" class="question-button">
+          15
+        </button>
+        <button @click="updateNumQuestions(20)" class="question-button">
+          20
+        </button>
+        <button @click="updateNumQuestions(30)" class="question-button">
+          30
+        </button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { mapActions, mapState } from "vuex";
-import QuizCard from "@/components/QuizMaster/QuizCard.vue"; // Assuming it's similar to GameCard.vue
+import QuizCard from "@/components/QuizMaster/QuizCard.vue";
 
 export default {
   name: "QuizMasterCategories",
   components: {
     QuizCard,
   },
-  data() {
-    return {
-      numQuestions: 20, // Default to 20 questions
-    };
-  },
   computed: {
-    ...mapState("quizMaster", ["selectedCategory"]),
+    ...mapState("quizMaster", ["selectedCategory", "numQuestions"]),
     categories() {
       return [
         { name: "Science", image: "QuizMaster/science.jpg" },
@@ -71,21 +65,13 @@ export default {
     },
   },
   methods: {
-    ...mapActions("quizMaster", [
-      "setCategory",
-      "setNumQuestions",
-      "startQuiz",
-    ]),
-    selectCategory(categoryName) {
+    ...mapActions("quizMaster", ["setCategory", "setNumQuestions"]),
+    selectCategoryAndStart(categoryName) {
       this.setCategory(categoryName);
+      this.$router.push({ name: "QuizMasterGame" });
     },
-    startQuiz() {
-      this.setNumQuestions(this.numQuestions);
-      if (this.selectedCategory) {
-        this.$router.push({ name: "QuizMasterSettings" });
-      } else {
-        alert("Please select a category to proceed.");
-      }
+    updateNumQuestions(num) {
+      this.setNumQuestions(num);
     },
   },
 };
@@ -121,25 +107,14 @@ h2 {
   margin-bottom: 10px;
 }
 
-/* Style for the number of questions input */
-.question-input {
-  padding: 10px;
-  width: 200px;
-  border-radius: 6px;
-  border: 2px solid #ccc;
-  font-size: 1rem;
-  text-align: center;
-  transition: border-color 0.2s ease-in-out;
+.question-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
-.question-input:focus {
-  border-color: #007bff;
-  outline: none;
-}
-
-/* Style for the Start Quiz button */
-.start-button {
-  background-color: #28a745;
+.question-button {
+  background-color: #007bff;
   color: white;
   padding: 10px 20px;
   border: none;
@@ -147,19 +122,18 @@ h2 {
   font-size: 1.2rem;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.start-button:hover {
-  background-color: #218838;
+.question-button:hover {
+  background-color: #0056b3;
 }
 
-.start-button:active {
-  background-color: #1e7e34;
+.question-button:active {
+  background-color: #004085;
 }
 
-.action-buttons {
-  margin-top: 20px;
+.question-button.selected {
+  background-color: #0056b3;
 }
 
 @media (max-width: 540px) {

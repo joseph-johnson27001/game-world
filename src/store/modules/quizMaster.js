@@ -1285,20 +1285,20 @@ const state = {
 };
 
 const mutations = {
-  setCategory(state, category) {
+  mutateCategory(state, category) {
     state.selectedCategory = category;
   },
-  setNumQuestions(state, num) {
+  mutateNumQuestions(state, num) {
     state.numQuestions = num;
   },
 };
 
 const actions = {
   setCategory({ commit }, category) {
-    commit("setCategory", category);
+    commit("mutateCategory", category); 
   },
   setNumQuestions({ commit }, num) {
-    commit("setNumQuestions", num);
+    commit("mutateNumQuestions", num); /
   },
   startQuiz({ state }) {
     let questionsToReturn = [];
@@ -1314,6 +1314,7 @@ const actions = {
     } else {
       questionsToReturn = state.questions[state.selectedCategory];
     }
+
     questionsToReturn = questionsToReturn.sort(() => Math.random() - 0.5);
     return questionsToReturn.slice(0, state.numQuestions);
   },
