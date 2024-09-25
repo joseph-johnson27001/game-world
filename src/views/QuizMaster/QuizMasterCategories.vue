@@ -22,14 +22,13 @@
     <div class="settings-container">
       <h2>Select Number of Questions</h2>
       <div class="question-buttons">
-        <button @click="updateNumQuestions(15)" class="question-button">
-          15
-        </button>
-        <button @click="updateNumQuestions(20)" class="question-button">
-          20
-        </button>
-        <button @click="updateNumQuestions(30)" class="question-button">
-          30
+        <button
+          v-for="num in [15, 20, 30]"
+          :key="num"
+          @click="updateNumQuestions(num)"
+          :class="['question-button', { selected: num === numQuestions }]"
+        >
+          {{ num }}
         </button>
       </div>
     </div>
@@ -121,7 +120,7 @@ h2 {
   border-radius: 6px;
   font-size: 1.2rem;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.1s linear;
 }
 
 .question-button:hover {
@@ -134,6 +133,7 @@ h2 {
 
 .question-button.selected {
   background-color: #0056b3;
+  border: 1px solid #ffd700;
 }
 
 @media (max-width: 540px) {
