@@ -1295,10 +1295,10 @@ const mutations = {
 
 const actions = {
   setCategory({ commit }, category) {
-    commit("mutateCategory", category); 
+    commit("mutateCategory", category);
   },
   setNumQuestions({ commit }, num) {
-    commit("mutateNumQuestions", num); /
+    commit("mutateNumQuestions", num);
   },
   startQuiz({ state }) {
     let questionsToReturn = [];
