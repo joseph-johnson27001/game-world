@@ -174,7 +174,7 @@ export default {
 
 <style scoped>
 .flag-finder-game {
-  min-width: 95%;
+  width: 95vw;
 }
 
 .lives-container {
@@ -221,18 +221,16 @@ export default {
 }
 
 .option-card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding: 1em;
+  text-align: center;
+  font-family: "Patrick Hand", cursive;
   background: linear-gradient(135deg, #3498db, #2980b9);
+  border: 1px solid white;
   color: white;
-  border-radius: 15px;
-  border: 3px solid #2980b9;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 1.2rem;
   cursor: pointer;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: all 0.1s linear;
+  transition: background-color 0.1s linear;
 }
 
 .option-card.disabled {
@@ -244,10 +242,6 @@ export default {
 .option-card.correct {
   background: green;
   border-color: green;
-}
-
-.option-card:hover:not(.disabled) {
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .option-flag {

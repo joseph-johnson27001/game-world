@@ -109,6 +109,7 @@ export default {
 <style scoped>
 .quiz-game {
   text-align: center;
+  width: 95vw;
 }
 
 .question {
@@ -124,7 +125,8 @@ export default {
 }
 
 .answer-button {
-  background-color: #007bff;
+  font-family: "Patrick Hand", cursive;
+  background: linear-gradient(135deg, #3498db, #2980b9);
   border: 1px solid white;
   color: white;
   padding: 15px;
