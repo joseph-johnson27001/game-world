@@ -50,7 +50,7 @@ export default {
         },
         {
           name: "Memory Match",
-          image: "GameSelection/memory-tile.JPG",
+          image: "GameSelection/memory-tile.PNG",
           route: "Memory Match",
         },
 
@@ -61,7 +61,7 @@ export default {
         },
         {
           name: "Quiz Master",
-          image: "GameSelection/quiz-app-tile.JPG",
+          image: "GameSelection/quiz-tile.PNG",
           route: "QuizMasterCategories",
         },
         {
@@ -81,7 +81,7 @@ export default {
         },
         {
           name: "Word Smash",
-          image: "GameSelection/word-scramble-tile.JPG",
+          image: "GameSelection/word-tile.PNG",
           route: "WordScrambleCategories",
         },
 
