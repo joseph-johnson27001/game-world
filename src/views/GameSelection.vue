@@ -61,7 +61,7 @@ export default {
         },
         {
           name: "Quiz Master",
-          image: "GameSelection/quiz-tile.PNG",
+          image: "GameSelection/quiz.PNG",
           route: "QuizMasterCategories",
         },
         {
