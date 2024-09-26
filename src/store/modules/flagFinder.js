@@ -141,18 +141,10 @@ export default {
       state.gameSettings.lives = 3;
     },
     INCREMENT_QUESTIONS_ASKED(state) {
-      console.log(
-        "Questions Asked Incremented:",
-        state.gameSettings.questionsAsked
-      );
       state.gameSettings.questionsAsked++;
     },
 
     INCREMENT_CORRECT_ANSWERS(state) {
-      console.log(
-        "Correct Answers Incremented:",
-        state.gameSettings.correctAnswersCount
-      );
       state.gameSettings.correctAnswersCount++;
     },
     RESET_QUESTIONS_AND_ANSWERS(state) {
