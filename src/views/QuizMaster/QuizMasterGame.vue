@@ -46,12 +46,23 @@ import { mapState, mapGetters, mapActions } from "vuex";
 export default {
   name: "QuizMasterGame",
   computed: {
-    ...mapState("quizMaster", ["numQuestions", "selectedCategory"]),
+    ...mapState("quizMaster", [
+      "numQuestions",
+      "startQuiz",
+      "selectedCategory",
+    ]),
     ...mapGetters("quizMaster", ["getQuestionsByCategory", "getScore"]),
     currentQuestion() {
       return this.questions[this.currentIndex] || {};
     },
     shuffledAnswers() {
+      if (
+        !this.currentQuestion ||
+        !this.currentQuestion.correctAnswer ||
+        !Array.isArray(this.currentQuestion.wrongAnswers)
+      ) {
+        return [];
+      }
       const answers = [
         this.currentQuestion.correctAnswer,
         ...this.currentQuestion.wrongAnswers,
@@ -72,13 +83,18 @@ export default {
   created() {
     this.questions = this.getQuestionsByCategory(this.selectedCategory);
     this.resetScore();
+    if (this.selectedCategory === "Random") {
+      this.$store.dispatch("quizMaster/startQuiz").then((questions) => {
+        this.questions = questions;
+      });
+    }
   },
   methods: {
     ...mapActions("quizMaster", ["incrementScore", "resetScore"]),
 
     selectAnswer(answer) {
       this.selectedAnswer = answer;
-      this.isAnswered = true; // This will trigger the dynamic class to activate
+      this.isAnswered = true;
       this.isCorrect = answer === this.currentQuestion.correctAnswer;
 
       if (this.isCorrect) {

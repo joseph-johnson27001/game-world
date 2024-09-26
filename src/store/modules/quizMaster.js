@@ -1280,7 +1280,6 @@ const state = {
         wrongAnswers: ["Arabian Desert", "Gobi Desert", "Kalahari Desert"],
       },
     ],
-
     Random: [],
   },
 };
@@ -1317,21 +1316,28 @@ const actions = {
     commit("mutateScore", 0);
   },
   startQuiz({ state }) {
+    console.log("STARTING");
     let questionsToReturn = [];
 
+    // If 'Random' is selected, gather questions from all categories except 'Random'
     if (state.selectedCategory === "Random") {
       Object.keys(state.questions).forEach((category) => {
         if (category !== "Random") {
+          // Concatenate questions from each category into the questionsToReturn array
           questionsToReturn = questionsToReturn.concat(
             state.questions[category]
           );
         }
       });
     } else {
+      // For any specific category, just assign the questions for that category
       questionsToReturn = state.questions[state.selectedCategory];
     }
 
+    // Shuffle the questions array randomly
     questionsToReturn = questionsToReturn.sort(() => Math.random() - 0.5);
+
+    // Return the sliced array with the number of requested questions
     return questionsToReturn.slice(0, state.numQuestions);
   },
 };
