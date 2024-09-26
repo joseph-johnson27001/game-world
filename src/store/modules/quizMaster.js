@@ -331,7 +331,7 @@ const state = {
         wrongAnswers: ["Atlantic Ocean", "Pacific Ocean", "Southern Ocean"],
       },
     ],
-    Math: [
+    Maths: [
       {
         question: "What is the value of Pi (π) to two decimal places?",
         correctAnswer: "3.14",
