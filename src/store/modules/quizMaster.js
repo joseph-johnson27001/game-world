@@ -139,11 +139,7 @@ const state = {
       {
         question: "Who was the British Prime Minister during World War II?",
         correctAnswer: "Winston Churchill",
-        wrongAnswers: [
-          "Neville Chamberlain",
-          "Margaret Thatcher",
-          "Clement Attlee",
-        ],
+        wrongAnswers: ["Tony Blair", "Margaret Thatcher", "Clement Attlee"],
       },
       {
         question: "In which year did the Berlin Wall fall?",
