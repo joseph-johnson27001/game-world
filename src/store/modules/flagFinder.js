@@ -39,6 +39,18 @@ export default {
       { name: "Pakistan", flag: "https://flagcdn.com/w320/pk.png" },
       { name: "Cuba", flag: "https://flagcdn.com/w320/cu.png" },
       { name: "Venezuela", flag: "https://flagcdn.com/w320/ve.png" },
+      {
+        name: "United Arab Emirates",
+        flag: "https://flagcdn.com/w320/ae.png",
+      },
+      {
+        name: "Israel",
+        flag: "https://flagcdn.com/w320/il.png",
+      },
+      {
+        name: "Romania",
+        flag: "https://flagcdn.com/w320/ro.png",
+      },
     ],
 
     medium: [
@@ -78,6 +90,42 @@ export default {
       { name: "Croatia", flag: "https://flagcdn.com/w320/hr.png" },
       { name: "Slovenia", flag: "https://flagcdn.com/w320/si.png" },
       { name: "Uruguay", flag: "https://flagcdn.com/w320/uy.png" },
+      {
+        name: "Kazakhstan",
+        flag: "https://flagcdn.com/w320/kz.png",
+      },
+      {
+        name: "Azerbaijan",
+        flag: "https://flagcdn.com/w320/az.png",
+      },
+      {
+        name: "Uzbekistan",
+        flag: "https://flagcdn.com/w320/uz.png",
+      },
+      {
+        name: "North Macedonia",
+        flag: "https://flagcdn.com/w320/mk.png",
+      },
+      {
+        name: "Bosnia and Herzegovina",
+        flag: "https://flagcdn.com/w320/ba.png",
+      },
+      {
+        name: "Belarus",
+        flag: "https://flagcdn.com/w320/by.png",
+      },
+      {
+        name: "Georgia",
+        flag: "https://flagcdn.com/w320/ge.png",
+      },
+      {
+        name: "Armenia",
+        flag: "https://flagcdn.com/w320/am.png",
+      },
+      {
+        name: "Moldova",
+        flag: "https://flagcdn.com/w320/md.png",
+      },
     ],
 
     hard: [
@@ -137,6 +185,50 @@ export default {
       { name: "Swaziland (Eswatini)", flag: "https://flagcdn.com/w320/sz.png" },
       { name: "Guyana", flag: "https://flagcdn.com/w320/gy.png" },
       { name: "Montenegro", flag: "https://flagcdn.com/w320/me.png" },
+      {
+        name: "Montserrat",
+        flag: "https://flagcdn.com/w320/ms.png",
+      },
+      {
+        name: "Saint Pierre and Miquelon",
+        flag: "https://flagcdn.com/w320/pm.png",
+      },
+      {
+        name: "Wallis and Futuna",
+        flag: "https://flagcdn.com/w320/wf.png",
+      },
+      {
+        name: "Tokelau",
+        flag: "https://flagcdn.com/w320/tk.png",
+      },
+      {
+        name: "South Sudan",
+        flag: "https://flagcdn.com/w320/ss.png",
+      },
+      {
+        name: "Andorra",
+        flag: "https://flagcdn.com/w320/ad.png",
+      },
+      {
+        name: "San Marino",
+        flag: "https://flagcdn.com/w320/sm.png",
+      },
+      {
+        name: "Monaco",
+        flag: "https://flagcdn.com/w320/mc.png",
+      },
+      {
+        name: "Liechtenstein",
+        flag: "https://flagcdn.com/w320/li.png",
+      },
+      {
+        name: "Vatican City",
+        flag: "https://flagcdn.com/w320/va.png",
+      },
+      {
+        name: "Maldives",
+        flag: "https://flagcdn.com/w320/mv.png",
+      },
     ],
 
     // Game settings
