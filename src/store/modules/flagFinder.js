@@ -31,6 +31,14 @@ export default {
       { name: "Belgium", flag: "https://flagcdn.com/w320/be.png" },
       { name: "Portugal", flag: "https://flagcdn.com/w320/pt.png" },
       { name: "Egypt", flag: "https://flagcdn.com/w320/eg.png" },
+      { name: "Switzerland", flag: "https://flagcdn.com/w320/ch.png" },
+      { name: "Austria", flag: "https://flagcdn.com/w320/at.png" },
+      { name: "Ireland", flag: "https://flagcdn.com/w320/ie.png" },
+      { name: "Poland", flag: "https://flagcdn.com/w320/pl.png" },
+      { name: "Indonesia", flag: "https://flagcdn.com/w320/id.png" },
+      { name: "Pakistan", flag: "https://flagcdn.com/w320/pk.png" },
+      { name: "Cuba", flag: "https://flagcdn.com/w320/cu.png" },
+      { name: "Venezuela", flag: "https://flagcdn.com/w320/ve.png" },
     ],
 
     medium: [
