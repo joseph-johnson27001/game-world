@@ -50,7 +50,7 @@ h1 {
 }
 
 .heading-container {
-  padding-top: 20px;
+  padding-top: 40px;
   padding-bottom: 20px;
   display: flex;
   justify-content: space-between;

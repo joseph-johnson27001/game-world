@@ -57,12 +57,8 @@ export default {
 .back-button {
   position: absolute;
   top: 20px;
-  left: 20px;
+  left: 5px;
   cursor: pointer;
   z-index: 1000;
-}
-.back-button img {
-  width: 24px;
-  height: 24px;
 }
 </style>
