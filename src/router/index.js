@@ -23,6 +23,8 @@ import FlagFinderResults from "@/views/FlagFinder/FlagFinderResults.vue";
 
 const routes = [
   { path: "/", name: "GameSelection", component: GameSelection },
+
+  // WORD SCRAMBLE
   {
     path: "/word-scramble/categories",
     name: "WordScrambleCategories",
@@ -62,6 +64,7 @@ const routes = [
     name: "WordScrambleSettings",
     component: WordScrambleSettings,
   },
+
   // QUIZ MASTER
   {
     path: "/quiz-master/game",
@@ -78,6 +81,12 @@ const routes = [
     name: "QuizMasterResults",
     component: QuizMasterResults,
   },
+
+  // Catch-all route for undefined paths (404)
+  {
+    path: "/:pathMatch(.*)*",
+    redirect: "/",
+  },
 ];
 
 const router = createRouter({
@@ -87,4 +96,5 @@ const router = createRouter({
     return { top: 0 };
   },
 });
+
 export default router;
