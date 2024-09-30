@@ -3,8 +3,8 @@
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 24 24"
-      width="24"
-      height="24"
+      width="30"
+      height="30"
     >
       <path
         d="M15.41 7.41L10.83 12l4.58 4.59L14 18l-6-6 6-6z"
@@ -66,8 +66,8 @@ export default {
 <style scoped>
 .back-button {
   position: absolute;
-  top: 20px;
-  left: 5px;
+  top: 28px;
+  left: 20px;
   cursor: pointer;
   z-index: 1000;
 }

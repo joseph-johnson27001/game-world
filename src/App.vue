@@ -45,7 +45,7 @@ main {
 
 h1 {
   color: #000000;
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 100;
 }
 
