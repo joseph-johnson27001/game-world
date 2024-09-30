@@ -21,13 +21,6 @@ import FlagFinderResults from "@/views/FlagFinder/FlagFinderResults.vue";
 const routes = [
   { path: "/", name: "GameSelection", component: GameSelection },
 
-  // WORD SCRAMBLE
-  {
-    path: "/word-scramble/categories",
-    name: "WordScrambleCategories",
-    component: WordScrambleCategories,
-  },
-
   // FLAG FINDER
   {
     path: "/flag-finder/categories",
@@ -46,6 +39,11 @@ const routes = [
   },
 
   // WORD SCRAMBLE
+  {
+    path: "/word-scramble/categories",
+    name: "WordScrambleCategories",
+    component: WordScrambleCategories,
+  },
   {
     path: "/word-scramble/game",
     name: "WordScrambleGame",

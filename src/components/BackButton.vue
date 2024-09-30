@@ -29,13 +29,23 @@ export default {
 
     const backButtonDestination = computed(() => {
       switch (route.name) {
-        case "WordScrambleCategories":
-          return "/word-scramble";
-        case "FlagFinderCategories":
-          return "/flag-finder";
-        case "QuizMasterCategories":
-          return "/quiz-master";
+        // WORD SCRAMBLE
+        case "WordScrambleGame":
+          return "/word-scramble/categories";
+        case "WordScrambleResults":
+          return "/word-scramble/categories";
 
+        // FLAG FINDER
+        case "FlagFinderResults":
+          return "/flag-finder/categories";
+        case "FlagFinderGame":
+          return "/flag-finder/categories";
+
+        // QUIZ MASTER
+        case "QuizMasterResults":
+          return "/quiz-master/categories";
+        case "QuizMasterGame":
+          return "/quiz-master/categories";
         default:
           return "/";
       }
