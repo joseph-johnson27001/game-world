@@ -1,88 +1,68 @@
-<!-- src/components/BackButton.vue -->
 <template>
-  <button v-if="showButton" class="back-button" @click="navigateBack">
+  <div v-if="showBackButton" class="back-button" @click="goBack">
     <svg
       xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
       width="24"
       height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-      class="feather feather-chevron-left"
     >
-      <polyline points="15 18 9 12 15 6"></polyline>
+      <path
+        d="M15.41 7.41L10.83 12l4.58 4.59L14 18l-6-6 6-6z"
+        fill="currentColor"
+      />
     </svg>
-  </button>
+  </div>
 </template>
 
 <script>
+import { computed } from "vue";
+import { useRoute, useRouter } from "vue-router";
+
 export default {
-  name: "BackButton",
-  data() {
-    return {
-      routesWithNoBack: ["Home", "GameSelection"],
-    };
-  },
-  computed: {
-    showButton() {
-      return !this.routesWithNoBack.includes(this.$route.name);
-    },
-  },
-  methods: {
-    navigateBack() {
-      if (this.$route.name === "WordScrambleGame") {
-        this.$router.push({ name: "WordScrambleCategories" });
-      } else if (this.$route.name === "WordScrambleCategories") {
-        this.$router.push({ name: "GameSelection" });
-      } else if (this.$route.name === "WordScrambleResults")
-        this.$router.push({ name: "WordScrambleCategories" });
-      else {
-        this.$router.go(-1);
+  setup() {
+    const route = useRoute();
+    const router = useRouter();
+
+    const showBackButton = computed(() => {
+      return route.path !== "/";
+    });
+
+    const backButtonDestination = computed(() => {
+      switch (route.name) {
+        case "WordScrambleCategories":
+          return "/word-scramble";
+        case "FlagFinderCategories":
+          return "/flag-finder";
+        case "QuizMasterCategories":
+          return "/quiz-master";
+
+        default:
+          return "/";
       }
-    },
+    });
+
+    const goBack = () => {
+      router.push(backButtonDestination.value);
+    };
+
+    return {
+      showBackButton,
+      goBack,
+    };
   },
 };
 </script>
 
 <style scoped>
 .back-button {
-  position: relative;
-  top: 30px;
+  position: absolute;
+  top: 20px;
   left: 20px;
-  background: none;
-  border: none;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  min-width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: #eaeae1;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 999;
-  transition: background-color ease 0.2s;
+  z-index: 1000;
 }
-
-.back-button:hover {
-  background-color: #f0f0f0;
-  color: #333;
-}
-
-.back-button svg {
-  width: 20px;
-  height: 20px;
-  stroke: #333;
-  transition: color ease 0.2s;
-}
-
-@media (max-width: 360px) {
-  .back-button {
-    left: 5px;
-  }
+.back-button img {
+  width: 24px;
+  height: 24px;
 }
 </style>

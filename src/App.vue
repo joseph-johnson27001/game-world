@@ -1,6 +1,6 @@
-<!-- src/App.vue -->
 <template>
   <div id="app">
+    <BackButton class="back-button" />
     <main>
       <router-view />
     </main>
@@ -8,13 +8,13 @@
 </template>
 
 <script>
-// import BackButton from "./components/BackButton.vue";
+import BackButton from "./components/BackButton.vue";
 
 export default {
   name: "App",
-  // components: {
-  //   BackButton,
-  // },
+  components: {
+    BackButton,
+  },
 };
 </script>
 
