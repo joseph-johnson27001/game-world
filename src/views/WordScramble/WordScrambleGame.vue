@@ -2,9 +2,7 @@
   <div class="word-scramble-game">
     <!-- Category Name -->
     <div class="heading-container">
-      <span></span>
       <h1>{{ currentCategory.name }}</h1>
-      <span></span>
     </div>
 
     <!-- Timer -->

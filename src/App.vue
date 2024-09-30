@@ -53,7 +53,9 @@ h1 {
   padding-top: 20px;
   padding-bottom: 20px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  text-align: center;
+  width: 100%;
 }
 </style>

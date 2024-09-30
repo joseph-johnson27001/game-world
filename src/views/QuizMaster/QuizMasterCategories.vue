@@ -1,6 +1,6 @@
 <template>
   <div class="quiz-categories">
-    <div class="heading-container" style="justify-content: center">
+    <div class="heading-container">
       <h1>Select Category</h1>
     </div>
 

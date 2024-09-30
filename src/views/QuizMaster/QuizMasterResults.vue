@@ -1,6 +1,6 @@
 <template>
   <div class="quiz-results">
-    <div class="heading-container" style="justify-content: center">
+    <div class="heading-container">
       <h1>Quiz Results</h1>
     </div>
 

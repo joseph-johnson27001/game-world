@@ -2,9 +2,7 @@
   <div>
     <!-- Heading Section -->
     <div class="heading-container">
-      <span></span>
       <h1>Settings</h1>
-      <span></span>
     </div>
 
     <!-- Game Format Options -->

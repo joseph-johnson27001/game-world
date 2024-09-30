@@ -23,9 +23,9 @@
           </svg>
         </button>
       </span> -->
-      <span></span>
+
       <h1>Select Category</h1>
-      <span></span>
+
       <!-- Stopwatch Icon Button -->
       <!-- <span>
         <button class="clock-button" @click="goToSettings">

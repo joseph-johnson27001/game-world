@@ -1,6 +1,6 @@
 <template>
   <div class="quiz-game">
-    <div class="heading-container" style="justify-content: center">
+    <div class="heading-container">
       <h1>Quiz Master</h1>
     </div>
 
