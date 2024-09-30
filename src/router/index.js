@@ -8,19 +8,16 @@ import WordScrambleResults from "../views/WordScramble/WordScrambleResults.vue";
 import WordScrambleSettings from "../views/WordScramble/WordScrambleSettings.vue";
 
 // QUIZ MASTER
-
 import QuizMasterCategories from "@/views/QuizMaster/QuizMasterCategories.vue";
 import QuizMasterGame from "@/views/QuizMaster/QuizMasterGame.vue";
 import QuizMasterResults from "@/views/QuizMaster/QuizMasterResults.vue";
 
 // FLAG FINDER
-
 import FlagFinderCategories from "@/views/FlagFinder/FlagFinderCategories.vue";
 import FlagFinderGame from "@/views/FlagFinder/FlagFinderGame.vue";
 import FlagFinderResults from "@/views/FlagFinder/FlagFinderResults.vue";
 
 // ROUTES
-
 const routes = [
   { path: "/", name: "GameSelection", component: GameSelection },
 
@@ -95,6 +92,15 @@ const router = createRouter({
   scrollBehavior() {
     return { top: 0 };
   },
+});
+
+router.beforeEach((to, from, next) => {
+  if (!to.matched.length) {
+    // If no match found, redirect to home
+    next({ path: "/" });
+  } else {
+    next();
+  }
 });
 
 export default router;
