@@ -74,24 +74,9 @@ const state = {
         wrongAnswers: ["10 minutes", "5 minutes", "12 minutes"],
       },
       {
-        question: "What part of the cell contains genetic material?",
-        correctAnswer: "Nucleus",
-        wrongAnswers: ["Mitochondria", "Ribosome", "Cytoplasm"],
-      },
-      {
         question: "What is the powerhouse of the cell?",
         correctAnswer: "Mitochondria",
         wrongAnswers: ["Nucleus", "Ribosome", "Golgi apparatus"],
-      },
-      {
-        question: "What is the chemical symbol for gold?",
-        correctAnswer: "Au",
-        wrongAnswers: ["Ag", "Pb", "Fe"],
-      },
-      {
-        question: "Which gas is essential for human respiration?",
-        correctAnswer: "Oxygen",
-        wrongAnswers: ["Carbon Dioxide", "Hydrogen", "Nitrogen"],
       },
       {
         question: "What is the freezing point of water in Celsius?",
@@ -107,6 +92,202 @@ const state = {
         question: "What is the closest planet to the Sun?",
         correctAnswer: "Mercury",
         wrongAnswers: ["Venus", "Earth", "Mars"],
+      },
+      {
+        question: "What is the name of the closest star to Earth?",
+        correctAnswer: "Proxima Centauri",
+        wrongAnswers: ["Sirius", "Alpha Centauri", "Betelgeuse"],
+      },
+      {
+        question: "What element is known for having the atomic number 1?",
+        correctAnswer: "Hydrogen",
+        wrongAnswers: ["Helium", "Oxygen", "Lithium"],
+      },
+      {
+        question: "What type of celestial body is the Sun classified as?",
+        correctAnswer: "Star",
+        wrongAnswers: ["Planet", "Moon", "Comet"],
+      },
+      {
+        question:
+          "Which part of the plant absorbs water and nutrients from the soil?",
+        correctAnswer: "Roots",
+        wrongAnswers: ["Stem", "Leaves", "Flowers"],
+      },
+      {
+        question:
+          "What process do animals use to break down food and release energy?",
+        correctAnswer: "Digestion",
+        wrongAnswers: ["Photosynthesis", "Respiration", "Fermentation"],
+      },
+      {
+        question: "What is the most common mineral in the Earth's crust?",
+        correctAnswer: "Feldspar",
+        wrongAnswers: ["Quartz", "Mica", "Calcite"],
+      },
+      {
+        question:
+          "Which type of electromagnetic radiation has the longest wavelength?",
+        correctAnswer: "Radio waves",
+        wrongAnswers: ["Gamma rays", "X-rays", "Ultraviolet"],
+      },
+      {
+        question: "What organelle is responsible for protein synthesis?",
+        correctAnswer: "Ribosome",
+        wrongAnswers: ["Mitochondria", "Nucleus", "Lysosome"],
+      },
+      {
+        question:
+          "What is the process by which water vapor turns into liquid water?",
+        correctAnswer: "Condensation",
+        wrongAnswers: ["Evaporation", "Transpiration", "Precipitation"],
+      },
+      {
+        question: "Which blood type is known as the universal donor?",
+        correctAnswer: "O-",
+        wrongAnswers: ["A+", "B+", "AB-"],
+      },
+      {
+        question:
+          "What is the force called that opposes the motion of an object?",
+        correctAnswer: "Friction",
+        wrongAnswers: ["Gravity", "Inertia", "Momentum"],
+      },
+      {
+        question: "What phenomenon causes rainbows to form?",
+        correctAnswer: "Refraction",
+        wrongAnswers: ["Reflection", "Diffraction", "Absorption"],
+      },
+      {
+        question: "What is the main function of chlorophyll in plants?",
+        correctAnswer: "Absorb light",
+        wrongAnswers: ["Absorb water", "Transport nutrients", "Produce oxygen"],
+      },
+      {
+        question: "What do we call the solid inner layer of the Earth?",
+        correctAnswer: "Inner core",
+        wrongAnswers: ["Mantle", "Crust", "Outer core"],
+      },
+      {
+        question: "What is the primary source of energy for all living things?",
+        correctAnswer: "The sun",
+        wrongAnswers: ["Fossil fuels", "Nuclear energy", "Wind"],
+      },
+      {
+        question:
+          "What is the name for the change of state from liquid to gas?",
+        correctAnswer: "Evaporation",
+        wrongAnswers: ["Condensation", "Melting", "Sublimation"],
+      },
+      {
+        question: "Which organ is responsible for filtering blood in the body?",
+        correctAnswer: "Kidneys",
+        wrongAnswers: ["Heart", "Liver", "Lungs"],
+      },
+      {
+        question:
+          "What type of cells in the human body are responsible for carrying signals?",
+        correctAnswer: "Nerve cells",
+        wrongAnswers: ["Epithelial cells", "Muscle cells", "Blood cells"],
+      },
+      {
+        question: "What is the primary function of the large intestine?",
+        correctAnswer: "Reabsorb water",
+        wrongAnswers: ["Absorb nutrients", "Digest food", "Produce bile"],
+      },
+      {
+        question: "What type of rock is formed from cooled magma or lava?",
+        correctAnswer: "Igneous",
+        wrongAnswers: ["Sedimentary", "Metamorphic", "Basalt"],
+      },
+      {
+        question: "Which process do bees use to produce honey?",
+        correctAnswer: "Nectar conversion",
+        wrongAnswers: ["Photosynthesis", "Fermentation", "Respiration"],
+      },
+      {
+        question: "What type of energy is produced by moving water?",
+        correctAnswer: "Hydroelectric energy",
+        wrongAnswers: ["Solar energy", "Nuclear energy", "Geothermal energy"],
+      },
+      {
+        question: "Which particle in an atom has a negative charge?",
+        correctAnswer: "Electron",
+        wrongAnswers: ["Proton", "Neutron", "Photon"],
+      },
+      {
+        question:
+          "What is the study of weather and atmospheric conditions called?",
+        correctAnswer: "Meteorology",
+        wrongAnswers: ["Geology", "Astronomy", "Climatology"],
+      },
+      {
+        question:
+          "What type of organism can make its own food through photosynthesis?",
+        correctAnswer: "Autotroph",
+        wrongAnswers: ["Heterotroph", "Carnivore", "Decomposer"],
+      },
+      {
+        question: "What is the chemical formula for table salt?",
+        correctAnswer: "NaCl",
+        wrongAnswers: ["KCl", "MgCl2", "CaCl2"],
+      },
+      {
+        question: "What is the largest bone in the human body?",
+        correctAnswer: "Femur",
+        wrongAnswers: ["Tibia", "Humerus", "Pelvis"],
+      },
+      {
+        question:
+          "What is the scientific term for a species that no longer has any known living individuals?",
+        correctAnswer: "Extinct",
+        wrongAnswers: ["Endangered", "Vulnerable", "Threatened"],
+      },
+      {
+        question: "What is the primary component of the sun?",
+        correctAnswer: "Hydrogen",
+        wrongAnswers: ["Helium", "Oxygen", "Carbon"],
+      },
+      {
+        question:
+          "What is the main purpose of a hypothesis in scientific research?",
+        correctAnswer: "To make a prediction",
+        wrongAnswers: [
+          "To provide a conclusion",
+          "To summarize findings",
+          "To analyze data",
+        ],
+      },
+      {
+        question: "Which organ produces insulin in the human body?",
+        correctAnswer: "Pancreas",
+        wrongAnswers: ["Liver", "Kidney", "Gallbladder"],
+      },
+      {
+        question:
+          "What is the name for a substance that speeds up a chemical reaction?",
+        correctAnswer: "Catalyst",
+        wrongAnswers: ["Inhibitor", "Reagent", "Solvent"],
+      },
+      {
+        question: "What is the primary function of red blood cells?",
+        correctAnswer: "Transport oxygen",
+        wrongAnswers: ["Fight infections", "Clot blood", "Digest food"],
+      },
+      {
+        question: "Which gas is produced during photosynthesis?",
+        correctAnswer: "Oxygen",
+        wrongAnswers: ["Carbon Dioxide", "Nitrogen", "Hydrogen"],
+      },
+      {
+        question: "What is the basic unit of life?",
+        correctAnswer: "Cell",
+        wrongAnswers: ["Tissue", "Organ", "Organism"],
+      },
+      {
+        question: "What is the most widely spoken language in the world?",
+        correctAnswer: "Mandarin Chinese",
+        wrongAnswers: ["Spanish", "English", "Hindi"],
       },
     ],
     History: [
@@ -224,6 +405,135 @@ const state = {
         correctAnswer: "Inca",
         wrongAnswers: ["Maya", "Aztec", "Olmec"],
       },
+      {
+        question: "What year did the American Civil War begin?",
+        correctAnswer: "1861",
+        wrongAnswers: ["1860", "1865", "1870"],
+      },
+      {
+        question:
+          "Who was the first female aviator to fly solo across the Atlantic Ocean?",
+        correctAnswer: "Amelia Earhart",
+        wrongAnswers: [
+          "Bessie Coleman",
+          "Harriet Quimby",
+          "Jacqueline Cochran",
+        ],
+      },
+      {
+        question: "What was the main cause of the Great Depression?",
+        correctAnswer: "Stock Market Crash",
+        wrongAnswers: ["World War I", "Dust Bowl", "Bank Failures"],
+      },
+      {
+        question:
+          "Which war was fought between the North and South regions in the United States?",
+        correctAnswer: "American Civil War",
+        wrongAnswers: ["World War I", "World War II", "Spanish-American War"],
+      },
+      {
+        question:
+          "Who was the first African American to win the Nobel Peace Prize?",
+        correctAnswer: "Ralph Bunche",
+        wrongAnswers: [
+          "Martin Luther King Jr.",
+          "Barack Obama",
+          "W.E.B. Du Bois",
+        ],
+      },
+      {
+        question:
+          "What was the name of the ship that brought the first English settlers to Jamestown?",
+        correctAnswer: "Susan Constant",
+        wrongAnswers: ["Mayflower", "Discovery", "Pinta"],
+      },
+      {
+        question: "Who wrote the famous book 'The Communist Manifesto'?",
+        correctAnswer: "Karl Marx",
+        wrongAnswers: ["Friedrich Engels", "Vladimir Lenin", "Leon Trotsky"],
+      },
+      {
+        question: "In which year did the French Revolution begin?",
+        correctAnswer: "1789",
+        wrongAnswers: ["1776", "1792", "1804"],
+      },
+      {
+        question:
+          "Which empire was known for its horse archers and nomadic culture?",
+        correctAnswer: "Mongol Empire",
+        wrongAnswers: ["Ottoman Empire", "Persian Empire", "Roman Empire"],
+      },
+      {
+        question: "Who was the first woman to win a Nobel Prize?",
+        correctAnswer: "Marie Curie",
+        wrongAnswers: ["Rosalind Franklin", "Ada Lovelace", "Lise Meitner"],
+      },
+      {
+        question: "What was the name of the treaty that ended World War I?",
+        correctAnswer: "Treaty of Versailles",
+        wrongAnswers: [
+          "Treaty of Paris",
+          "Treaty of Trianon",
+          "Treaty of Brest-Litovsk",
+        ],
+      },
+      {
+        question:
+          "Which country was the first to grant women the right to vote?",
+        correctAnswer: "New Zealand",
+        wrongAnswers: ["United States", "Finland", "Australia"],
+      },
+      {
+        question: "What year did the United States enter World War I?",
+        correctAnswer: "1917",
+        wrongAnswers: ["1915", "1916", "1918"],
+      },
+      {
+        question: "Who was known as the 'Iron Lady'?",
+        correctAnswer: "Margaret Thatcher",
+        wrongAnswers: ["Angela Merkel", "Indira Gandhi", "Golda Meir"],
+      },
+      {
+        question:
+          "What was the primary cause of the American Revolutionary War?",
+        correctAnswer: "Taxation without representation",
+        wrongAnswers: ["Slavery", "Territorial expansion", "Religious freedom"],
+      },
+      {
+        question:
+          "What was the name of the last monarch of France before the revolution?",
+        correctAnswer: "Louis XVI",
+        wrongAnswers: ["Louis XIV", "Marie Antoinette", "Charles X"],
+      },
+      {
+        question: "Who painted the ceiling of the Sistine Chapel?",
+        correctAnswer: "Michelangelo",
+        wrongAnswers: ["Leonardo da Vinci", "Raphael", "Donatello"],
+      },
+      {
+        question: "What ancient civilization is known for its pyramids?",
+        correctAnswer: "Egyptian Civilization",
+        wrongAnswers: [
+          "Mesoamerican Civilization",
+          "Indus Valley Civilization",
+          "Greek Civilization",
+        ],
+      },
+      {
+        question: "What year did the September 11 attacks occur?",
+        correctAnswer: "2001",
+        wrongAnswers: ["2000", "2002", "2003"],
+      },
+      {
+        question: "Who was the first female Chancellor of Germany?",
+        correctAnswer: "Angela Merkel",
+        wrongAnswers: ["Margaret Thatcher", "Theresa May", "Golda Meir"],
+      },
+      {
+        question: "What was the first successful English colony in America?",
+        correctAnswer: "Jamestown",
+        wrongAnswers: ["Plymouth", "Roanoke", "Savannah"],
+      },
     ],
     Geography: [
       {
@@ -325,6 +635,81 @@ const state = {
         question: "Which ocean surrounds the Maldives?",
         correctAnswer: "Indian Ocean",
         wrongAnswers: ["Atlantic Ocean", "Pacific Ocean", "Southern Ocean"],
+      },
+      {
+        question: "What is the capital of Canada?",
+        correctAnswer: "Ottawa",
+        wrongAnswers: ["Toronto", "Vancouver", "Montreal"],
+      },
+      {
+        question: "Which river flows through Egypt?",
+        correctAnswer: "Nile",
+        wrongAnswers: ["Amazon", "Mississippi", "Yangtze"],
+      },
+      {
+        question: "What is the largest island in the world?",
+        correctAnswer: "Greenland",
+        wrongAnswers: ["New Guinea", "Borneo", "Madagascar"],
+      },
+      {
+        question: "What mountain range separates Europe from Asia?",
+        correctAnswer: "Ural Mountains",
+        wrongAnswers: ["Himalayas", "Andes", "Rockies"],
+      },
+      {
+        question: "Which city is known as the Big Apple?",
+        correctAnswer: "New York City",
+        wrongAnswers: ["Los Angeles", "Chicago", "Miami"],
+      },
+      {
+        question: "Which country is the largest by area?",
+        correctAnswer: "Russia",
+        wrongAnswers: ["Canada", "China", "United States"],
+      },
+      {
+        question: "Which river is the longest in South America?",
+        correctAnswer: "Amazon",
+        wrongAnswers: ["Paraná", "Orinoco", "São Francisco"],
+      },
+      {
+        question: "What is the capital of Japan?",
+        correctAnswer: "Tokyo",
+        wrongAnswers: ["Kyoto", "Osaka", "Hiroshima"],
+      },
+      {
+        question: "Which continent is known as the Dark Continent?",
+        correctAnswer: "Africa",
+        wrongAnswers: ["Asia", "South America", "Australia"],
+      },
+      {
+        question: "What is the largest lake in the world?",
+        correctAnswer: "Caspian Sea",
+        wrongAnswers: ["Lake Superior", "Lake Victoria", "Lake Huron"],
+      },
+      {
+        question: "Which country has the most pyramids?",
+        correctAnswer: "Sudan",
+        wrongAnswers: ["Egypt", "Mexico", "Iraq"],
+      },
+      {
+        question: "Which continent has the fewest countries?",
+        correctAnswer: "Antarctica",
+        wrongAnswers: ["Oceania", "South America", "Europe"],
+      },
+      {
+        question: "Which sea is the lowest point on Earth's surface?",
+        correctAnswer: "Dead Sea",
+        wrongAnswers: ["Red Sea", "Mediterranean Sea", "Caspian Sea"],
+      },
+      {
+        question: "What is the capital of Italy?",
+        correctAnswer: "Rome",
+        wrongAnswers: ["Venice", "Milan", "Florence"],
+      },
+      {
+        question: "Which country is known for its fjords?",
+        correctAnswer: "Norway",
+        wrongAnswers: ["Sweden", "Finland", "Iceland"],
       },
     ],
     Maths: [
@@ -429,8 +814,94 @@ const state = {
         correctAnswer: "28",
         wrongAnswers: ["26", "24", "30"],
       },
+      {
+        question: "What is 15% of 200?",
+        correctAnswer: "30",
+        wrongAnswers: ["25", "35", "40"],
+      },
+      {
+        question: "What is the value of 2⁵?",
+        correctAnswer: "32",
+        wrongAnswers: ["16", "64", "20"],
+      },
+      {
+        question:
+          "What is the equation of a straight line in slope-intercept form?",
+        correctAnswer: "y = mx + b",
+        wrongAnswers: ["y = mx^2 + b", "y = bx + m", "y = mx + c"],
+      },
+      {
+        question: "What is the least common multiple (LCM) of 4 and 6?",
+        correctAnswer: "12",
+        wrongAnswers: ["24", "6", "18"],
+      },
+      {
+        question: "What is the area of a rectangle with length 10 and width 5?",
+        correctAnswer: "50",
+        wrongAnswers: ["55", "45", "60"],
+      },
+      {
+        question: "What is the value of the expression: 5 + 2 × 3?",
+        correctAnswer: "11",
+        wrongAnswers: ["21", "15", "17"],
+      },
+      {
+        question: "What is 6²?",
+        correctAnswer: "36",
+        wrongAnswers: ["30", "42", "24"],
+      },
+      {
+        question: "What is the radius of a circle with a diameter of 10?",
+        correctAnswer: "5",
+        wrongAnswers: ["10", "3", "7"],
+      },
+      {
+        question: "What is the sum of 100 and 250?",
+        correctAnswer: "350",
+        wrongAnswers: ["400", "300", "450"],
+      },
+      {
+        question: "What is the formula for the perimeter of a rectangle?",
+        correctAnswer: "2(l + w)",
+        wrongAnswers: ["lw", "l + w", "2lw"],
+      },
+      {
+        question: "What is the GCF (greatest common factor) of 12 and 16?",
+        correctAnswer: "4",
+        wrongAnswers: ["2", "8", "6"],
+      },
+      {
+        question: "What is 9 + 10?",
+        correctAnswer: "19",
+        wrongAnswers: ["18", "20", "21"],
+      },
+      {
+        question: "What is the value of x in the equation 2x + 4 = 12?",
+        correctAnswer: "4",
+        wrongAnswers: ["2", "6", "8"],
+      },
+      {
+        question: "What is the next number in the sequence: 2, 4, 6, 8?",
+        correctAnswer: "10",
+        wrongAnswers: ["12", "14", "16"],
+      },
+      {
+        question: "What is the volume of a cube with a side length of 3?",
+        correctAnswer: "27",
+        wrongAnswers: ["9", "18", "36"],
+      },
+      {
+        question: "What is the decimal equivalent of the fraction 1/4?",
+        correctAnswer: "0.25",
+        wrongAnswers: ["0.5", "0.75", "0.1"],
+      },
+      {
+        question:
+          "What is the next number in the Fibonacci sequence: 0, 1, 1, 2, 3?",
+        correctAnswer: "5",
+        wrongAnswers: ["4", "6", "7"],
+      },
     ],
-
     Literature: [
       {
         question: "Who wrote the novel '1984'?",
@@ -573,8 +1044,98 @@ const state = {
           "Ernest Hemingway",
         ],
       },
+      {
+        question: "Who wrote 'The Handmaid's Tale'?",
+        correctAnswer: "Margaret Atwood",
+        wrongAnswers: ["Toni Morrison", "Alice Walker", "Virginia Woolf"],
+      },
+      {
+        question:
+          "What is the title of the first book in the 'Game of Thrones' series?",
+        correctAnswer: "A Game of Thrones",
+        wrongAnswers: [
+          "A Clash of Kings",
+          "A Storm of Swords",
+          "A Dance with Dragons",
+        ],
+      },
+      {
+        question: "Who is the author of 'The Kite Runner'?",
+        correctAnswer: "Khaled Hosseini",
+        wrongAnswers: [
+          "Chimamanda Ngozi Adichie",
+          "Salman Rushdie",
+          "Arundhati Roy",
+        ],
+      },
+      {
+        question: "Which novel features the character 'Jay Gatsby'?",
+        correctAnswer: "The Great Gatsby",
+        wrongAnswers: [
+          "This Side of Paradise",
+          "Tender Is the Night",
+          "The Beautiful and Damned",
+        ],
+      },
+      {
+        question: "Who wrote 'Brave New World'?",
+        correctAnswer: "Aldous Huxley",
+        wrongAnswers: ["George Orwell", "Ray Bradbury", "Isaac Asimov"],
+      },
+      {
+        question: "Who wrote 'One Hundred Years of Solitude'?",
+        correctAnswer: "Gabriel García Márquez",
+        wrongAnswers: [
+          "Julio Cortázar",
+          "Mario Vargas Llosa",
+          "Jorge Luis Borges",
+        ],
+      },
+      {
+        question:
+          "What is the title of the first book in the 'Harry Potter' series?",
+        correctAnswer: "Harry Potter and the Philosopher's Stone",
+        wrongAnswers: [
+          "Harry Potter and the Chamber of Secrets",
+          "Harry Potter and the Prisoner of Azkaban",
+          "Harry Potter and the Goblet of Fire",
+        ],
+      },
+      {
+        question: "Who wrote 'The Fault in Our Stars'?",
+        correctAnswer: "John Green",
+        wrongAnswers: ["Suzanne Collins", "Rainbow Rowell", "Stephen Chbosky"],
+      },
+      {
+        question:
+          "Which Shakespeare play features the characters Oberon and Titania?",
+        correctAnswer: "A Midsummer Night's Dream",
+        wrongAnswers: [
+          "Much Ado About Nothing",
+          "Romeo and Juliet",
+          "Twelfth Night",
+        ],
+      },
+      {
+        question: "Who wrote 'The Secret Garden'?",
+        correctAnswer: "Frances Hodgson Burnett",
+        wrongAnswers: ["Louisa May Alcott", "L.M. Montgomery", "E.B. White"],
+      },
+      {
+        question: "Who wrote 'The Alchemist'?",
+        correctAnswer: "Paulo Coelho",
+        wrongAnswers: [
+          "Gabriel García Márquez",
+          "Jorge Amado",
+          "Isabel Allende",
+        ],
+      },
+      {
+        question: "Who wrote 'The Bell Jar'?",
+        correctAnswer: "Sylvia Plath",
+        wrongAnswers: ["Virginia Woolf", "Toni Morrison", "Margaret Atwood"],
+      },
     ],
-
     Movies: [
       {
         question: "Which movie won the Academy Award for Best Picture in 1994?",
@@ -699,8 +1260,100 @@ const state = {
         correctAnswer: "Jaws",
         wrongAnswers: ["Deep Blue Sea", "The Abyss", "Sharknado"],
       },
+      {
+        question: "What movie features a character named 'Forrest Gump'?",
+        correctAnswer: "Forrest Gump",
+        wrongAnswers: [
+          "The Curious Case of Benjamin Button",
+          "The Green Mile",
+          "Saving Private Ryan",
+        ],
+      },
+      {
+        question: "Who directed 'Pulp Fiction'?",
+        correctAnswer: "Quentin Tarantino",
+        wrongAnswers: [
+          "Martin Scorsese",
+          "Francis Ford Coppola",
+          "David Fincher",
+        ],
+      },
+      {
+        question:
+          "Which movie features a dance scene on a rooftop in Los Angeles?",
+        correctAnswer: "La La Land",
+        wrongAnswers: ["500 Days of Summer", "Grease", "Footloose"],
+      },
+      {
+        question: "Who played the character of 'Neo' in 'The Matrix'?",
+        correctAnswer: "Keanu Reeves",
+        wrongAnswers: ["Matt Damon", "Brad Pitt", "Hugh Jackman"],
+      },
+      {
+        question: "Which movie features a character named 'Darth Vader'?",
+        correctAnswer: "Star Wars",
+        wrongAnswers: ["Star Trek", "Dune", "Avatar"],
+      },
+      {
+        question: "What animated film features the song 'Let It Go'?",
+        correctAnswer: "Frozen",
+        wrongAnswers: ["Tangled", "Moana", "Coco"],
+      },
+      {
+        question: "Who directed 'Jurassic Park'?",
+        correctAnswer: "Steven Spielberg",
+        wrongAnswers: ["James Cameron", "Peter Jackson", "Ron Howard"],
+      },
+      {
+        question:
+          "Which film features a famous fight scene in a hotel corridor?",
+        correctAnswer: "Oldboy",
+        wrongAnswers: ["The Raid", "John Wick", "Kill Bill"],
+      },
+      {
+        question:
+          "Who starred in 'The Silence of the Lambs' as Hannibal Lecter?",
+        correctAnswer: "Anthony Hopkins",
+        wrongAnswers: ["Johnny Depp", "Gary Oldman", "Al Pacino"],
+      },
+      {
+        question: "Which movie features a young girl named 'Matilda'?",
+        correctAnswer: "Matilda",
+        wrongAnswers: ["The Parent Trap", "Annie", "The Wizard of Oz"],
+      },
+      {
+        question:
+          "Which movie is set during World War II and features the character 'Captain Miller'?",
+        correctAnswer: "Saving Private Ryan",
+        wrongAnswers: ["Dunkirk", "Fury", "1917"],
+      },
+      {
+        question: "What is the name of the lion in 'The Lion King'?",
+        correctAnswer: "Simba",
+        wrongAnswers: ["Mufasa", "Scar", "Nala"],
+      },
+      {
+        question: "Which movie features a time-traveling car?",
+        correctAnswer: "Back to the Future",
+        wrongAnswers: ["Timecop", "The Time Machine", "Looper"],
+      },
+      {
+        question:
+          "Who played the role of 'Hermione Granger' in the Harry Potter films?",
+        correctAnswer: "Emma Watson",
+        wrongAnswers: ["Katherine Langford", "Lily Collins", "Dakota Fanning"],
+      },
+      {
+        question: "Which animated film features a blue tang fish named 'Dory'?",
+        correctAnswer: "Finding Nemo",
+        wrongAnswers: ["Finding Dory", "Shark Tale", "Rio"],
+      },
+      {
+        question: "Who directed the film 'The Godfather'?",
+        correctAnswer: "Francis Ford Coppola",
+        wrongAnswers: ["Martin Scorsese", "Quentin Tarantino", "Sofia Coppola"],
+      },
     ],
-
     Sports: [
       {
         question: "In what sport would you perform a slam dunk?",
@@ -806,8 +1459,94 @@ const state = {
         correctAnswer: "Muhammad Ali",
         wrongAnswers: ["Mike Tyson", "Joe Frazier", "George Foreman"],
       },
+      {
+        question: "Which country hosted the 2008 Summer Olympics?",
+        correctAnswer: "China",
+        wrongAnswers: ["Greece", "United Kingdom", "Brazil"],
+      },
+      {
+        question: "What is the official distance of a marathon?",
+        correctAnswer: "26.2 miles",
+        wrongAnswers: ["25 miles", "27 miles", "26 miles"],
+      },
+      {
+        question: "Which sport is known as 'the beautiful game'?",
+        correctAnswer: "Soccer",
+        wrongAnswers: ["Basketball", "Cricket", "Tennis"],
+      },
+      {
+        question: "Which country has the most Olympic gold medals overall?",
+        correctAnswer: "United States",
+        wrongAnswers: ["China", "Russia", "Great Britain"],
+      },
+      {
+        question: "What is the maximum break in snooker?",
+        correctAnswer: "147",
+        wrongAnswers: ["150", "145", "130"],
+      },
+      {
+        question:
+          "In which sport do players use a racket to hit a shuttlecock?",
+        correctAnswer: "Badminton",
+        wrongAnswers: ["Tennis", "Squash", "Table Tennis"],
+      },
+      {
+        question: "What position does a quarterback play in?",
+        correctAnswer: "American Football",
+        wrongAnswers: ["Baseball", "Basketball", "Soccer"],
+      },
+      {
+        question: "Which sport is associated with the Tour de France?",
+        correctAnswer: "Cycling",
+        wrongAnswers: ["Running", "Swimming", "Triathlon"],
+      },
+      {
+        question: "Which sport is played on a diamond?",
+        correctAnswer: "Baseball",
+        wrongAnswers: ["Cricket", "Softball", "Football"],
+      },
+      {
+        question: "What do you call the scoring area in football?",
+        correctAnswer: "End zone",
+        wrongAnswers: ["Goal area", "Penalty area", "Touchdown zone"],
+      },
+      {
+        question: "Which sport is played on a court and features volleys?",
+        correctAnswer: "Tennis",
+        wrongAnswers: ["Rugby", "American Football", "Baseball"],
+      },
+      {
+        question: "What is the name of the trophy awarded to the NHL champion?",
+        correctAnswer: "Stanley Cup",
+        wrongAnswers: [
+          "Lombardi Trophy",
+          "Commissioner's Trophy",
+          "World Series Trophy",
+        ],
+      },
+      {
+        question: "Which athlete is famous for his 'white gloves' in boxing?",
+        correctAnswer: "Muhammad Ali",
+        wrongAnswers: ["Mike Tyson", "Floyd Mayweather", "Sugar Ray Leonard"],
+      },
+      {
+        question: "In which sport do players aim to score goals using a stick?",
+        correctAnswer: "Ice Hockey",
+        wrongAnswers: ["Soccer", "Rugby", "Cricket"],
+      },
+      {
+        question:
+          "Which country is known for its national sport of Sumo wrestling?",
+        correctAnswer: "Japan",
+        wrongAnswers: ["China", "South Korea", "Mongolia"],
+      },
+      {
+        question:
+          "In which sport do athletes compete in events like the 100m and marathon?",
+        correctAnswer: "Athletics",
+        wrongAnswers: ["Gymnastics", "Swimming", "Cycling"],
+      },
     ],
-
     Music: [
       {
         question: "Who is known as the 'King of Pop'?",
@@ -919,8 +1658,81 @@ const state = {
           "Ludwig van Beethoven",
         ],
       },
+      {
+        question: "What is the title of the first album by The Beatles?",
+        correctAnswer: "Please Please Me",
+        wrongAnswers: ["Help!", "Rubber Soul", "Revolver"],
+      },
+      {
+        question: "Which artist is known for the song 'Rolling in the Deep'?",
+        correctAnswer: "Adele",
+        wrongAnswers: ["Beyoncé", "Taylor Swift", "Rihanna"],
+      },
+      {
+        question: "Who is the lead singer of the band 'U2'?",
+        correctAnswer: "Bono",
+        wrongAnswers: ["The Edge", "Adam Clayton", "Larry Mullen Jr."],
+      },
+      {
+        question: "What year did Elvis Presley pass away?",
+        correctAnswer: "1977",
+        wrongAnswers: ["1975", "1980", "1968"],
+      },
+      {
+        question: "Which famous singer's real name is Stefani Germanotta?",
+        correctAnswer: "Lady Gaga",
+        wrongAnswers: ["Ariana Grande", "Katy Perry", "Rihanna"],
+      },
+      {
+        question: "What genre of music is Taylor Swift primarily known for?",
+        correctAnswer: "Country",
+        wrongAnswers: ["Pop", "Rock", "Hip-Hop"],
+      },
+      {
+        question: "Who was the lead singer of 'The Doors'?",
+        correctAnswer: "Jim Morrison",
+        wrongAnswers: ["Janis Joplin", "Jimi Hendrix", "Robert Plant"],
+      },
+      {
+        question: "Which band is known for the hit 'Sweet Child o' Mine'?",
+        correctAnswer: "Guns N' Roses",
+        wrongAnswers: ["Aerosmith", "Def Leppard", "Metallica"],
+      },
+      {
+        question:
+          "Which singer is known for her powerful vocal range and song 'Vision of Love'?",
+        correctAnswer: "Mariah Carey",
+        wrongAnswers: ["Whitney Houston", "Celine Dion", "Beyoncé"],
+      },
+      {
+        question:
+          "Which iconic band is known for the song 'Stairway to Heaven'?",
+        correctAnswer: "Led Zeppelin",
+        wrongAnswers: ["The Who", "Pink Floyd", "The Rolling Stones"],
+      },
+      {
+        question:
+          "Which pop star famously performed at the Super Bowl halftime show in 2004 with a 'wardrobe malfunction'?",
+        correctAnswer: "Janet Jackson",
+        wrongAnswers: ["Madonna", "Beyoncé", "Shakira"],
+      },
+      {
+        question: "Who sang the theme song for the movie 'Titanic'?",
+        correctAnswer: "Celine Dion",
+        wrongAnswers: ["Whitney Houston", "Mariah Carey", "Adele"],
+      },
+      {
+        question: "Which rapper's debut album was titled 'Illmatic'?",
+        correctAnswer: "Nas",
+        wrongAnswers: ["Jay-Z", "2Pac", "Notorious B.I.G."],
+      },
+      {
+        question:
+          "Which music festival takes place annually in Indio, California?",
+        correctAnswer: "Coachella",
+        wrongAnswers: ["Lollapalooza", "Glastonbury", "Bonnaroo"],
+      },
     ],
-
     Technology: [
       {
         question: "Who is credited with inventing the World Wide Web?",
@@ -1045,8 +1857,95 @@ const state = {
         correctAnswer: "Distributed Ledger",
         wrongAnswers: ["Cloud Computing", "AI", "Quantum Computing"],
       },
+      {
+        question: "Which company created the iOS operating system?",
+        correctAnswer: "Apple",
+        wrongAnswers: ["Microsoft", "Google", "Samsung"],
+      },
+      {
+        question: "What does the term 'IoT' stand for?",
+        correctAnswer: "Internet of Things",
+        wrongAnswers: [
+          "Internet of Technology",
+          "Integrated Operating Technology",
+          "International Open Technology",
+        ],
+      },
+      {
+        question:
+          "Which programming language is primarily used for web development alongside HTML?",
+        correctAnswer: "JavaScript",
+        wrongAnswers: ["C++", "Java", "Ruby"],
+      },
+      {
+        question: "What is the primary function of a web browser?",
+        correctAnswer: "To access and display web pages",
+        wrongAnswers: [
+          "To create software",
+          "To design graphics",
+          "To manage databases",
+        ],
+      },
+      {
+        question: "Who is known as the father of computer science?",
+        correctAnswer: "Alan Turing",
+        wrongAnswers: ["Charles Babbage", "John von Neumann", "Ada Lovelace"],
+      },
+      {
+        question:
+          "Which protocol is used for secure communication over the Internet?",
+        correctAnswer: "HTTPS",
+        wrongAnswers: ["HTTP", "FTP", "SMTP"],
+      },
+      {
+        question: "What is a common use for the programming language Python?",
+        correctAnswer: "Data analysis",
+        wrongAnswers: ["Graphic design", "Web hosting", "Hardware design"],
+      },
+      {
+        question: "What does the acronym 'VPN' stand for?",
+        correctAnswer: "Virtual Private Network",
+        wrongAnswers: [
+          "Virtual Public Network",
+          "Variable Private Network",
+          "Visual Private Network",
+        ],
+      },
+      {
+        question: "Which device is used to connect to a wireless network?",
+        correctAnswer: "Wi-Fi adapter",
+        wrongAnswers: ["Modem", "Router", "Switch"],
+      },
+      {
+        question: "What is the main function of an operating system?",
+        correctAnswer: "Manage hardware and software resources",
+        wrongAnswers: ["Run applications", "Store data", "Create graphics"],
+      },
+      {
+        question: "What is the primary function of a search engine?",
+        correctAnswer: "To index and retrieve information from the web",
+        wrongAnswers: [
+          "To host websites",
+          "To create web pages",
+          "To provide cloud storage",
+        ],
+      },
+      {
+        question: "What does 'DNS' stand for?",
+        correctAnswer: "Domain Name System",
+        wrongAnswers: [
+          "Data Network Service",
+          "Digital Name System",
+          "Domain Network Security",
+        ],
+      },
+      {
+        question:
+          "Which company is known for the development of the Linux operating system?",
+        correctAnswer: "Linus Torvalds",
+        wrongAnswers: ["Bill Gates", "Steve Jobs", "Mark Zuckerberg"],
+      },
     ],
-
     Art: [
       {
         question: "Who painted the 'Mona Lisa'?",
@@ -1172,8 +2071,84 @@ const state = {
           "David Alfaro Siqueiros",
         ],
       },
+      {
+        question: "Who painted 'The Birth of Venus'?",
+        correctAnswer: "Sandro Botticelli",
+        wrongAnswers: ["Titian", "Caravaggio", "Raphael"],
+      },
+      {
+        question: "What style is Jackson Pollock associated with?",
+        correctAnswer: "Abstract Expressionism",
+        wrongAnswers: ["Cubism", "Surrealism", "Futurism"],
+      },
+      {
+        question: "Which artist is known for using pointillism in his work?",
+        correctAnswer: "Georges Seurat",
+        wrongAnswers: ["Vincent van Gogh", "Henri Matisse", "Paul Signac"],
+      },
+      {
+        question: "Which artist created the sculpture 'Venus de Milo'?",
+        correctAnswer: "Alexandros of Antioch",
+        wrongAnswers: ["Phidias", "Praxiteles", "Calamis"],
+      },
+      {
+        question: "Who is known for the painting 'The Girl with the Balloon'?",
+        correctAnswer: "Banksy",
+        wrongAnswers: ["Shepard Fairey", "Damien Hirst", "Ai Weiwei"],
+      },
+      {
+        question:
+          "What is the main theme of Edvard Munch's painting 'The Scream'?",
+        correctAnswer: "Anxiety and existential dread",
+        wrongAnswers: ["Love and joy", "War and peace", "Nature and beauty"],
+      },
+      {
+        question: "Which famous painter is known for his blue period?",
+        correctAnswer: "Pablo Picasso",
+        wrongAnswers: ["Henri Matisse", "Vincent van Gogh", "Paul Gauguin"],
+      },
+      {
+        question: "What type of paint did Claude Monet use in his artwork?",
+        correctAnswer: "Oil paint",
+        wrongAnswers: ["Acrylic paint", "Watercolor", "Tempera"],
+      },
+      {
+        question: "Which artist is known for the mural 'The Last Supper'?",
+        correctAnswer: "Leonardo da Vinci",
+        wrongAnswers: ["Raphael", "Michelangelo", "Caravaggio"],
+      },
+      {
+        question:
+          "What is the primary subject of the painting 'The Night Watch'?",
+        correctAnswer: "A militia company",
+        wrongAnswers: ["A landscape", "A historical event", "A portrait"],
+      },
+      {
+        question: "Which artist is known for his work on the Sistine Chapel?",
+        correctAnswer: "Michelangelo",
+        wrongAnswers: ["Raphael", "Leonardo da Vinci", "Donatello"],
+      },
+      {
+        question: "Who painted the 'Creation of Adam'?",
+        correctAnswer: "Michelangelo",
+        wrongAnswers: ["Raphael", "Leonardo da Vinci", "Titian"],
+      },
+      {
+        question:
+          "Which style is characterized by exaggerated colors and distorted forms?",
+        correctAnswer: "Fauvism",
+        wrongAnswers: ["Impressionism", "Cubism", "Surrealism"],
+      },
+      {
+        question: "Who is the artist behind the 'Campbell's Soup Cans' series?",
+        correctAnswer: "Andy Warhol",
+        wrongAnswers: [
+          "Roy Lichtenstein",
+          "Jackson Pollock",
+          "Jean-Michel Basquiat",
+        ],
+      },
     ],
-
     General: [
       {
         question: "What is the capital of France?",
@@ -1274,6 +2249,98 @@ const state = {
         question: "What is the largest desert in the world?",
         correctAnswer: "Sahara Desert",
         wrongAnswers: ["Arabian Desert", "Gobi Desert", "Kalahari Desert"],
+      },
+      {
+        question: "What is the longest river in the world?",
+        correctAnswer: "Nile River",
+        wrongAnswers: ["Amazon River", "Yangtze River", "Mississippi River"],
+      },
+      {
+        question: "Which planet is known for its rings?",
+        correctAnswer: "Saturn",
+        wrongAnswers: ["Jupiter", "Uranus", "Neptune"],
+      },
+      {
+        question: "What gas do plants absorb from the atmosphere?",
+        correctAnswer: "Carbon Dioxide",
+        wrongAnswers: ["Oxygen", "Nitrogen", "Hydrogen"],
+      },
+      {
+        question: "What is the capital city of Australia?",
+        correctAnswer: "Canberra",
+        wrongAnswers: ["Sydney", "Melbourne", "Brisbane"],
+      },
+      {
+        question: "Which element is represented by the symbol 'O'?",
+        correctAnswer: "Oxygen",
+        wrongAnswers: ["Gold", "Silver", "Iron"],
+      },
+      {
+        question: "What is the largest continent on Earth?",
+        correctAnswer: "Asia",
+        wrongAnswers: ["Africa", "North America", "South America"],
+      },
+      {
+        question:
+          "What is the most widely used social media platform as of 2024?",
+        correctAnswer: "Facebook",
+        wrongAnswers: ["Twitter", "Instagram", "Snapchat"],
+      },
+      {
+        question: "What is the main language spoken in Brazil?",
+        correctAnswer: "Portuguese",
+        wrongAnswers: ["Spanish", "English", "French"],
+      },
+      {
+        question: "Which scientist is known for his laws of motion?",
+        correctAnswer: "Isaac Newton",
+        wrongAnswers: ["Albert Einstein", "Galileo Galilei", "Stephen Hawking"],
+      },
+      {
+        question: "What is the capital of Italy?",
+        correctAnswer: "Rome",
+        wrongAnswers: ["Milan", "Venice", "Florence"],
+      },
+      {
+        question: "What is the tallest mountain in the world?",
+        correctAnswer: "Mount Everest",
+        wrongAnswers: ["K2", "Kangchenjunga", "Lhotse"],
+      },
+      {
+        question: "What is the most spoken language in the world?",
+        correctAnswer: "Mandarin Chinese",
+        wrongAnswers: ["Spanish", "English", "Hindi"],
+      },
+      {
+        question: "Who painted the ceiling of the Sistine Chapel?",
+        correctAnswer: "Michelangelo",
+        wrongAnswers: ["Leonardo da Vinci", "Raphael", "Caravaggio"],
+      },
+      {
+        question: "What is the capital of Canada?",
+        correctAnswer: "Ottawa",
+        wrongAnswers: ["Toronto", "Vancouver", "Montreal"],
+      },
+      {
+        question:
+          "Which organ is responsible for pumping blood throughout the body?",
+        correctAnswer: "Heart",
+        wrongAnswers: ["Liver", "Lungs", "Kidneys"],
+      },
+      {
+        question: "What is the chemical symbol for water?",
+        correctAnswer: "H2O",
+        wrongAnswers: ["O2", "CO2", "NaCl"],
+      },
+      {
+        question: "Who invented the telephone?",
+        correctAnswer: "Alexander Graham Bell",
+        wrongAnswers: ["Thomas Edison", "Nikola Tesla", "Samuel Morse"],
+      },
+      {
+        question: "What is the primary ingredient in chocolate?",
+        correctAnswer: "Cocoa",
+        wrongAnswers: ["Sugar", "Milk", "Vanilla"],
       },
     ],
     Random: [],
