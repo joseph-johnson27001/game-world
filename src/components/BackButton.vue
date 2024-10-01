@@ -77,7 +77,7 @@ export default {
 <style scoped>
 .back-button {
   position: absolute;
-  top: 15px;
+  top: 10px;
   left: 10px;
   cursor: pointer;
   z-index: 1000;
