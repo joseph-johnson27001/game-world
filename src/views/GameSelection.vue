@@ -1,7 +1,7 @@
 <template>
   <div class="game-selection">
     <div class="heading-container" style="justify-content: center">
-      <h1>Game Selection</h1>
+      <h1>Game World</h1>
     </div>
     <div class="card-container">
       <div v-for="game in games" :key="game.name" class="game-item">
