@@ -35,9 +35,8 @@ export default {
         {
           name: "Code Word",
           image: "GameSelection/code-word-tile.JPG",
-          route: "CodeWord",
+          route: "CodeWordCategories",
         },
-
         {
           name: "Flag Finder",
           image: "GameSelection/flag-tile.JPG",

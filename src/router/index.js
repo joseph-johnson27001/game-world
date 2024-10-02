@@ -29,18 +29,18 @@ const routes = [
   // CODE WORD
 
   {
-    path: "code-word/categories",
-    name: CodeWordCategories,
+    path: "/code-word/categories",
+    name: "CodeWordCategories",
     component: CodeWordCategories,
   },
   {
-    path: "code-word/results",
-    name: CodeWordResults,
+    path: "/code-word/results",
+    name: "CodeWordResults",
     component: CodeWordResults,
   },
   {
-    path: "code-word/game",
-    name: CodeWordGame,
+    path: "/code-word/game",
+    name: "CodeWordGame",
     component: CodeWordGame,
   },
 
