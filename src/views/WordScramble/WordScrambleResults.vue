@@ -5,7 +5,10 @@
     </div>
     <p>Words Solved: {{ score }}</p>
     <p>Time Taken: {{ formattedTime }}</p>
-    <button @click="playAgain" class="play-again-button">Play Again</button>
+    <button @click="playAgain" class="play-again-button">Play Again?</button>
+    <button @click="homeScreen" class="game-selection-button">
+      Game Selection
+    </button>
   </div>
 </template>
 
@@ -30,6 +33,9 @@ export default {
     playAgain() {
       this.$router.push({ name: "WordScrambleCategories" });
     },
+    homeScreen() {
+      this.$router.push({ name: "GameSelection" });
+    },
   },
 };
 </script>
@@ -39,18 +45,35 @@ export default {
   text-align: center;
   max-width: 600px;
   margin: 0 auto;
-  padding: 0 10px;
+  padding: 20px;
 }
 
-.play-again-button {
+button {
   margin-top: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 15px 20px;
-  font-size: 1em;
-  background-color: #05bdba;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.1s ease;
+  width: 100%;
+  font-size: 1.1em;
+}
+
+.play-again-button {
+  background-color: #007bff;
+}
+
+.play-again-button:hover {
+  background-color: #0056b3;
+}
+
+.game-selection-button {
+  margin-top: 10px;
+  background-color: #28a745;
+}
+
+.game-selection-button:hover {
+  background-color: #218838;
 }
 </style>
