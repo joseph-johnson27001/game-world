@@ -135,7 +135,7 @@ export default {
           "OATMEAL",
           "FRUIT",
         ],
-        image: "/WordScramble/food-tile.JPG",
+        image: "/WordScramble/food-tile.PNG",
       },
       {
         id: 6,
@@ -270,7 +270,7 @@ export default {
           "FIG",
           "AVOCADO",
         ],
-        image: "/WordScramble/fruits-tile.JPG",
+        image: "/WordScramble/fruits-tile.PNG",
       },
       {
         id: 11,
