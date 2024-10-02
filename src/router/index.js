@@ -1,6 +1,11 @@
 import { createRouter, createWebHistory } from "vue-router";
 import GameSelection from "../views/GameSelection.vue";
 
+//CODE WORD
+import CodeWordCategories from "@/views/CodeWord/CodeWordCategories.vue";
+import CodeWordGame from "@/views/CodeWord/CodeWordGame.vue";
+import CodeWordResults from "@/views/CodeWord/CodeWordResults.vue";
+
 // WORD SCRAMBLE
 import WordScrambleCategories from "../views/WordScramble/WordScrambleCategories.vue";
 import WordScrambleGame from "../views/WordScramble/WordScrambleGame.vue";
@@ -20,6 +25,24 @@ import FlagFinderResults from "@/views/FlagFinder/FlagFinderResults.vue";
 // ROUTES
 const routes = [
   { path: "/", name: "GameSelection", component: GameSelection },
+
+  // CODE WORD
+
+  {
+    path: "code-word/categories",
+    name: CodeWordCategories,
+    component: CodeWordCategories,
+  },
+  {
+    path: "code-word/results",
+    name: CodeWordResults,
+    component: CodeWordResults,
+  },
+  {
+    path: "code-word/game",
+    name: CodeWordGame,
+    component: CodeWordGame,
+  },
 
   // FLAG FINDER
   {
