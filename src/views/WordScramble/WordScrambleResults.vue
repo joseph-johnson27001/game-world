@@ -58,6 +58,7 @@ button {
   transition: background-color 0.1s ease;
   width: 100%;
   font-size: 1.1em;
+  border: 1px solid white;
 }
 
 .play-again-button {
