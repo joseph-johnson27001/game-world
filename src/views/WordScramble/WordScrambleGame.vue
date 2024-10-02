@@ -184,7 +184,8 @@ export default {
     },
 
     nextWord() {
-      if (this.currentWordIndex < this.currentCategory.words.length - 1) {
+      if (this.currentWordIndex < 20 - 1) {
+        // SET THE LENGTH OF THE GAME HERE
         this.currentWordIndex++;
         this.shuffleWord();
       } else {
