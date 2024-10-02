@@ -1,6 +1,8 @@
 <template>
   <div class="codeword-categories">
-    <h1>Select Difficulty and Time</h1>
+    <div class="heading-container">
+      <h1>Select Difficulty and Time</h1>
+    </div>
     <div class="category-selection">
       <label>Select Difficulty:</label>
       <select v-model="selectedDifficulty">
@@ -20,7 +22,7 @@
       </select>
     </div>
 
-    <button @click="startGame">Start Game</button>
+    <button @click="initiateGame">Start Game</button>
   </div>
 </template>
 
@@ -32,25 +34,13 @@ export default {
       selectedTime: "none",
     };
   },
-  methods: {
-    startGame() {
-      // Pass the selected options to the game route
-      this.$router.push({
-        name: "CodeWordGame",
-        params: {
-          difficulty: this.selectedDifficulty,
-          timeLimit: this.selectedTime,
-        },
-      });
-    },
-  },
+  methods: {},
 };
 </script>
 
 <style scoped>
 .codeword-categories {
   text-align: center;
-  margin: 20px;
 }
 
 .category-selection {
