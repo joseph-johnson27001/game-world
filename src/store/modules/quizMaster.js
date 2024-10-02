@@ -1547,6 +1547,7 @@ const state = {
         wrongAnswers: ["Gymnastics", "Swimming", "Cycling"],
       },
     ],
+
     Music: [
       {
         question: "Who is known as the 'King of Pop'?",

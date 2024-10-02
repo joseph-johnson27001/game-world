@@ -81,14 +81,26 @@ export default {
     };
   },
   created() {
-    this.questions = this.getQuestionsByCategory(this.selectedCategory);
+    // Reset the score when the component is created
     this.resetScore();
-    if (this.selectedCategory === "Random") {
-      this.$store.dispatch("quizMaster/startQuiz").then((questions) => {
-        this.questions = questions;
-      });
+
+    // Fetch questions for the selected category
+    if (this.selectedCategory) {
+      if (this.selectedCategory === "Random") {
+        // If the category is Random, call startQuiz to get a mix of questions
+        this.$store.dispatch("quizMaster/startQuiz").then((questions) => {
+          this.questions = questions;
+        });
+      } else {
+        // Otherwise, fetch questions by the selected category
+        this.questions = this.getQuestionsByCategory(this.selectedCategory);
+        this.questions = this.questions
+          .sort(() => Math.random() - 0.5)
+          .slice(0, this.numQuestions);
+      }
     }
   },
+
   methods: {
     ...mapActions("quizMaster", ["incrementScore", "resetScore"]),
 
