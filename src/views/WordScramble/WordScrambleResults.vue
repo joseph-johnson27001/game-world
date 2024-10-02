@@ -3,7 +3,7 @@
     <div class="heading-container">
       <h1>Game Results</h1>
     </div>
-    <p>Your score: {{ score }}</p>
+    <p>Words Solved: {{ score }}</p>
     <p>Time Taken: {{ formattedTime }}</p>
     <button @click="playAgain" class="play-again-button">Play Again</button>
   </div>

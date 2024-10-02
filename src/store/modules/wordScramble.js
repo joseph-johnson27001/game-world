@@ -342,7 +342,10 @@ export default {
       state.currentCategory = category;
     },
     setGameResults(state, results) {
-      state.gameResults = results;
+      state.gameResults.score = results.score;
+    },
+    setGameResultsTime(state, time) {
+      state.gameResults.time = time;
     },
     setGameFormat(state, format) {
       state.gameFormat.type = format.type;
@@ -356,10 +359,14 @@ export default {
     setGameResults({ commit }, results) {
       commit("setGameResults", results);
     },
+    setGameResultsTime({ commit }, time) {
+      commit("setGameResultsTime", time);
+    },
     selectGameFormat({ commit }, format) {
       commit("setGameFormat", format);
     },
   },
+
   getters: {
     getCategories(state) {
       return state.categories;

@@ -84,9 +84,7 @@ export default {
       clickedTiles: [],
       completed: false,
       isCorrect: false,
-      timer: 60,
       timerInterval: null,
-      score: 0,
       isFalse: false,
     };
   },
@@ -113,17 +111,36 @@ export default {
     if (!this.currentCategory) {
       this.$router.push({ name: "WordScrambleCategories" });
     } else {
+      this.resetGame(); // Reset score and timer when the game starts
       this.shuffleWord();
     }
     document.addEventListener("click", this.handleDocumentClick);
     window.addEventListener("keydown", this.handleKeyInput);
   },
   beforeUnmount() {
+    clearInterval(this.timerInterval); // Clear timer when leaving component
     document.removeEventListener("click", this.handleDocumentClick);
     window.removeEventListener("keydown", this.handleKeyInput);
   },
   methods: {
-    ...mapActions("wordScramble", ["selectCategory"]),
+    ...mapActions("wordScramble", [
+      "selectCategory",
+      "setGameResults",
+      "setGameResultsTime",
+    ]),
+
+    resetGame() {
+      this.score = 0; // Reset score
+      this.$store.dispatch("wordScramble/setGameResults", { score: 0 });
+      this.$store.dispatch("wordScramble/setGameResultsTime", 0);
+
+      // Reset and start timer
+      let startTime = Date.now();
+      this.timerInterval = setInterval(() => {
+        const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+        this.$store.dispatch("wordScramble/setGameResultsTime", elapsedTime);
+      }, 1000);
+    },
 
     shuffleWord() {
       this.shuffledLetters = this.currentWord
@@ -141,6 +158,9 @@ export default {
         if (this.userInput.join("") === this.currentWord) {
           this.isCorrect = true;
           this.score++;
+          this.$store.dispatch("wordScramble/setGameResults", {
+            score: this.score,
+          });
           setTimeout(() => {
             this.isCorrect = false;
             this.nextWord();
@@ -162,6 +182,7 @@ export default {
         this.shuffleWord();
       } else {
         this.completed = true;
+        clearInterval(this.timerInterval); // Stop the timer when game is complete
         this.viewResults();
       }
     },
