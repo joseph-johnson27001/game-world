@@ -111,8 +111,9 @@ export default {
     if (!this.currentCategory) {
       this.$router.push({ name: "WordScrambleCategories" });
     } else {
+      this.shuffleCategoryWords(); // Shuffle the words order before starting the game
       this.resetGame(); // Reset score and timer when the game starts
-      this.shuffleWord();
+      this.shuffleWord(); // Shuffle the first word's letters
     }
     document.addEventListener("click", this.handleDocumentClick);
     window.addEventListener("keydown", this.handleKeyInput);
@@ -146,6 +147,12 @@ export default {
       this.shuffledLetters = this.currentWord
         .split("")
         .sort(() => Math.random() - 0.5);
+    },
+
+    shuffleCategoryWords() {
+      this.currentCategory.words = this.currentCategory.words.sort(
+        () => Math.random() - 0.5
+      );
     },
 
     selectLetter(letter, index) {
