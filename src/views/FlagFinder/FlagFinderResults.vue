@@ -6,10 +6,16 @@
 
     <div class="results-container">
       <p>
+        <span v-if="remainingLives > 0">
+          Lives remaining: {{ remainingLives }}</span
+        >
+        <span v-else>You ran out of lives!</span>
+      </p>
+      <p>
         You answered {{ correctAnswers }} out of {{ totalQuestions }} questions
         correctly!
       </p>
-      <button @click="goToHome">Home</button>
+      <button @click="goToHome">Game Selection</button>
       <button @click="playAgain">Play again?</button>
     </div>
   </div>
@@ -29,6 +35,9 @@ export default {
     },
     totalQuestions() {
       return this.getQuestionsAsked;
+    },
+    remainingLives() {
+      return this.$route.params.remainingLives || 0; // Retrieve remaining lives from route params
     },
   },
   methods: {

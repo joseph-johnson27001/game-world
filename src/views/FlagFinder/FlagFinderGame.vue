@@ -37,7 +37,11 @@
           :key="index"
           class="option-card"
           @click="checkAnswer(option)"
-          :class="{ disabled: option.disabled, correct: option.isCorrect }"
+          :class="{
+            disabled: option.disabled,
+            correct: option.isCorrect,
+            incorrect: option.isIncorrect,
+          }"
         >
           <img
             v-if="gameMode === 'countryToFlag'"
@@ -89,7 +93,6 @@ export default {
 
     setNewQuestion() {
       const flags = this.getFlagsByDifficulty;
-
       if (this.usedFlags.size >= flags.length || this.questionsAsked >= 20) {
         this.endGame();
         return;
@@ -111,41 +114,42 @@ export default {
           flag.name !== randomFlag.name && !this.usedFlags.has(flag.name)
       );
       incorrectOptions = this.shuffleArray(incorrectOptions).slice(0, 3);
-
-      // Combine options and reset disabled state
       this.options = this.shuffleArray([randomFlag, ...incorrectOptions]).map(
         (option) => ({
           ...option,
-          disabled: false, // Reset disabled state for all options
-          isCorrect: false, // Reset correct state
+          disabled: false,
+          isCorrect: false,
+          isIncorrect: false,
         })
       );
     },
 
     checkAnswer(option) {
-      // If the option is disabled, do nothing
       if (option.disabled) return;
-
-      // Disable the clicked option
-      option.disabled = true;
+      this.options.forEach((opt) => (opt.disabled = true));
 
       if (option.name === this.correctAnswer.name) {
-        // Mark this option as correct
-        option.isCorrect = true; // Set a property for the correct option
-
+        option.isCorrect = true;
         this.correctAnswersCount++;
         this.incrementCorrectAnswers();
-
-        // Wait 0.3 seconds before setting the next question
-        setTimeout(() => {
-          this.setNewQuestion();
-        }, 300);
       } else {
+        option.isIncorrect = true;
         this.decrementLives();
         if (this.lives === 0) {
           this.endGame();
+          return;
         }
+        this.options.forEach((opt) => {
+          if (opt.name === this.correctAnswer.name) {
+            opt.isCorrect = true;
+          }
+        });
       }
+      setTimeout(() => {
+        if (this.lives > 0) {
+          this.setNewQuestion();
+        }
+      }, 450);
     },
 
     shuffleArray(array) {
@@ -153,18 +157,19 @@ export default {
     },
 
     endGame() {
-      this.resetLives();
       this.$router.push({
         name: "FlagFinderResults",
         params: {
           correctAnswers: this.correctAnswersCount,
           totalQuestions: this.questionsAsked,
+          remainingLives: this.lives,
         },
       });
     },
   },
   mounted() {
     this.$store.dispatch("flagFinder/resetQuestionsAndAnswers");
+    this.resetLives();
     this.setNewQuestion();
   },
 };
@@ -244,5 +249,14 @@ export default {
   max-width: 80px;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.option-card.incorrect {
+  background-color: red;
+  color: white;
+}
+
+.option-card.correct {
+  background-color: green;
 }
 </style>
