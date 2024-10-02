@@ -66,7 +66,6 @@ export default {
   text-align: center;
   max-width: 600px;
   margin: 0 auto;
-  padding: 20px;
 }
 
 .results-container {
@@ -109,8 +108,8 @@ button {
 }
 
 .heart-icon {
-  width: 30px; /* Adjust size as needed */
-  height: 30px; /* Adjust size as needed */
-  margin: 0 5px; /* Space between icons */
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
 }
 </style>
