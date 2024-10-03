@@ -7,7 +7,7 @@
 
     <!-- Display the timer if a time limit is selected -->
     <div v-if="selectedTime !== 'none'" class="timer-container">
-      <p>Time Remaining: {{ timeRemaining }}s</p>
+      <p>Seconds Remaining: {{ timeRemaining }}</p>
     </div>
 
     <!-- Display the hidden word (with correct guesses revealed) -->
@@ -77,9 +77,9 @@ export default {
   },
   mounted() {
     this.selectedWord = this.getCurrentWord.toUpperCase();
-    this.startTimer();
+    this.resetTimer(); // Reset the timer when the component is mounted
   },
-  beforeUmount() {
+  beforeUnmount() {
     this.clearTimer();
   },
   computed: {
@@ -161,10 +161,15 @@ export default {
       });
     },
 
-    startTimer() {
-      if (this.selectedTime !== "none") {
-        this.timeRemaining = parseInt(this.selectedTime, 10);
+    resetTimer() {
+      this.clearTimer(); // Clear any existing timer
+      this.timeRemaining =
+        this.selectedTime !== "none" ? parseInt(this.selectedTime, 10) : 0; // Set to selected time or 0 if none
+      this.startTimer(); // Start the timer
+    },
 
+    startTimer() {
+      if (this.selectedTime !== "none" && this.timeRemaining > 0) {
         this.timerInterval = setInterval(() => {
           if (this.timeRemaining > 0) {
             this.timeRemaining -= 1;
