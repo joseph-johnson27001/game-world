@@ -3,38 +3,99 @@
     <div class="heading-container">
       <h1>Select Difficulty and Time</h1>
     </div>
+
+    <!-- Difficulty Selection -->
     <div class="category-selection">
       <label>Select Difficulty:</label>
-      <select v-model="selectedDifficulty">
-        <option value="easy">Easy</option>
-        <option value="medium">Medium</option>
-        <option value="hard">Hard</option>
-      </select>
+      <div class="difficulty-buttons">
+        <button
+          :class="{ selected: selectedDifficulty === 'easy' }"
+          @click="setDifficulty('easy')"
+        >
+          Easy
+        </button>
+        <button
+          :class="{ selected: selectedDifficulty === 'medium' }"
+          @click="setDifficulty('medium')"
+        >
+          Medium
+        </button>
+        <button
+          :class="{ selected: selectedDifficulty === 'hard' }"
+          @click="setDifficulty('hard')"
+        >
+          Hard
+        </button>
+      </div>
     </div>
 
+    <!-- Time Limit Selection -->
     <div class="category-selection">
       <label>Select Time Limit:</label>
-      <select v-model="selectedTime">
-        <option value="30">30 Seconds</option>
-        <option value="60">1 Minute</option>
-        <option value="300">5 Minutes</option>
-        <option value="none">No Time Limit</option>
-      </select>
+      <div class="time-buttons">
+        <button
+          :class="{ selected: selectedTime === '30' }"
+          @click="setTimeLimit('30')"
+        >
+          30 Seconds
+        </button>
+        <button
+          :class="{ selected: selectedTime === '60' }"
+          @click="setTimeLimit('60')"
+        >
+          1 Minute
+        </button>
+        <button
+          :class="{ selected: selectedTime === '300' }"
+          @click="setTimeLimit('300')"
+        >
+          5 Minutes
+        </button>
+        <button
+          :class="{ selected: selectedTime === 'none' }"
+          @click="setTimeLimit('none')"
+        >
+          No Time Limit
+        </button>
+      </div>
     </div>
 
+    <!-- Start Game Button -->
     <button @click="initiateGame">Start Game</button>
   </div>
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex";
+
 export default {
-  data() {
-    return {
-      selectedDifficulty: "easy",
-      selectedTime: "none",
-    };
+  computed: {
+    // Mapping Vuex state to component for selected difficulty and time
+    ...mapState("codeWord", ["selectedDifficulty", "selectedTime"]),
   },
-  methods: {},
+  methods: {
+    // Mapping Vuex actions to update difficulty and time in the store
+    ...mapActions("codeWord", ["updateDifficulty", "updateTimeLimit"]),
+
+    // Renamed local method for setting difficulty
+    setDifficulty(difficulty) {
+      this.updateDifficulty(difficulty); // Calls Vuex action
+    },
+
+    // Renamed local method for setting time limit
+    setTimeLimit(time) {
+      this.updateTimeLimit(time); // Calls Vuex action
+    },
+
+    // Function to initiate the game
+    initiateGame() {
+      // Dispatch the action to start the game
+      this.$store.dispatch("codeWord/startGame");
+
+      // Navigate to the game view
+      this.$router.push({ name: "CodeWordGame" });
+    },
+  },
 };
 </script>
 
@@ -44,11 +105,18 @@ export default {
 }
 
 .category-selection {
-  margin: 10px;
+  margin: 20px 0;
+}
+
+.difficulty-buttons,
+.time-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
 }
 
 button {
-  margin-top: 20px;
   padding: 10px 20px;
   background-color: #007bff;
   color: white;
@@ -60,5 +128,9 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+
+button.selected {
+  background-color: #28a745; /* Green color for selected button */
 }
 </style>
