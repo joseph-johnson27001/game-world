@@ -5,6 +5,11 @@
       <h1>Code Word</h1>
     </div>
 
+    <!-- Display the timer if a time limit is selected -->
+    <div v-if="selectedTime !== 'none'" class="timer-container">
+      <p>Time Remaining: {{ timeRemaining }}s</p>
+    </div>
+
     <!-- Display the hidden word (with correct guesses revealed) -->
     <div class="word-display">
       <span
@@ -66,13 +71,19 @@ export default {
       selectedWord: "",
       attemptsLeft: 5,
       guesses: [],
+      timeRemaining: 0,
+      timerInterval: null,
     };
   },
   mounted() {
     this.selectedWord = this.getCurrentWord.toUpperCase();
+    this.startTimer();
+  },
+  beforeUmount() {
+    this.clearTimer();
   },
   computed: {
-    ...mapState("codeWord", ["selectedWord"]),
+    ...mapState("codeWord", ["selectedWord", "selectedTime"]),
     ...mapGetters("codeWord", ["getCurrentWord"]),
 
     displayedWord() {
@@ -102,11 +113,13 @@ export default {
         this.guesses.push({ word: this.currentGuess, feedback });
 
         if (this.currentGuess === this.selectedWord) {
+          this.clearTimer();
           this.navigateToResults(true);
         } else {
           this.attemptsLeft -= 1;
 
           if (this.attemptsLeft === 0) {
+            this.clearTimer();
             this.navigateToResults(false);
           }
         }
@@ -146,6 +159,28 @@ export default {
         name: "CodeWordResults",
         query: { attempts: this.attemptsLeft, success: success },
       });
+    },
+
+    startTimer() {
+      if (this.selectedTime !== "none") {
+        this.timeRemaining = parseInt(this.selectedTime, 10);
+
+        this.timerInterval = setInterval(() => {
+          if (this.timeRemaining > 0) {
+            this.timeRemaining -= 1;
+          } else {
+            this.clearTimer();
+            this.navigateToResults(false);
+          }
+        }, 1000);
+      }
+    },
+
+    clearTimer() {
+      if (this.timerInterval) {
+        clearInterval(this.timerInterval);
+        this.timerInterval = null;
+      }
     },
   },
 };
@@ -212,5 +247,12 @@ button {
 .attempts-container {
   margin-top: 20px;
   text-align: center;
+}
+
+.timer-container {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
 }
 </style>

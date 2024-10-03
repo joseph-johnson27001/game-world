@@ -4,7 +4,7 @@ const state = {
   selectedTime: "none",
   selectedWord: "",
   currentWord: "",
-  attempts: 0, // Start at 0 and increment with each guess
+  attempts: 0,
   maxAttempts: 5,
   wordLists: {
     easy: ["apple", "chair", "water", "table", "bread"],
