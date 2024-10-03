@@ -34,7 +34,7 @@ export default {
         },
         {
           name: "Code Word",
-          image: "GameSelection/code-word-tile.JPG",
+          image: "GameSelection/code-word-tile.PNG",
           route: "CodeWordCategories",
         },
         {
