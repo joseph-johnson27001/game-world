@@ -93,15 +93,26 @@ export default {
   },
 
   methods: {
-    ...mapActions("codeWord"),
+    ...mapActions(["codeWord"]),
 
     handleHack() {
       if (this.currentGuess.length === 5) {
         const feedback = this.getFeedback(this.currentGuess);
         this.guesses.push({ word: this.currentGuess, feedback });
 
+        // Check if the guess is correct
+        if (this.currentGuess === this.selectedWord) {
+          this.navigateToResults(true); // Correct guess
+        } else {
+          this.attemptsLeft -= 1; // Decrease attempts
+
+          // Check if out of attempts
+          if (this.attemptsLeft === 0) {
+            this.navigateToResults(false); // Out of attempts
+          }
+        }
+
         this.currentGuess = "";
-        this.attemptsLeft = this.attemptsLeft - 1;
       }
     },
 
@@ -129,6 +140,14 @@ export default {
       if (feedback[index] === "correct") return "correct-letter";
       if (feedback[index] === "wrong-position") return "wrong-position-letter";
       return "incorrect-letter";
+    },
+
+    navigateToResults(success) {
+      // Navigate to the CodeWordResults page with attempts as a parameter
+      this.$router.push({
+        name: "CodeWordResults", // Adjust the name based on your route configuration
+        query: { attempts: this.attemptsLeft, success: success },
+      });
     },
   },
 };
