@@ -4,7 +4,7 @@ const state = {
   selectedTime: "none",
   selectedWord: "",
   currentWord: "",
-  attempts: 5,
+  attempts: 0, // Start at 0 and increment with each guess
   maxAttempts: 5,
   wordLists: {
     easy: ["apple", "chair", "water", "table", "bread"],
@@ -17,7 +17,6 @@ const getters = {
   getSelectedDifficulty: (state) => state.selectedDifficulty,
   getSelectedTime: (state) => state.selectedTime,
   getCurrentWord: (state) => state.currentWord,
-  getAttemptsLeft: (state) => state.maxAttempts - state.attempts,
 };
 
 const mutations = {
@@ -31,24 +30,25 @@ const mutations = {
     state.currentWord = word;
   },
   incrementAttempts(state) {
-    state.attempts += 1;
+    state.attempts += 1; // Increment attempts on each guess
   },
   resetAttempts(state) {
-    state.attempts = 0;
+    state.attempts = 0; // Reset attempts to 0
   },
   decrementAttempts(state) {
     if (state.attempts < state.maxAttempts) {
-      state.attempts += 1;
+      state.attempts += 1; // Increment attempts only if less than maxAttempts
     }
   },
 };
 
 const actions = {
-  startGame({ commit, state }) {
+  startGame({ commit }) {
     // Access the word list based on the selected difficulty
     const words = state.wordLists[state.selectedDifficulty];
     const randomWord = words[Math.floor(Math.random() * words.length)];
     commit("setCurrentWord", randomWord);
+    commit("resetAttempts"); // Reset attempts when starting a new game
   },
 
   updateDifficulty({ commit }, difficulty) {

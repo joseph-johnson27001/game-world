@@ -40,7 +40,10 @@
         placeholder="Enter 5-letter word"
         @input="convertToUppercase"
       />
-      <button @click="handleHack" :disabled="currentGuess.length !== 5">
+      <button
+        @click="handleHack"
+        :disabled="currentGuess.length !== 5 || attemptsLeft === 0"
+      >
         Hack
       </button>
     </div>
@@ -60,6 +63,7 @@ export default {
     return {
       currentGuess: "",
       selectedWord: "",
+      attemptsLeft: 5,
       guesses: [],
     };
   },
@@ -67,7 +71,7 @@ export default {
     this.selectedWord = this.getCurrentWord.toUpperCase();
   },
   computed: {
-    ...mapState("codeWord", ["selectedWord", "attemptsLeft"]),
+    ...mapState("codeWord", ["selectedWord"]),
     ...mapGetters("codeWord", ["getCurrentWord"]),
 
     displayedWord() {
@@ -89,7 +93,7 @@ export default {
   },
 
   methods: {
-    ...mapActions("codeWord", ["decreaseAttempts"]),
+    ...mapActions("codeWord"),
 
     handleHack() {
       if (this.currentGuess.length === 5) {
@@ -97,12 +101,12 @@ export default {
         this.guesses.push({ word: this.currentGuess, feedback });
 
         this.currentGuess = "";
-        this.decreaseAttempts();
+        this.attemptsLeft = this.attemptsLeft - 1;
       }
     },
 
     convertToUppercase() {
-      this.currentGuess = this.currentGuess.toUpperCase(); // Convert to uppercase
+      this.currentGuess = this.currentGuess.toUpperCase();
     },
 
     getFeedback(guess) {
