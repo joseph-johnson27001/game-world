@@ -39,6 +39,7 @@
         maxlength="5"
         placeholder="Enter 5-letter word"
         @input="convertToUppercase"
+        @keydown.enter="handleHack"
       />
       <button
         @click="handleHack"
@@ -100,15 +101,13 @@ export default {
         const feedback = this.getFeedback(this.currentGuess);
         this.guesses.push({ word: this.currentGuess, feedback });
 
-        // Check if the guess is correct
         if (this.currentGuess === this.selectedWord) {
-          this.navigateToResults(true); // Correct guess
+          this.navigateToResults(true);
         } else {
-          this.attemptsLeft -= 1; // Decrease attempts
+          this.attemptsLeft -= 1;
 
-          // Check if out of attempts
           if (this.attemptsLeft === 0) {
-            this.navigateToResults(false); // Out of attempts
+            this.navigateToResults(false);
           }
         }
 
@@ -143,9 +142,8 @@ export default {
     },
 
     navigateToResults(success) {
-      // Navigate to the CodeWordResults page with attempts as a parameter
       this.$router.push({
-        name: "CodeWordResults", // Adjust the name based on your route configuration
+        name: "CodeWordResults",
         query: { attempts: this.attemptsLeft, success: success },
       });
     },
