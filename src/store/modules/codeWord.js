@@ -2,13 +2,14 @@
 const state = {
   selectedDifficulty: "easy",
   selectedTime: "none",
+  selectedWord: "",
   currentWord: "",
-  attempts: 0,
+  attempts: 5,
   maxAttempts: 5,
   wordLists: {
-    easy: ["apple", "house", "table", "chair", "water"],
-    medium: ["laptop", "school", "purple", "planet", "driver"],
-    hard: ["crypto", "matrix", "zygote", "glyphs", "quartz"],
+    easy: ["apple", "chair", "water", "table", "bread"],
+    medium: ["laptop", "plant", "drive", "score", "world"],
+    hard: ["crypt", "matrix", "glyph", "quartz", "zesty"],
   },
 };
 
@@ -35,22 +36,21 @@ const mutations = {
   resetAttempts(state) {
     state.attempts = 0;
   },
+  decrementAttempts(state) {
+    if (state.attempts < state.maxAttempts) {
+      state.attempts += 1;
+    }
+  },
 };
 
 const actions = {
   startGame({ commit, state }) {
-    // Get the word list based on the selected difficulty
-    const wordList = state.wordLists[state.selectedDifficulty];
-
-    // Select a random word from the appropriate word list
-    const randomWord = wordList[Math.floor(Math.random() * wordList.length)];
-
-    // Commit the chosen word to the state
+    // Access the word list based on the selected difficulty
+    const words = state.wordLists[state.selectedDifficulty];
+    const randomWord = words[Math.floor(Math.random() * words.length)];
     commit("setCurrentWord", randomWord);
-
-    // Reset attempts
-    commit("resetAttempts");
   },
+
   updateDifficulty({ commit }, difficulty) {
     commit("setSelectedDifficulty", difficulty);
   },
@@ -61,6 +61,9 @@ const actions = {
     if (state.attempts < state.maxAttempts) {
       commit("incrementAttempts");
     }
+  },
+  decreaseAttempts({ commit }) {
+    commit("decrementAttempts");
   },
 };
 

@@ -1,7 +1,7 @@
 <template>
   <div class="codeword-categories">
     <div class="heading-container">
-      <h1>Select Difficulty and Time</h1>
+      <h1>Game Settings</h1>
     </div>
 
     <!-- Difficulty Selection -->
