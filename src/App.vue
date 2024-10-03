@@ -23,13 +23,13 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Patrick Hand", cursive;
 }
 
 #app {
   position: relative;
   background: linear-gradient(to bottom, #ffdab9, #fff1e6);
   display: flex;
-  font-family: "Patrick Hand", cursive;
   flex-direction: column;
   min-height: 100vh;
 }

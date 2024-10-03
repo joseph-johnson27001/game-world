@@ -105,7 +105,7 @@ export default {
 }
 
 .category-selection {
-  margin: 20px 0;
+  margin-bottom: 20px;
 }
 
 .difficulty-buttons,
@@ -120,7 +120,7 @@ button {
   padding: 10px 20px;
   background-color: #007bff;
   color: white;
-  border: none;
+  border: 1px solid white;
   border-radius: 5px;
   cursor: pointer;
   font-size: 1.2em;
