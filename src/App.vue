@@ -36,7 +36,6 @@ export default {
 
 main {
   max-width: 768px;
-  width: 100vw;
   margin: 0 auto;
   display: flex;
   justify-content: center;
