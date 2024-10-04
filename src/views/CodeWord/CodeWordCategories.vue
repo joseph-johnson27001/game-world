@@ -4,6 +4,15 @@
       <h1>Game Settings</h1>
     </div>
 
+    <!-- Game Description -->
+    <div class="game-description">
+      <p>
+        Join a notorious crew of hackers aiming to infiltrate a high-security
+        bank vault. Use your wits to guess the passwords that guard the
+        treasures within before the alarm sounds!
+      </p>
+    </div>
+
     <!-- Difficulty Selection -->
     <div class="category-selection">
       <label>Select Difficulty:</label>
@@ -108,6 +117,14 @@ export default {
   text-transform: uppercase;
   color: #f14646;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* New styles for game description */
+.game-description {
+  font-size: 1.2em;
+  color: #f1f1f1;
+  margin-bottom: 30px;
+  padding: 0 15px;
 }
 
 .category-selection {
