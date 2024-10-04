@@ -39,12 +39,12 @@ export default {
         },
         {
           name: "Flag Finder",
-          image: "GameSelection/flag-tile.JPG",
+          image: "GameSelection/flag-finder-tile.PNG",
           route: "FlagFinderCategories",
         },
         {
           name: "Letter Twist",
-          image: "GameSelection/letter-twist-tile.JPG",
+          image: "GameSelection/letter-tile.PNG",
           route: "LetterTwist",
         },
         {

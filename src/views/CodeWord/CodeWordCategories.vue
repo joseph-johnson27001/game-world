@@ -61,7 +61,7 @@
     </div>
 
     <!-- Start Game Button -->
-    <button @click="initiateGame">Start Game</button>
+    <button @click="initiateGame" class="start-button">Start Game</button>
   </div>
 </template>
 
@@ -70,29 +70,20 @@ import { mapActions, mapState } from "vuex";
 
 export default {
   computed: {
-    // Mapping Vuex state to component for selected difficulty and time
     ...mapState("codeWord", ["selectedDifficulty", "selectedTime"]),
   },
   methods: {
-    // Mapping Vuex actions to update difficulty and time in the store
     ...mapActions("codeWord", ["updateDifficulty", "updateTimeLimit"]),
-
-    // Renamed local method for setting difficulty
     setDifficulty(difficulty) {
-      this.updateDifficulty(difficulty); // Calls Vuex action
+      this.updateDifficulty(difficulty);
     },
 
-    // Renamed local method for setting time limit
     setTimeLimit(time) {
-      this.updateTimeLimit(time); // Calls Vuex action
+      this.updateTimeLimit(time);
     },
 
-    // Function to initiate the game
     initiateGame() {
-      // Dispatch the action to start the game
       this.$store.dispatch("codeWord/startGame");
-
-      // Navigate to the game view
       this.$router.push({ name: "CodeWordGame" });
     },
   },
@@ -101,36 +92,102 @@ export default {
 
 <style scoped>
 .codeword-categories {
+  width: 100%;
   text-align: center;
+  color: #f1f1f1;
+  font-family: "Courier New", Courier, monospace !important;
+  background-color: #1a1a1a;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
+}
+
+.heading-container h1 {
+  font-size: 2.5em;
+  font-family: "Courier New", Courier, monospace !important;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #f14646;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .category-selection {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  display: grid;
+}
+
+.category-selection label {
+  font-size: 1.3em;
+  color: #f1f1f1;
 }
 
 .difficulty-buttons,
 .time-buttons {
   display: flex;
   justify-content: center;
-  gap: 10px;
-  margin-top: 10px;
+  gap: 15px;
+  margin-top: 15px;
 }
 
 button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: white;
-  border: 1px solid white;
-  border-radius: 5px;
+  width: 100%;
+  padding: 12px 25px;
+  background-color: #333;
+  color: #f1f1f1;
+  border: 2px solid #555;
+  border-radius: 2px;
   cursor: pointer;
-  font-size: 1.2em;
+  font-size: 1.1em;
+  transition: background-color 0.2s, border-color 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #f14646;
+  border-color: #f14646;
+  color: white;
 }
 
 button.selected {
-  background-color: #28a745; /* Green color for selected button */
+  background-color: #f14646;
+  border-color: #f14646;
+  color: white;
+  font-weight: bold;
+}
+
+.start-button {
+  margin-top: 30px;
+  padding: 15px 40px;
+  background-color: #f14646;
+  border-color: #f14646;
+  color: white;
+  font-size: 1.3em;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.5);
+  transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.start-button:hover {
+  box-shadow: 0px 0px 30px rgba(255, 0, 0, 1);
+  transform: scale(1.05);
+}
+
+@media (max-width: 650px) {
+  .difficulty-buttons,
+  .time-buttons {
+    flex-direction: column;
+  }
+
+  button {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+
+  .start-button {
+    margin-top: 20px;
+  }
 }
 </style>

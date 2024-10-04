@@ -23,10 +23,10 @@ export default {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Patrick Hand", cursive;
 }
 
 #app {
+  font-family: "Patrick Hand", cursive;
   position: relative;
   background: linear-gradient(to bottom, #ffdab9, #fff1e6);
   display: flex;
@@ -36,7 +36,7 @@ export default {
 
 main {
   max-width: 768px;
-  width: 95vw;
+  width: 100vw;
   margin: 0 auto;
   display: flex;
   justify-content: center;
