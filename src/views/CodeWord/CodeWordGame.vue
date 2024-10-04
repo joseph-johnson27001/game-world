@@ -21,20 +21,26 @@
       </span>
     </div>
 
-    <!-- Display previous guesses -->
+    <!-- Display previous guesses with fade effect -->
     <div class="guesses-container">
-      <div v-for="(guess, index) in guesses" :key="index" class="guess-row">
-        <span
-          v-for="(letter, letterIndex) in guess.word"
-          :key="letterIndex"
-          :class="
-            getLetterClass(guess.word[letterIndex], letterIndex, guess.feedback)
-          "
-          class="letter"
-        >
-          {{ letter }}
-        </span>
-      </div>
+      <transition-group name="fade" tag="div">
+        <div v-for="(guess, index) in guesses" :key="index" class="guess-row">
+          <span
+            v-for="(letter, letterIndex) in guess.word"
+            :key="letterIndex"
+            :class="
+              getLetterClass(
+                guess.word[letterIndex],
+                letterIndex,
+                guess.feedback
+              )
+            "
+            class="letter"
+          >
+            {{ letter }}
+          </span>
+        </div>
+      </transition-group>
     </div>
 
     <!-- Input for user guesses -->
@@ -100,22 +106,6 @@ export default {
       });
 
       return revealedLetters;
-    },
-
-    displayedWordFeedback() {
-      const word = this.selectedWord || "";
-      let feedbackArray = new Array(word.length).fill(null);
-
-      // Loop through guesses and capture feedback
-      this.guesses.forEach((guess) => {
-        guess.feedback.forEach((feedbackType, index) => {
-          if (feedbackType === "correct" || feedbackType === "wrong-position") {
-            feedbackArray[index] = feedbackType; // Store feedback for each letter
-          }
-        });
-      });
-
-      return feedbackArray;
     },
 
     hackButtonClass() {
@@ -263,11 +253,33 @@ export default {
 }
 
 /* Guesses styling */
-
 .guess-row {
   display: flex;
   justify-content: center;
   margin: 10px 0;
+}
+
+/* Fade transition styles using keyframes */
+.fade-enter-active {
+  animation: fadeIn 0.5s forwards; /* Using keyframes for fade-in */
+}
+.fade-leave-active {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.fade-leave-to {
+  opacity: 0;
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0; /* Start completely transparent */ /* Slight upward movement for effect */
+  }
+  100% {
+    opacity: 1; /* End fully opaque */
+    /* Reset movement */
+  }
 }
 
 .correct-letter {
@@ -328,7 +340,6 @@ button {
 .yellow-button {
   background-color: #ffc107;
   border-color: #ffc107;
-  /* color: black; */
   box-shadow: 0px 0px 15px rgba(255, 193, 7, 1);
 }
 
