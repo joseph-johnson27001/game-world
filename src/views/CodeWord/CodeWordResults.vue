@@ -14,6 +14,11 @@
       <p v-else>
         ❌ You ran out of attempts and were captured! Better luck next time! ❌
       </p>
+
+      <!-- Show the correct answer if the player fails -->
+      <p v-if="!success" class="correct-answer">
+        The correct answer was: <strong>{{ correctAnswer }}</strong>
+      </p>
     </div>
 
     <div class="button-container">
@@ -26,8 +31,11 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   computed: {
+    ...mapGetters("codeWord", ["getCurrentWord"]),
     attempts() {
       return this.$route.query.attempts;
     },
@@ -36,6 +44,9 @@ export default {
     },
     resultMessage() {
       return this.success ? "You Have Escaped!" : "You Failed!";
+    },
+    correctAnswer() {
+      return this.getCurrentWord.toUpperCase();
     },
   },
   methods: {
@@ -102,5 +113,9 @@ export default {
 .restart-button:hover,
 .selection-button:hover {
   background-color: #444;
+}
+
+.correct-answer {
+  margin-top: 10px;
 }
 </style>
