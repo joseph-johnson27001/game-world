@@ -305,7 +305,7 @@ input {
 }
 
 button {
-  font-size: 1.5em;
+  font-size: 1.8em;
   padding: 10px 20px;
   background-color: #333;
   color: #f1f1f1;
@@ -315,27 +315,27 @@ button {
   transition: background-color 0.2s, border-color 0.2s;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  width: 100%; /* To match the input size */
+  width: 100%;
 }
 
 /* Hack button color changes */
 .green-button {
   background-color: #28a745;
   border-color: #28a745;
-  box-shadow: 0px 0px 15px rgba(40, 167, 69, 1); /* Green shadow */
+  box-shadow: 0px 0px 15px rgba(40, 167, 69, 1);
 }
 
 .yellow-button {
   background-color: #ffc107;
   border-color: #ffc107;
-  color: black;
-  box-shadow: 0px 0px 15px rgba(255, 193, 7, 1); /* Yellow shadow */
+  /* color: black; */
+  box-shadow: 0px 0px 15px rgba(255, 193, 7, 1);
 }
 
 .red-button {
   background-color: #dc3545;
   border-color: #dc3545;
-  box-shadow: 0px 0px 15px rgba(220, 53, 69, 1); /* Corrected red shadow */
+  box-shadow: 0px 0px 15px rgba(220, 53, 69, 1);
 }
 
 /* Attempts container */
