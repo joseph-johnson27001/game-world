@@ -15,7 +15,7 @@
       <span
         v-for="(letter, index) in displayedWord"
         :key="index"
-        class="letter"
+        :class="getLetterDisplayClass(letter)"
       >
         {{ letter }}
       </span>
@@ -168,6 +168,11 @@ export default {
       return "incorrect-letter";
     },
 
+    getLetterDisplayClass(letter) {
+      // Change the class based on whether the letter is revealed
+      return letter === "*" ? "hidden-letter" : "revealed-letter";
+    },
+
     navigateToResults(success) {
       this.$router.push({
         name: "CodeWordResults",
@@ -252,6 +257,31 @@ export default {
   color: #f1f1f1;
 }
 
+/* Styles for hidden and revealed letters */
+.hidden-letter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #555;
+  margin: 5px;
+  font-size: 2rem;
+  color: white;
+  padding: 15px;
+}
+
+.revealed-letter {
+  background-color: #28a745;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 5px;
+  font-size: 2rem;
+  color: white;
+  border-radius: 5px;
+  padding: 15px;
+}
+
 /* Guesses styling */
 .guess-row {
   display: flex;
@@ -261,7 +291,7 @@ export default {
 
 /* Fade transition styles using keyframes */
 .fade-enter-active {
-  animation: fadeIn 0.5s forwards; /* Using keyframes for fade-in */
+  animation: fadeIn 0.5s forwards;
 }
 .fade-leave-active {
   opacity: 1;
@@ -271,14 +301,12 @@ export default {
   opacity: 0;
 }
 
-/* Keyframes for fade-in animation */
 @keyframes fadeIn {
   0% {
-    opacity: 0; /* Start completely transparent */ /* Slight upward movement for effect */
+    opacity: 0;
   }
   100% {
-    opacity: 1; /* End fully opaque */
-    /* Reset movement */
+    opacity: 1;
   }
 }
 
