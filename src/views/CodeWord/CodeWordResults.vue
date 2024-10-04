@@ -16,7 +16,12 @@
       </p>
     </div>
 
-    <button @click="restartGame" class="restart-button">Play Again</button>
+    <div class="button-container">
+      <button @click="restartGame" class="restart-button">Play Again?</button>
+      <button @click="goToGameSelection" class="selection-button">
+        Game Selection
+      </button>
+    </div>
   </div>
 </template>
 
@@ -30,14 +35,15 @@ export default {
       return this.$route.query.success === "true";
     },
     resultMessage() {
-      // Update the result message based on success
       return this.success ? "You Have Escaped!" : "You Failed!";
     },
   },
   methods: {
     restartGame() {
-      // Logic to restart the game, e.g., navigate back to the game page
-      this.$router.push({ name: "CodeWordGame" }); // Adjust the route name as necessary
+      this.$router.push({ name: "CodeWordGame" });
+    },
+    goToGameSelection() {
+      this.$router.push("/");
     },
   },
 };
@@ -64,23 +70,27 @@ export default {
   text-transform: uppercase;
 }
 
-/* Dynamic styles for success and failure */
 .success {
-  color: #28a745; /* Green for success */
+  color: #28a745;
 }
 
 .failure {
-  color: #dc3545; /* Red for failure */
+  color: #dc3545;
 }
 
-/* Result message styles */
 .result-message {
   font-size: 1.5em;
   margin: 20px 0;
 }
 
-/* Restart button styling */
-.restart-button {
+.button-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.restart-button,
+.selection-button {
   font-size: 1.5em;
   padding: 10px 20px;
   background-color: #333;
@@ -91,7 +101,8 @@ export default {
   transition: background-color 0.2s, border-color 0.2s;
 }
 
-.restart-button:hover {
-  background-color: #444; /* Darker on hover */
+.restart-button:hover,
+.selection-button:hover {
+  background-color: #444;
 }
 </style>
