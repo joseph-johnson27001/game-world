@@ -8,8 +8,8 @@ const state = {
   maxAttempts: 5,
   wordLists: {
     easy: ["apple", "chair", "water", "table", "bread"],
-    medium: ["laptop", "plant", "drive", "score", "world"],
-    hard: ["crypt", "matrix", "glyph", "quartz", "zesty"],
+    medium: ["latch", "plant", "drive", "score", "world"],
+    hard: ["crypt", "glyph", "zesty", "quart", "radix"],
   },
 };
 
