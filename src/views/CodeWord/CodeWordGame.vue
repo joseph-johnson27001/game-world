@@ -1,5 +1,5 @@
 <template>
-  <div :class="gameClass">
+  <div class="game-class">
     <!-- Heading -->
     <div class="heading-container">
       <h1>Code Word</h1>
@@ -49,6 +49,7 @@
       <button
         @click="handleHack"
         :disabled="currentGuess.length !== 5 || attemptsLeft === 0"
+        :class="hackButtonClass"
       >
         Hack
       </button>
@@ -68,16 +69,16 @@ export default {
   data() {
     return {
       currentGuess: "",
-      selectedWord: "",
       attemptsLeft: 5,
       guesses: [],
       timeRemaining: 0,
       timerInterval: null,
+      selectedWord: "",
     };
   },
   mounted() {
     this.selectedWord = this.getCurrentWord.toUpperCase();
-    this.resetTimer(); // Reset the timer when the component is mounted
+    this.resetTimer();
   },
   beforeUnmount() {
     this.clearTimer();
@@ -88,19 +89,42 @@ export default {
 
     displayedWord() {
       const word = this.selectedWord || "";
-      return word.split("").map((letter, index) => {
-        const correctGuess = this.guesses.find(
-          (guess) => guess.feedback[index] === "correct"
-        );
-        return correctGuess ? correctGuess.word[index] : "*";
+      let revealedLetters = word.split("").map(() => "*");
+
+      // Loop through guesses and reveal correct letters
+      this.guesses.forEach((guess) => {
+        guess.feedback.forEach((feedbackType, index) => {
+          if (feedbackType === "correct") {
+            revealedLetters[index] = guess.word[index]; // Reveal correctly guessed letters
+          }
+        });
       });
+
+      return revealedLetters;
     },
 
-    gameClass() {
-      if (this.attemptsLeft === 5) return "green-background";
-      if (this.attemptsLeft === 3 || this.attemptsLeft === 4)
-        return "yellow-background";
-      return "red-background";
+    displayedWordFeedback() {
+      const word = this.selectedWord || "";
+      let feedbackArray = new Array(word.length).fill(null);
+
+      // Loop through guesses and capture feedback
+      this.guesses.forEach((guess) => {
+        guess.feedback.forEach((feedbackType, index) => {
+          if (feedbackType === "correct" || feedbackType === "wrong-position") {
+            feedbackArray[index] = feedbackType; // Store feedback for each letter
+          }
+        });
+      });
+
+      return feedbackArray;
+    },
+
+    hackButtonClass() {
+      if (this.attemptsLeft === 5) return "green-button";
+      if (this.attemptsLeft >= 3 && this.attemptsLeft < 5)
+        return "yellow-button";
+      if (this.attemptsLeft < 3) return "red-button";
+      return "";
     },
   },
 
@@ -148,9 +172,10 @@ export default {
       return feedback;
     },
 
-    getLetterClass(letter, index, feedback) {
-      if (feedback[index] === "correct") return "correct-letter";
-      if (feedback[index] === "wrong-position") return "wrong-position-letter";
+    getLetterClass(letter, index, feedbackArray) {
+      const feedbackType = feedbackArray[index];
+      if (feedbackType === "correct") return "correct-letter";
+      if (feedbackType === "wrong-position") return "wrong-position-letter";
       return "incorrect-letter";
     },
 
@@ -192,28 +217,59 @@ export default {
 </script>
 
 <style scoped>
+/* General layout styling */
+.game-class {
+  width: 100%;
+  text-align: center;
+  color: #f1f1f1;
+  font-family: "Courier New", Courier, monospace !important;
+  background-color: #1a1a1a !important;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
+}
+
+/* Heading styles */
+.heading-container h1 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #f14646;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+/* Timer styling */
+.timer-container {
+  margin-bottom: 40px;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #f1f1f1;
+}
+
+/* Word display styling */
 .word-display {
   display: flex;
   justify-content: center;
-  margin: 20px 0;
+  margin: 10px 0px 40px 0px;
 }
 
 .letter {
-  font-size: 2em;
+  font-size: 2.2em;
   margin: 0 5px;
   border-bottom: 2px solid black;
   width: 40px;
   text-align: center;
+  color: #f1f1f1;
 }
 
-.guesses-container {
-  margin-top: 20px;
-}
+/* Guesses styling */
 
 .guess-row {
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 
 .correct-letter {
@@ -223,41 +279,68 @@ export default {
 
 .wrong-position-letter {
   background-color: #ffc107;
-  color: black;
+  color: white;
 }
 
 .incorrect-letter {
   background-color: transparent;
-  color: black;
+  color: white;
 }
 
 .input-container {
   display: flex;
-  justify-content: center;
-  margin-top: 20px;
+  flex-direction: column;
+  align-items: center;
 }
 
 input {
   font-size: 1.5em;
-  padding: 5px;
+  padding: 10px;
   text-align: center;
-  margin-right: 10px;
+  border: 2px solid #555;
+  background-color: #333;
+  color: #f1f1f1;
+  border-radius: 2px;
+  width: 180px;
+  margin: 10px 0;
+  width: 100%;
 }
 
 button {
   font-size: 1.5em;
-  padding: 5px 20px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #f1f1f1;
+  border: 2px solid #555;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  width: 100%; /* To match the input size */
 }
 
+/* Hack button color changes */
+.green-button {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.yellow-button {
+  background-color: #ffc107;
+  border-color: #ffc107;
+  color: black;
+}
+
+.red-button {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+/* Attempts container */
 .attempts-container {
   margin-top: 20px;
-  text-align: center;
-}
-
-.timer-container {
-  margin-top: 20px;
-  text-align: center;
-  font-size: 1.5em;
-  font-weight: bold;
+  font-size: 1.3em;
+  color: #f1f1f1;
 }
 </style>
