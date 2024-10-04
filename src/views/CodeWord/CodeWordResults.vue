@@ -54,12 +54,10 @@ export default {
 .code-word-results {
   width: 100%;
   text-align: center;
-  padding: 30px;
   color: #f1f1f1;
   font-family: "Courier New", Courier, monospace !important;
   background-color: #1a1a1a !important;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
-  border-radius: 10px;
+  padding: 30px;
 }
 
 /* Heading styles */

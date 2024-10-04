@@ -96,11 +96,10 @@ export default {
       const word = this.selectedWord || "";
       let revealedLetters = word.split("").map(() => "*");
 
-      // Loop through guesses and reveal correct letters
       this.guesses.forEach((guess) => {
         guess.feedback.forEach((feedbackType, index) => {
           if (feedbackType === "correct") {
-            revealedLetters[index] = guess.word[index]; // Reveal correctly guessed letters
+            revealedLetters[index] = guess.word[index];
           }
         });
       });
@@ -169,7 +168,6 @@ export default {
     },
 
     getLetterDisplayClass(letter) {
-      // Change the class based on whether the letter is revealed
       return letter === "*" ? "hidden-letter" : "revealed-letter";
     },
 
@@ -181,10 +179,10 @@ export default {
     },
 
     resetTimer() {
-      this.clearTimer(); // Clear any existing timer
+      this.clearTimer();
       this.timeRemaining =
-        this.selectedTime !== "none" ? parseInt(this.selectedTime, 10) : 0; // Set to selected time or 0 if none
-      this.startTimer(); // Start the timer
+        this.selectedTime !== "none" ? parseInt(this.selectedTime, 10) : 0;
+      this.startTimer();
     },
 
     startTimer() {
@@ -219,13 +217,11 @@ export default {
   font-family: "Courier New", Courier, monospace !important;
   background-color: #1a1a1a !important;
   padding: 30px;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
 }
 
 /* Heading styles */
 .heading-container h1 {
   font-size: 2.5em;
-  margin-bottom: 30px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #f14646;

@@ -105,7 +105,7 @@ export default {
   text-align: center;
   color: #f1f1f1;
   font-family: "Courier New", Courier, monospace !important;
-  background-color: #1a1a1a;
+  background-color: #1a1a1a !important;
   padding: 30px;
 }
 
