@@ -42,7 +42,6 @@
       <input
         v-model="currentGuess"
         maxlength="5"
-        placeholder="Enter 5-letter word"
         @input="convertToUppercase"
         @keydown.enter="handleHack"
       />
@@ -120,8 +119,8 @@ export default {
     },
 
     hackButtonClass() {
-      if (this.attemptsLeft === 5) return "green-button";
-      if (this.attemptsLeft >= 3 && this.attemptsLeft < 5)
+      if (this.attemptsLeft >= 4) return "green-button";
+      if (this.attemptsLeft >= 2 && this.attemptsLeft < 5)
         return "yellow-button";
       if (this.attemptsLeft < 3) return "red-button";
       return "";
@@ -257,7 +256,7 @@ export default {
 .letter {
   font-size: 2.2em;
   margin: 0 5px;
-  border-bottom: 2px solid black;
+  border-bottom: 1px solid #f1f1f1;
   width: 40px;
   text-align: center;
   color: #f1f1f1;
@@ -323,17 +322,20 @@ button {
 .green-button {
   background-color: #28a745;
   border-color: #28a745;
+  box-shadow: 0px 0px 15px rgba(40, 167, 69, 1); /* Green shadow */
 }
 
 .yellow-button {
   background-color: #ffc107;
   border-color: #ffc107;
   color: black;
+  box-shadow: 0px 0px 15px rgba(255, 193, 7, 1); /* Yellow shadow */
 }
 
 .red-button {
   background-color: #dc3545;
   border-color: #dc3545;
+  box-shadow: 0px 0px 15px rgba(220, 53, 69, 1); /* Corrected red shadow */
 }
 
 /* Attempts container */
