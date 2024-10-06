@@ -84,7 +84,11 @@ export default {
           route: "WordScrambleCategories",
         },
 
-        { name: "Update", image: "GameSelection/stones.JPG", route: "Zuma" },
+        {
+          name: "Word Trail",
+          image: "GameSelection/word-trail-tile.PNG",
+          route: "WordTrail",
+        },
       ],
     };
   },
