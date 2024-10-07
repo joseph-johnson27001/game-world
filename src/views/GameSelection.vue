@@ -87,7 +87,7 @@ export default {
         {
           name: "Word Trail",
           image: "GameSelection/word-trail-tile.PNG",
-          route: "WordTrail",
+          route: "WordTrailCategories",
         },
       ],
     };

@@ -22,12 +22,35 @@ import FlagFinderCategories from "@/views/FlagFinder/FlagFinderCategories.vue";
 import FlagFinderGame from "@/views/FlagFinder/FlagFinderGame.vue";
 import FlagFinderResults from "@/views/FlagFinder/FlagFinderResults.vue";
 
+// WORD TRAIL
+
+import WordTrailCategories from "@/views/WordTrail/WordTrailCategories.vue";
+import WordTrailGame from "@/views/WordTrail/WordTrailGame.vue";
+import WordTrailResults from "@/views/WordTrail/WordTrailResults.vue";
+
 // ROUTES
 const routes = [
   { path: "/", name: "GameSelection", component: GameSelection },
 
-  // CODE WORD
+  // WORD TRAIL
 
+  {
+    path: "/word-trail/categories",
+    name: "WordTrailCategories",
+    component: WordTrailCategories,
+  },
+  {
+    path: "/word-trail/game",
+    name: "WordTrailGame",
+    component: WordTrailGame,
+  },
+  {
+    path: "/word-trail/results",
+    name: "WordTrailResults",
+    component: WordTrailResults,
+  },
+
+  // CODE WORD
   {
     path: "/code-word/categories",
     name: "CodeWordCategories",
