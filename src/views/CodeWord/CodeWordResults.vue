@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 
 export default {
   computed: {
@@ -50,7 +50,9 @@ export default {
     },
   },
   methods: {
-    restartGame() {
+    ...mapActions("codeWord", ["startGame"]),
+    async restartGame() {
+      await this.startGame();
       this.$router.push({ name: "CodeWordGame" });
     },
     goToGameSelection() {
