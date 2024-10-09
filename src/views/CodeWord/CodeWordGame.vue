@@ -377,19 +377,19 @@ button {
 .green-button {
   background-color: #28a745;
   border-color: #28a745;
-  box-shadow: 0px 0px 15px rgba(40, 167, 69, 1);
+  box-shadow: 0px 0px 10px rgba(40, 167, 69, 1);
 }
 
 .yellow-button {
   background-color: #ffc107;
   border-color: #ffc107;
-  box-shadow: 0px 0px 15px rgba(255, 193, 7, 1);
+  box-shadow: 0px 0px 10px rgba(255, 193, 7, 1);
 }
 
 .red-button {
   background-color: #dc3545;
   border-color: #dc3545;
-  box-shadow: 0px 0px 15px rgba(220, 53, 69, 1);
+  box-shadow: 0px 0px 10px rgba(220, 53, 69, 1);
 }
 
 /* Attempts container */
