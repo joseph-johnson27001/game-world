@@ -38,6 +38,12 @@ export default {
 
     const backButtonDestination = computed(() => {
       switch (route.name) {
+        // CODE WORD
+        case "CodeWordGame":
+          return "/code-word/categories";
+        case "CodeWordResults":
+          return "/code-word/categories";
+
         // WORD SCRAMBLE
         case "WordScrambleGame":
           return "/word-scramble/categories";
