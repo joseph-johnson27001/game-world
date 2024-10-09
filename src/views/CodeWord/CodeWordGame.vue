@@ -141,7 +141,8 @@ export default {
     },
 
     convertToUppercase() {
-      this.currentGuess = this.currentGuess.toUpperCase();
+      // Convert the guess to uppercase, removing any spaces
+      this.currentGuess = this.currentGuess.toUpperCase().replace(/\s/g, "");
     },
 
     getFeedback(guess) {
