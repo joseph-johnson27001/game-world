@@ -11,12 +11,10 @@
           data-name="E421, Back, buttons, multimedia, play, stop"
           id="E421_Back_buttons_multimedia_play_stop"
         >
-          <circle class="cls-1" cx="256" cy="256" r="246" />
-
-          <line class="cls-1" x1="352.26" x2="170.43" y1="256" y2="256" />
-
+          <circle :class="circleClass" cx="256" cy="256" r="246" />
+          <line :class="lineClass" x1="352.26" x2="170.43" y1="256" y2="256" />
           <polyline
-            class="cls-1"
+            :class="lineClass"
             points="223.91 202.52 170.44 256 223.91 309.48"
           />
         </g>
@@ -66,10 +64,26 @@ export default {
       router.push(backButtonDestination.value);
     };
 
+    const isCodeWordPage = computed(() => {
+      return ["CodeWordCategories", "CodeWordGame", "CodeWordResults"].includes(
+        route.name
+      );
+    });
+
     return {
       showBackButton,
       goBack,
+      isCodeWordPage,
     };
+  },
+
+  computed: {
+    circleClass() {
+      return this.isCodeWordPage ? "cls-light" : "cls-dark";
+    },
+    lineClass() {
+      return this.isCodeWordPage ? "cls-light" : "cls-dark";
+    },
   },
 };
 </script>
@@ -83,9 +97,17 @@ export default {
   z-index: 1000;
 }
 
-.cls-1 {
+.cls-dark {
   fill: none;
-  stroke: #000000;
+  stroke: #000000; /* Original color */
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 20px;
+}
+
+.cls-light {
+  fill: none;
+  stroke: #d3d3d3; /* Light color for Code Word game */
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 20px;
