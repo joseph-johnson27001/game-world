@@ -12,7 +12,8 @@
         remaining. 🎉
       </p>
       <p v-else>
-        ❌ You ran out of attempts and were captured! Better luck next time! ❌
+        ❌ So close! You ran out of attempts, but don't give up! Try again and
+        see if you can escape next time. ❌
       </p>
 
       <!-- Show the correct answer if the player fails -->
@@ -43,7 +44,7 @@ export default {
       return this.$route.query.success === "true";
     },
     resultMessage() {
-      return this.success ? "You Have Escaped!" : "You Failed!";
+      return this.success ? "You Have Escaped!" : "Almost Escaped!";
     },
     correctAnswer() {
       return this.getCurrentWord.toUpperCase();
@@ -61,7 +62,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 /* General styles for the results page */
 .code-word-results {
@@ -94,27 +94,33 @@ export default {
   margin: 20px 0;
 }
 
+/* Button container now in column layout */
 .button-container {
   display: flex;
-  justify-content: center;
-  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  margin-top: 20px;
 }
 
 .restart-button,
 .selection-button {
   font-size: 1.5em;
-  padding: 10px 20px;
+  padding: 15px 30px;
   background-color: #333;
   color: #f1f1f1;
   border: 2px solid #555;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.2s, border-color 0.2s;
+  transition: background-color 0.2s, border-color 0.2s, transform 0.2s;
+  width: 100%;
 }
 
+/* Hover effect with slight scaling */
 .restart-button:hover,
 .selection-button:hover {
   background-color: #444;
+  border-color: #777;
 }
 
 .correct-answer {
