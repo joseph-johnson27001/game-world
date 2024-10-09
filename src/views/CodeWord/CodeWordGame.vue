@@ -126,7 +126,9 @@ export default {
 
         if (this.currentGuess === this.selectedWord) {
           this.clearTimer();
-          this.navigateToResults(true);
+          setTimeout(() => {
+            this.navigateToResults(true);
+          }, 1000);
         } else {
           this.attemptsLeft -= 1;
 
@@ -141,7 +143,6 @@ export default {
     },
 
     convertToUppercase() {
-      // Convert the guess to uppercase, removing any spaces
       this.currentGuess = this.currentGuess.toUpperCase().replace(/\s/g, "");
     },
 
@@ -152,23 +153,21 @@ export default {
       // First pass: Check for correct letters and count letters in selectedWord
       for (let i = 0; i < this.selectedWord.length; i++) {
         const letter = this.selectedWord[i];
-        letterCount[letter] = (letterCount[letter] || 0) + 1; // Count each letter
+        letterCount[letter] = (letterCount[letter] || 0) + 1;
 
         if (guess[i] === letter) {
           feedback[i] = "correct";
-          letterCount[letter]--; // Decrease count for green letters
+          letterCount[letter]--;
         }
       }
 
-      // Second pass: Check for wrong-position letters
       for (let i = 0; i < guess.length; i++) {
         const letter = guess[i];
 
         if (feedback[i] !== "correct") {
-          // Skip already marked letters
           if (letterCount[letter] > 0) {
             feedback[i] = "wrong-position";
-            letterCount[letter]--; // Decrease count for yellow letters
+            letterCount[letter]--;
           } else {
             feedback[i] = "incorrect";
           }
