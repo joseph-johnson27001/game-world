@@ -356,6 +356,7 @@ input {
   width: 180px;
   margin: 10px 0;
   width: 100%;
+  outline: none;
 }
 
 button {
