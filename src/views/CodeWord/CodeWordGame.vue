@@ -146,16 +146,33 @@ export default {
 
     getFeedback(guess) {
       const feedback = [];
+      const letterCount = {};
 
-      guess.split("").forEach((letter, index) => {
-        if (letter === this.selectedWord[index]) {
-          feedback.push("correct");
-        } else if (this.selectedWord.includes(letter)) {
-          feedback.push("wrong-position");
-        } else {
-          feedback.push("incorrect");
+      // First pass: Check for correct letters and count letters in selectedWord
+      for (let i = 0; i < this.selectedWord.length; i++) {
+        const letter = this.selectedWord[i];
+        letterCount[letter] = (letterCount[letter] || 0) + 1; // Count each letter
+
+        if (guess[i] === letter) {
+          feedback[i] = "correct";
+          letterCount[letter]--; // Decrease count for green letters
         }
-      });
+      }
+
+      // Second pass: Check for wrong-position letters
+      for (let i = 0; i < guess.length; i++) {
+        const letter = guess[i];
+
+        if (feedback[i] !== "correct") {
+          // Skip already marked letters
+          if (letterCount[letter] > 0) {
+            feedback[i] = "wrong-position";
+            letterCount[letter]--; // Decrease count for yellow letters
+          } else {
+            feedback[i] = "incorrect";
+          }
+        }
+      }
 
       return feedback;
     },
