@@ -565,7 +565,7 @@ export default {
           "KUMQUAT",
           "BILBERRY",
         ],
-        image: "/WordScramble/fruits-tile.JPG",
+        image: "/WordScramble/fruits-tile.PNG",
       },
       {
         id: 11,
