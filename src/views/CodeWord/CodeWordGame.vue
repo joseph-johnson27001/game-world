@@ -74,7 +74,7 @@ export default {
   data() {
     return {
       currentGuess: "",
-      attemptsLeft: 5,
+      attemptsLeft: 6,
       guesses: [],
       timeRemaining: 0,
       timerInterval: null,
