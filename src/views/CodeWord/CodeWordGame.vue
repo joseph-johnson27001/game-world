@@ -108,10 +108,10 @@ export default {
     },
 
     hackButtonClass() {
-      if (this.attemptsLeft >= 4) return "green-button";
-      if (this.attemptsLeft >= 2 && this.attemptsLeft < 5)
+      if (this.attemptsLeft >= 5) return "green-button";
+      if (this.attemptsLeft >= 3 && this.attemptsLeft < 5)
         return "yellow-button";
-      if (this.attemptsLeft < 3) return "red-button";
+      if (this.attemptsLeft <= 2) return "red-button";
       return "";
     },
   },
