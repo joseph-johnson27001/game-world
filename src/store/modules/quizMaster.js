@@ -307,8 +307,8 @@ const state = {
         wrongAnswers: ["Buzz Aldrin", "Yuri Gagarin", "Michael Collins"],
       },
       {
-        question: "Which empire was ruled by Julius Caesar?",
-        correctAnswer: "Roman Empire",
+        question: "Julius Caesar was the dictator of which nation?",
+        correctAnswer: "Roman Republic",
         wrongAnswers: ["Greek Empire", "Ottoman Empire", "Persian Empire"],
       },
       {
