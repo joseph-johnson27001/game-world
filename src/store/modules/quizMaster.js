@@ -299,7 +299,7 @@ const state = {
       {
         question: "In which year did World War I begin?",
         correctAnswer: "1914",
-        wrongAnswers: ["1912", "1916", "1918"],
+        wrongAnswers: ["1912", "1918", "1939"],
       },
       {
         question: "Who was the first man to set foot on the moon?",
